@@ -1,3 +1,4 @@
+import 'package:afno_app/features/dashboard/presentation/widgets/triangular_container.dart';
 import 'package:flutter/material.dart';
 
 class RestaurantListCardWidget extends StatelessWidget {
@@ -9,7 +10,6 @@ class RestaurantListCardWidget extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       width: 300,
-      height: 200,
       decoration: BoxDecoration(
         boxShadow: [
           BoxShadow(
@@ -30,27 +30,65 @@ class RestaurantListCardWidget extends StatelessWidget {
               flex: 2,
               child: Container(
                 width: double.infinity,
-                decoration: const BoxDecoration(
-                  color: Colors.red,
+                decoration: BoxDecoration(
+                  color: Colors.grey.withOpacity(0.5),
                 ),
-                child: const Center(child: Text("Restaurant Hero Image")),
+                child: Image.network(
+                  "https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80",
+                  fit: BoxFit.cover,
+                  height: 150,
+                ),
               ),
             ),
             Flexible(
               flex: 1,
               child: Container(
-                  padding: const EdgeInsets.all(10),
-                  width: double.infinity,
-                  child: Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      Text(
-                        "Restaurant Name ${index + 1}",
-                        style: const TextStyle(
-                            fontSize: 16, fontWeight: FontWeight.bold),
-                      )
-                    ],
-                  )),
+                padding: const EdgeInsets.all(10),
+                width: double.infinity,
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children: [
+                        Text(
+                          "Restaurant Name ${index + 1}",
+                          style: const TextStyle(
+                              fontSize: 16, fontWeight: FontWeight.bold),
+                        ),
+                        TriangularContainer(
+                          child: const Padding(
+                            padding: EdgeInsets.all(4.0),
+                            child: Text(
+                              "1km",
+                              style: TextStyle(fontSize: 12),
+                            ),
+                          ),
+                        )
+                      ],
+                    ),
+                    const SizedBox(
+                      height: 5,
+                    ),
+                    const Row(
+                        crossAxisAlignment: CrossAxisAlignment.center,
+                        children: [
+                          Icon(
+                            Icons.wallet,
+                            size: 14,
+                            color: Color(0xFFFFCC00),
+                          ),
+                          SizedBox(
+                            width: 5,
+                          ),
+                          Text(
+                            "Average Price",
+                            style: TextStyle(fontSize: 12, color: Colors.grey),
+                          )
+                        ])
+                  ],
+                ),
+              ),
             ),
           ],
         ),

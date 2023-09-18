@@ -47,7 +47,7 @@ class BottomDashboardView extends StatelessWidget {
                 scrollDirection: Axis.horizontal,
                 itemBuilder: (context, index) {
                   return Padding(
-                    padding: const EdgeInsets.all(8.0),
+                    padding: const EdgeInsets.all(10.0),
                     child: RestaurantListCardWidget(
                       index: index,
                     ),
@@ -56,7 +56,7 @@ class BottomDashboardView extends StatelessWidget {
               ),
             ),
             const SizedBox(
-              height: 40,
+              height: 10,
             )
           ],
         ));
