@@ -1,0 +1,112 @@
+{
+  "version": "0.2.0",
+  "configurations": [
+    {
+      "name": "WT web",
+      "request": "launch",
+      "type": "dart",
+      "args": [
+        "-- dart-define",
+        "FLAVOR=dev",
+        "-- flavor",
+        "development",
+        "-d",
+        "chrome"
+      ]
+    },
+    {
+      "name": "WT windows",
+      "request": "launch",
+      "type": "dart",
+      "args": ["-- flavor", "development", "-d", "windows"]
+    },
+    {
+      "name": "WT android",
+      "request": "launch",
+      "type": "dart",
+      "args": ["-- flavor", "development", "-d", "emulator-5554"]
+    },
+    {
+      "name": "WT M51",
+      "request": "launch",
+      "type": "dart",
+      "args": ["-- flavor", "development", "-d", "SM M515F"]
+    },
+    {
+      "name": "WT ios-SE",
+      "request": "launch",
+      "type": "dart",
+      "args": ["-- flavor", "development", "-d", "iPhone SE"]
+    },
+    {
+      "name": "WT ios-13",
+      "request": "launch",
+      "type": "dart",
+      "args": ["-- flavor", "development", "-d", "iPhone 13"]
+    },
+    {
+      "name": "WT ios-13-mini",
+      "request": "launch",
+      "type": "dart",
+      "args": ["-- flavor", "development", "-d", "iPhone 13 mini"]
+    },
+    {
+      "name": "WT ios-iphone14",
+      "request": "launch",
+      "type": "dart",
+      "args": ["-- flavor", "development", "-d", "iPhone "]
+    },
+    {
+      "name": "WT macOS",
+      "request": "launch",
+      "type": "dart",
+      "args": ["-d", "macOS"],
+      "toolArgs": [
+        "--dart-define",
+        "FLAVOR=development",
+        "--dart-define",
+        "MY_OTHER_VAR=MY_OTHER_VALUE"
+      ],
+      "program": "lib/main.dart",
+      "flutterMode": "debug"
+    },
+    {
+      "name": "WT",
+      "request": "launch",
+      "type": "dart",
+      "args": ["-- flavor", "development"]
+    },
+    {
+      "name": "WT Web",
+      "request": "launch",
+      "type": "dart",
+      "args": [
+        "-- dart-define",
+        "FLAVOR=dev",
+        "-- flavor",
+        "development",
+        "-d",
+        "chrome"
+      ]
+    },
+    {
+      "name": "WT (profile mode)",
+      "request": "launch",
+      "type": "dart",
+      "flutterMode": "profile"
+    },
+    {
+      "name": "WT Web (profile mode)",
+      "request": "launch",
+      "type": "dart",
+      "flutterMode": "profile",
+      "args": ["--flavor", "dev", "-d", "chrome"]
+    },
+    {
+      "name": "WT (release mode)",
+      "request": "launch",
+      "type": "dart",
+      "flutterMode": "release"
+    }
+  ]
+}
