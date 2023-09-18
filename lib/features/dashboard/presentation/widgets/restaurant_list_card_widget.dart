@@ -1,5 +1,6 @@
 import 'package:afno_app/features/dashboard/presentation/widgets/triangular_container.dart';
 import 'package:flutter/material.dart';
+import 'package:cached_network_image/cached_network_image.dart';
 
 class RestaurantListCardWidget extends StatelessWidget {
   const RestaurantListCardWidget({super.key, required this.index});
@@ -33,10 +34,16 @@ class RestaurantListCardWidget extends StatelessWidget {
                 decoration: BoxDecoration(
                   color: Colors.grey.withOpacity(0.5),
                 ),
-                child: Image.network(
-                  "https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80",
+                child: CachedNetworkImage(
                   fit: BoxFit.cover,
-                  height: 150,
+                  imageUrl:
+                      "https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80",
+                  progressIndicatorBuilder: (context, url, downloadProgress) =>
+                      Center(
+                    child: CircularProgressIndicator(
+                        value: downloadProgress.progress),
+                  ),
+                  errorWidget: (context, url, error) => const Icon(Icons.error),
                 ),
               ),
             ),
