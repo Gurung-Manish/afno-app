@@ -1,3 +1,4 @@
+import 'package:afno_app/features/dashboard/presentation/widgets/restaurant_list_card_widget.dart';
 import 'package:flutter/material.dart';
 
 class BottomDashboardView extends StatelessWidget {
@@ -40,74 +41,22 @@ class BottomDashboardView extends StatelessWidget {
             const SizedBox(
               height: 20,
             ),
-            SizedBox(
-              height: 200,
+            Expanded(
               child: ListView.builder(
                 itemCount: 2,
                 scrollDirection: Axis.horizontal,
                 itemBuilder: (context, index) {
-                  return Container(
-                    margin: const EdgeInsets.symmetric(horizontal: 10),
-                    width: 300,
-                    height: 200,
-                    decoration: BoxDecoration(
-                      boxShadow: [
-                        BoxShadow(
-                          color: Colors.grey.withOpacity(0.5),
-                          spreadRadius: 0.5,
-                          blurRadius: 5,
-                          offset: const Offset(0, 1),
-                        ),
-                      ],
-                      color: Colors.white,
-                      borderRadius: BorderRadius.circular(25),
-                    ),
-                    child: Column(
-                      children: [
-                        Expanded(
-                          flex: 2,
-                          child: Container(
-                            width: double.infinity,
-                            decoration: const BoxDecoration(
-                              color: Colors.red,
-                              borderRadius: BorderRadius.only(
-                                topLeft: Radius.circular(25),
-                                topRight: Radius.circular(25),
-                              ),
-                            ),
-                            child: const Center(
-                                child: Text("Restaurant Hero Image")),
-                          ),
-                        ),
-                        Expanded(
-                          flex: 1,
-                          child: Container(
-                              padding: const EdgeInsets.all(10),
-                              width: double.infinity,
-                              decoration: const BoxDecoration(
-                                color: Colors.blue,
-                                borderRadius: BorderRadius.only(
-                                  bottomLeft: Radius.circular(25),
-                                  bottomRight: Radius.circular(25),
-                                ),
-                              ),
-                              child: Column(
-                                crossAxisAlignment: CrossAxisAlignment.start,
-                                children: [
-                                  Text(
-                                    "Restaurant Name ${index + 1}",
-                                    style: const TextStyle(
-                                        fontSize: 16,
-                                        fontWeight: FontWeight.bold),
-                                  )
-                                ],
-                              )),
-                        ),
-                      ],
+                  return Padding(
+                    padding: const EdgeInsets.all(8.0),
+                    child: RestaurantListCardWidget(
+                      index: index,
                     ),
                   );
                 },
               ),
+            ),
+            const SizedBox(
+              height: 40,
             )
           ],
         ));
