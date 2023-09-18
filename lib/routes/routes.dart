@@ -1,3 +1,4 @@
+import 'package:afno_app/core/widgets/bottom_navigation/custom_bottom_nav.dart';
 import 'package:afno_app/features/dashboard/presentation/pages/dashboard_page.dart';
 import 'package:afno_app/features/splash/presentation/pages/splash_page.dart';
 import 'package:afno_app/routes/routes_constant.dart';
@@ -24,20 +25,18 @@ class Routes {
           path: RoutesConstant.splash,
           builder: (context, state) => const SplashPage(),
         ),
-        GoRoute(
-          path: RoutesConstant.dashboard,
-          builder: (context, state) => const DashboardPage(),
+        ShellRoute(
+          navigatorKey: _shellNavigatorKey,
+          builder: (context, state, child) {
+            return CustomBottomNavigationBar(child: child);
+          },
+          routes: [
+            GoRoute(
+              path: RoutesConstant.dashboard,
+              builder: (context, state) => const DashboardPage(),
+            ),
+          ],
         ),
-        // ShellRoute(
-        //   navigatorKey: _shellNavigatorKey,
-        //   builder: (context, state, child) {
-        //     // return CustomBottomNavigationBar(child: child);
-        //     return SizedBox(
-        //       child: child,
-        //     );
-        //   },
-        //   routes: [],
-        // ),
       ]);
 }
 
