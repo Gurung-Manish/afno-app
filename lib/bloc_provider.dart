@@ -1,4 +1,5 @@
 import 'package:afno_app/App.dart';
+import 'package:afno_app/features/splash/presentation/bloc/splash_bloc.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
@@ -7,6 +8,10 @@ class BlocProviderContainer extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MultiBlocProvider(providers: [], child: const App());
+    return MultiBlocProvider(providers: [
+      BlocProvider<SplashBloc>(
+        create: (BuildContext context) => SplashBloc(),
+      ),
+    ], child: const App());
   }
 }

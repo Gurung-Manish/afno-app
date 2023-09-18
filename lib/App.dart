@@ -7,6 +7,8 @@ class App extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
+      title: "Afno App",
+      debugShowCheckedModeBanner: false,
       home: MaterialApp.router(
         title: "Afno App",
         debugShowCheckedModeBanner: false,
