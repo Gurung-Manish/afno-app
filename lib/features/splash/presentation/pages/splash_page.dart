@@ -15,7 +15,9 @@ class _SplashPageState extends State<SplashPage> {
   void initState() {
     // TODO: implement initState
     super.initState();
-    context.go(RoutesConstant.dashboard);
+    Future.delayed(const Duration(milliseconds: 0), () async {
+      context.go(RoutesConstant.dashboard);
+    });
   }
 
   @override

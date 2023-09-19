@@ -13,7 +13,7 @@ class _CustomBottomNavigationBarState extends State<CustomBottomNavigationBar> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: widget.child,
+      body: SafeArea(child: widget.child),
       bottomNavigationBar: Container(
         decoration: const BoxDecoration(
           border: Border(
