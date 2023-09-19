@@ -21,7 +21,7 @@ class OpeningHours extends StatelessWidget {
           height: 10,
         ),
         SizedBox(
-          height: 100,
+          height: 110,
           child: ListView.builder(
               itemCount: 7,
               itemBuilder: (context, index) {
@@ -55,6 +55,9 @@ class OpeningHours extends StatelessWidget {
                         ),
                       ],
                     ),
+                    const SizedBox(
+                      height: 2,
+                    )
                   ],
                 );
               }),

@@ -9,10 +9,7 @@ class BottomDashboardView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-        constraints: const BoxConstraints(
-          minHeight: 300,
-        ),
-        height: MediaQuery.of(context).size.height * 0.4,
+        height: 300,
         decoration: BoxDecoration(
           boxShadow: [
             BoxShadow(
@@ -32,14 +29,14 @@ class BottomDashboardView extends StatelessWidget {
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             const Padding(
-              padding: EdgeInsets.only(top: 20, right: 15, left: 15),
+              padding: EdgeInsets.only(top: 15, right: 15, left: 15),
               child: Text(
                 "Restaurants",
                 style: TextStyle(fontWeight: FontWeight.bold, fontSize: 18),
               ),
             ),
             const SizedBox(
-              height: 20,
+              height: 10,
             ),
             Expanded(
               child: ListView.builder(
