@@ -15,27 +15,21 @@ class _CustomBottomNavigationBarState extends State<CustomBottomNavigationBar> {
     return Scaffold(
       body: widget.child,
       bottomNavigationBar: Container(
-        decoration: BoxDecoration(
-          color: Colors.white,
-          borderRadius: const BorderRadius.only(
-            topLeft: Radius.circular(20.0),
-            topRight: Radius.circular(20.0),
+        decoration: const BoxDecoration(
+          border: Border(
+            top: BorderSide(width: 0.8, color: Color(0xFFDBDBDB)),
           ),
-          boxShadow: [
-            BoxShadow(
-              color: Colors.grey.withOpacity(0.5),
-              spreadRadius: 2,
-              blurRadius: 10,
-              offset: const Offset(0, 2),
-            ),
-          ],
         ),
-        child: ClipRRect(
-          borderRadius: const BorderRadius.only(
-            topLeft: Radius.circular(20.0),
-            topRight: Radius.circular(20.0),
-          ),
+        child: Theme(
+          data: ThemeData(
+              splashColor: Colors.transparent,
+              highlightColor: Colors.transparent,
+              hoverColor: Colors.transparent),
           child: BottomNavigationBar(
+            selectedItemColor: Color(0xFFFFCC00),
+            elevation: 0,
+            showSelectedLabels: false,
+            showUnselectedLabels: false,
             backgroundColor: Colors.white,
             items: const [
               BottomNavigationBarItem(
