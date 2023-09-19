@@ -43,7 +43,7 @@ class BottomDashboardView extends StatelessWidget {
             ),
             Expanded(
               child: ListView.builder(
-                itemCount: 2,
+                itemCount: 5,
                 scrollDirection: Axis.horizontal,
                 itemBuilder: (context, index) {
                   return Padding(
