@@ -184,21 +184,26 @@ class _RestaurantPageState extends State<RestaurantPage> {
               child: Material(
                 color: Colors.transparent,
                 child: InkWell(
-                  customBorder: CircleBorder(),
-                  splashColor: Colors.grey.withOpacity(0.3),
-                  focusColor: Colors.grey.withOpacity(0.3),
-                  hoverColor: Colors.grey.withOpacity(0.3),
+                  customBorder: const CircleBorder(),
+                  splashColor: Colors.grey.withOpacity(0.5),
+                  focusColor: Colors.grey.withOpacity(0.5),
+                  hoverColor: Colors.grey.withOpacity(0.5),
                   overlayColor:
-                      MaterialStateProperty.all(Colors.grey.withOpacity(0.3)),
-                  highlightColor: Colors.grey.withOpacity(0.3),
+                      MaterialStateProperty.all(Colors.grey.withOpacity(0.5)),
+                  highlightColor: Colors.grey.withOpacity(0.5),
                   onTap: () {
                     context.go(RoutesConstant.dashboard);
                   },
-                  child: const Padding(
-                    padding: EdgeInsets.all(8.0),
-                    child: Icon(
-                      Icons.arrow_back,
-                      size: 14,
+                  child: Ink(
+                    decoration: BoxDecoration(
+                        shape: BoxShape.circle,
+                        color: Colors.grey.withOpacity(0.5)),
+                    child: const Padding(
+                      padding: EdgeInsets.all(8.0),
+                      child: Icon(
+                        Icons.arrow_back,
+                        size: 14,
+                      ),
                     ),
                   ),
                 ),

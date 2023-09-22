@@ -61,10 +61,20 @@ class _DashboardMapViewState extends State<DashboardMapView> {
                 child: TextFormField(
                   decoration: const InputDecoration(
                     hintText: "Search...",
-                    prefixIcon: Icon(
-                      Icons.search,
-                    ),
+                    prefixIcon: Icon(Icons.search),
                     border: InputBorder.none,
+                    filled: true,
+                    isDense: true,
+                    suffixIconConstraints: BoxConstraints(
+                      maxHeight: 34,
+                    ),
+                    fillColor: Colors.white,
+                    hoverColor: Colors.white,
+                    contentPadding: EdgeInsets.only(
+                      top: 14.0,
+                      right: 16.0,
+                      bottom: 14.0,
+                    ),
                   ),
                 ),
               ),
