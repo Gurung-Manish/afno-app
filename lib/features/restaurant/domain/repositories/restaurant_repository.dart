@@ -3,5 +3,5 @@ import 'package:afno_app/features/restaurant/data/models/restaurant_model.dart';
 import 'package:dartz/dartz.dart';
 
 abstract class RestaurantRepository {
-  Future<Either<Failure, RestaurantModel>> getRestaurants();
+  Future<Either<Failure, List<RestaurantModel>>> getRestaurants();
 }

@@ -7,7 +7,7 @@ import 'package:dartz/dartz.dart';
 
 class RestaurantRepositoryImpl implements RestaurantRepository {
   @override
-  Future<Either<Failure, RestaurantModel>> getRestaurants() {
+  Future<Either<Failure, List<RestaurantModel>>> getRestaurants() {
     return serviceLocator<RestaurantRemoteDataSource>().getRestaurants();
   }
 }
