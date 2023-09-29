@@ -1,5 +1,6 @@
 import 'package:afno_app/core/widgets/bottom_navigation/custom_bottom_nav.dart';
 import 'package:afno_app/features/dashboard/presentation/pages/dashboard_page.dart';
+import 'package:afno_app/features/login/presentation/pages/login_page.dart';
 import 'package:afno_app/features/restaurant/presentation/pages/restaurant_page.dart';
 import 'package:afno_app/features/splash/presentation/pages/splash_page.dart';
 import 'package:afno_app/routes/routes_constant.dart';
@@ -25,6 +26,10 @@ class Routes {
         GoRoute(
           path: RoutesConstant.splash,
           builder: (context, state) => const SplashPage(),
+        ),
+        GoRoute(
+          path: RoutesConstant.login,
+          builder: (context, state) => const LoginPage(),
         ),
         GoRoute(
           path: "${RoutesConstant.restaurant}/:id",
