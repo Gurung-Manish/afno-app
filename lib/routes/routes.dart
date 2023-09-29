@@ -27,8 +27,9 @@ class Routes {
           builder: (context, state) => const SplashPage(),
         ),
         GoRoute(
-          path: RoutesConstant.restaurant,
-          builder: (context, state) => const RestaurantPage(),
+          path: "${RoutesConstant.restaurant}/:id",
+          builder: (context, state) =>
+              RestaurantPage(id: state.pathParameters['id'] ?? ""),
         ),
         ShellRoute(
           navigatorKey: _shellNavigatorKey,

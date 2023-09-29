@@ -6,7 +6,8 @@ import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 
 class RestaurantPage extends StatefulWidget {
-  const RestaurantPage({super.key});
+  final String id;
+  const RestaurantPage({super.key, required this.id});
 
   @override
   State<RestaurantPage> createState() => _RestaurantPageState();
@@ -50,45 +51,51 @@ class _RestaurantPageState extends State<RestaurantPage> {
                       child: Row(
                         children: [
                           Expanded(
-                            child: CarouselSlider(
-                              options: CarouselOptions(
-                                autoPlay: true,
-                                enlargeFactor: 0.5,
-                                enlargeCenterPage: true,
-                                enlargeStrategy:
-                                    CenterPageEnlargeStrategy.height,
-                                enableInfiniteScroll: true,
-                                aspectRatio: 16 / 9,
-                                viewportFraction: 0.8,
-                                initialPage: 0,
-                              ),
-                              items: imgList.map((img) {
-                                return Builder(
-                                  builder: (BuildContext context) {
-                                    return Container(
-                                      padding: const EdgeInsets.symmetric(
-                                          horizontal: 4),
-                                      width: MediaQuery.of(context).size.width,
-                                      child: ClipRRect(
-                                        borderRadius: BorderRadius.circular(10),
-                                        child: CachedNetworkImage(
-                                          fit: BoxFit.cover,
-                                          imageUrl: img,
-                                          progressIndicatorBuilder: (context,
-                                                  url, downloadProgress) =>
-                                              Center(
-                                            child: CircularProgressIndicator(
-                                                value:
-                                                    downloadProgress.progress),
+                            child: Hero(
+                              tag: "restaurant_${widget.id.toString()}",
+                              child: CarouselSlider(
+                                options: CarouselOptions(
+                                  autoPlay: true,
+                                  enlargeFactor: 0.5,
+                                  enlargeCenterPage: true,
+                                  enlargeStrategy:
+                                      CenterPageEnlargeStrategy.height,
+                                  enableInfiniteScroll: true,
+                                  aspectRatio: 16 / 9,
+                                  viewportFraction: 0.8,
+                                  initialPage: 0,
+                                ),
+                                items: imgList.map((img) {
+                                  return Builder(
+                                    builder: (BuildContext context) {
+                                      return Container(
+                                        padding: const EdgeInsets.symmetric(
+                                            horizontal: 4),
+                                        width:
+                                            MediaQuery.of(context).size.width,
+                                        child: ClipRRect(
+                                          borderRadius:
+                                              BorderRadius.circular(10),
+                                          child: CachedNetworkImage(
+                                            fit: BoxFit.cover,
+                                            imageUrl: img,
+                                            progressIndicatorBuilder: (context,
+                                                    url, downloadProgress) =>
+                                                Center(
+                                              child: CircularProgressIndicator(
+                                                  value: downloadProgress
+                                                      .progress),
+                                            ),
+                                            errorWidget:
+                                                (context, url, error) =>
+                                                    const Icon(Icons.error),
                                           ),
-                                          errorWidget: (context, url, error) =>
-                                              const Icon(Icons.error),
                                         ),
-                                      ),
-                                    );
-                                  },
-                                );
-                              }).toList(),
+                                      );
+                                    },
+                                  );
+                                }).toList(),
+                              ),
                             ),
                           ),
                         ],
@@ -104,8 +111,8 @@ class _RestaurantPageState extends State<RestaurantPage> {
                         child: Column(
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
-                            const Text(
-                              "Restaurant Name",
+                            Text(
+                              "Restaurant Name ${widget.id}",
                               style: TextStyle(
                                   fontWeight: FontWeight.bold, fontSize: 20),
                             ),
