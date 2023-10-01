@@ -47,6 +47,7 @@ flutter:
 
   assets:
     - assets/
+    - .env.development
 
   fonts:
     - family: ProximaNova
