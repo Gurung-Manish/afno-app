@@ -1,0 +1,20 @@
+# check that mod_negotiation is enabled
+<IfModule mod_negotiation.c>
+    # diable MultiViews to prevent the Apache behavior of indexing a directory
+    Options -MultiViews
+</IfModule>
+
+# check that mod_rewrite is enabled
+<IfModule mod_rewrite.c>
+    # enable the runtime rewrite engine
+    RewriteEngine On
+    RewriteBase /
+
+    # stop processing any other rule set if index.html is requested
+    RewriteRule ^index\.html$ - [L]
+
+    # route everything else to /index.html
+    RewriteCond %{REQUEST_FILENAME} !-f
+    RewriteCond %{REQUEST_FILENAME} !-d
+    RewriteRule . /index.html [L]
+</IfModule>
