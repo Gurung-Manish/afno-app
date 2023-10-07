@@ -1,16 +1,18 @@
 import 'package:afno_app/features/dashboard/presentation/widgets/triangular_container.dart';
+import 'package:afno_app/features/restaurant/data/models/restaurant_model.dart';
 import 'package:afno_app/routes/routes_constant.dart';
 import 'package:flutter/material.dart';
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:go_router/go_router.dart';
 
 class RestaurantListCardWidget extends StatelessWidget {
-  const RestaurantListCardWidget({super.key, required this.index});
+  const RestaurantListCardWidget({super.key, required this.restaurant});
 
-  final int index;
+  final RestaurantModel restaurant;
 
   @override
   Widget build(BuildContext context) {
+    var index = restaurant.id;
     return GestureDetector(
       child: Hero(
         tag: "restaurant_${index.toString()}",
@@ -67,7 +69,7 @@ class RestaurantListCardWidget extends StatelessWidget {
                             mainAxisAlignment: MainAxisAlignment.spaceBetween,
                             children: [
                               Text(
-                                "Restaurant Name ${index + 1}",
+                                restaurant.title ?? "",
                                 style: const TextStyle(
                                     fontSize: 16, fontWeight: FontWeight.bold),
                               ),
@@ -85,20 +87,20 @@ class RestaurantListCardWidget extends StatelessWidget {
                           const SizedBox(
                             height: 5,
                           ),
-                          const Row(
+                          Row(
                               crossAxisAlignment: CrossAxisAlignment.center,
                               children: [
-                                Icon(
+                                const Icon(
                                   Icons.wallet,
                                   size: 14,
                                   color: Color(0xFFFFCC00),
                                 ),
-                                SizedBox(
+                                const SizedBox(
                                   width: 5,
                                 ),
                                 Text(
-                                  "Average Price",
-                                  style: TextStyle(
+                                  restaurant.description ?? "",
+                                  style: const TextStyle(
                                       fontSize: 12, color: Colors.grey),
                                 )
                               ])

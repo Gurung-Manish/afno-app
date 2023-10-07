@@ -18,20 +18,25 @@ class RestaurantDataSourceImpl implements RestaurantRemoteDataSource {
       final String baseUrl = AppConstants.baseUrl;
       if (baseUrl.isNotEmpty) {
         final response = await request.get(
-          ApiEndpoint(baseUrl, ApiList.getAllRestaurants, {}),
+          ApiEndpoint(baseUrl, "${ApiList.getAllRestaurants}/en", {}),
         );
-        if (response.statusCode == 200) {
-          final restaurants = response.data;
 
-          if (restaurants!.isNotEmpty) {
-            return Right([]);
+        if (response.statusCode == 200) {
+          List restaurants = response.data["data"];
+
+          List<RestaurantModel> restaurantFormatted = restaurants.map((e) {
+            return RestaurantModel.fromJson(e);
+          }).toList();
+          if (restaurants.isNotEmpty) {
+            return Right(restaurantFormatted);
           } else {
             return Left(Exception("error: ${response.data}"));
           }
         } else if (response.statusCode == 401) {
           return Left(ConnectionFailure(response.data));
+        } else {
+          return Left(ConnectionFailure(response.data['message']));
         }
-        return Left(ConnectionFailure(response.data['message']));
       }
       return const Left(ConnectionFailure("BaseUrl not found"));
     } catch (e) {

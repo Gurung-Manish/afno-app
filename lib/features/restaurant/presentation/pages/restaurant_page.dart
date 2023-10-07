@@ -1,8 +1,10 @@
+import 'package:afno_app/features/restaurant/presentation/bloc/restaurant_bloc.dart';
 import 'package:afno_app/features/restaurant/presentation/widgets/opening_hours.dart';
 import 'package:afno_app/routes/routes_constant.dart';
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
 
 class RestaurantPage extends StatefulWidget {
@@ -113,7 +115,7 @@ class _RestaurantPageState extends State<RestaurantPage> {
                           children: [
                             Text(
                               "Restaurant Name ${widget.id}",
-                              style: TextStyle(
+                              style: const TextStyle(
                                   fontWeight: FontWeight.bold, fontSize: 20),
                             ),
                             const SizedBox(

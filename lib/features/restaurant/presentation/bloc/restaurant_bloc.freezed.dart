@@ -18,33 +18,33 @@ final _privateConstructorUsedError = UnsupportedError(
 mixin _$RestaurantEvent {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function() started,
+    required TResult Function() getRestaurants,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function()? started,
+    TResult? Function()? getRestaurants,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function()? started,
+    TResult Function()? getRestaurants,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
-    required TResult Function(_Started value) started,
+    required TResult Function(_GetRestaurants value) getRestaurants,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(_Started value)? started,
+    TResult? Function(_GetRestaurants value)? getRestaurants,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
-    TResult Function(_Started value)? started,
+    TResult Function(_GetRestaurants value)? getRestaurants,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -69,34 +69,44 @@ class _$RestaurantEventCopyWithImpl<$Res, $Val extends RestaurantEvent>
 }
 
 /// @nodoc
-abstract class _$$_StartedCopyWith<$Res> {
-  factory _$$_StartedCopyWith(
-          _$_Started value, $Res Function(_$_Started) then) =
-      __$$_StartedCopyWithImpl<$Res>;
+abstract class _$$_GetRestaurantsCopyWith<$Res> {
+  factory _$$_GetRestaurantsCopyWith(
+          _$_GetRestaurants value, $Res Function(_$_GetRestaurants) then) =
+      __$$_GetRestaurantsCopyWithImpl<$Res>;
 }
 
 /// @nodoc
-class __$$_StartedCopyWithImpl<$Res>
-    extends _$RestaurantEventCopyWithImpl<$Res, _$_Started>
-    implements _$$_StartedCopyWith<$Res> {
-  __$$_StartedCopyWithImpl(_$_Started _value, $Res Function(_$_Started) _then)
+class __$$_GetRestaurantsCopyWithImpl<$Res>
+    extends _$RestaurantEventCopyWithImpl<$Res, _$_GetRestaurants>
+    implements _$$_GetRestaurantsCopyWith<$Res> {
+  __$$_GetRestaurantsCopyWithImpl(
+      _$_GetRestaurants _value, $Res Function(_$_GetRestaurants) _then)
       : super(_value, _then);
 }
 
 /// @nodoc
 
-class _$_Started implements _Started {
-  const _$_Started();
+class _$_GetRestaurants
+    with DiagnosticableTreeMixin
+    implements _GetRestaurants {
+  const _$_GetRestaurants();
 
   @override
-  String toString() {
-    return 'RestaurantEvent.started()';
+  String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
+    return 'RestaurantEvent.getRestaurants()';
+  }
+
+  @override
+  void debugFillProperties(DiagnosticPropertiesBuilder properties) {
+    super.debugFillProperties(properties);
+    properties
+        .add(DiagnosticsProperty('type', 'RestaurantEvent.getRestaurants'));
   }
 
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
-        (other.runtimeType == runtimeType && other is _$_Started);
+        (other.runtimeType == runtimeType && other is _$_GetRestaurants);
   }
 
   @override
@@ -105,27 +115,27 @@ class _$_Started implements _Started {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function() started,
+    required TResult Function() getRestaurants,
   }) {
-    return started();
+    return getRestaurants();
   }
 
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function()? started,
+    TResult? Function()? getRestaurants,
   }) {
-    return started?.call();
+    return getRestaurants?.call();
   }
 
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function()? started,
+    TResult Function()? getRestaurants,
     required TResult orElse(),
   }) {
-    if (started != null) {
-      return started();
+    if (getRestaurants != null) {
+      return getRestaurants();
     }
     return orElse();
   }
@@ -133,34 +143,34 @@ class _$_Started implements _Started {
   @override
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
-    required TResult Function(_Started value) started,
+    required TResult Function(_GetRestaurants value) getRestaurants,
   }) {
-    return started(this);
+    return getRestaurants(this);
   }
 
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(_Started value)? started,
+    TResult? Function(_GetRestaurants value)? getRestaurants,
   }) {
-    return started?.call(this);
+    return getRestaurants?.call(this);
   }
 
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
-    TResult Function(_Started value)? started,
+    TResult Function(_GetRestaurants value)? getRestaurants,
     required TResult orElse(),
   }) {
-    if (started != null) {
-      return started(this);
+    if (getRestaurants != null) {
+      return getRestaurants(this);
     }
     return orElse();
   }
 }
 
-abstract class _Started implements RestaurantEvent {
-  const factory _Started() = _$_Started;
+abstract class _GetRestaurants implements RestaurantEvent {
+  const factory _GetRestaurants() = _$_GetRestaurants;
 }
 
 /// @nodoc
@@ -168,32 +178,50 @@ mixin _$RestaurantState {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
+    required TResult Function() loading,
+    required TResult Function(List<RestaurantModel> restaurants) loaded,
+    required TResult Function(String message) error,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? initial,
+    TResult? Function()? loading,
+    TResult? Function(List<RestaurantModel> restaurants)? loaded,
+    TResult? Function(String message)? error,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
+    TResult Function()? loading,
+    TResult Function(List<RestaurantModel> restaurants)? loaded,
+    TResult Function(String message)? error,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
-    required TResult Function(_Initial value) initial,
+    required TResult Function(RestaurantStateInitial value) initial,
+    required TResult Function(RestaurantStateLoading value) loading,
+    required TResult Function(RestaurantStateLoaded value) loaded,
+    required TResult Function(RestaurantStateError value) error,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(_Initial value)? initial,
+    TResult? Function(RestaurantStateInitial value)? initial,
+    TResult? Function(RestaurantStateLoading value)? loading,
+    TResult? Function(RestaurantStateLoaded value)? loaded,
+    TResult? Function(RestaurantStateError value)? error,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
-    TResult Function(_Initial value)? initial,
+    TResult Function(RestaurantStateInitial value)? initial,
+    TResult Function(RestaurantStateLoading value)? loading,
+    TResult Function(RestaurantStateLoaded value)? loaded,
+    TResult Function(RestaurantStateError value)? error,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -218,34 +246,43 @@ class _$RestaurantStateCopyWithImpl<$Res, $Val extends RestaurantState>
 }
 
 /// @nodoc
-abstract class _$$_InitialCopyWith<$Res> {
-  factory _$$_InitialCopyWith(
-          _$_Initial value, $Res Function(_$_Initial) then) =
-      __$$_InitialCopyWithImpl<$Res>;
+abstract class _$$RestaurantStateInitialCopyWith<$Res> {
+  factory _$$RestaurantStateInitialCopyWith(_$RestaurantStateInitial value,
+          $Res Function(_$RestaurantStateInitial) then) =
+      __$$RestaurantStateInitialCopyWithImpl<$Res>;
 }
 
 /// @nodoc
-class __$$_InitialCopyWithImpl<$Res>
-    extends _$RestaurantStateCopyWithImpl<$Res, _$_Initial>
-    implements _$$_InitialCopyWith<$Res> {
-  __$$_InitialCopyWithImpl(_$_Initial _value, $Res Function(_$_Initial) _then)
+class __$$RestaurantStateInitialCopyWithImpl<$Res>
+    extends _$RestaurantStateCopyWithImpl<$Res, _$RestaurantStateInitial>
+    implements _$$RestaurantStateInitialCopyWith<$Res> {
+  __$$RestaurantStateInitialCopyWithImpl(_$RestaurantStateInitial _value,
+      $Res Function(_$RestaurantStateInitial) _then)
       : super(_value, _then);
 }
 
 /// @nodoc
 
-class _$_Initial implements _Initial {
-  const _$_Initial();
+class _$RestaurantStateInitial
+    with DiagnosticableTreeMixin
+    implements RestaurantStateInitial {
+  const _$RestaurantStateInitial();
 
   @override
-  String toString() {
+  String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
     return 'RestaurantState.initial()';
+  }
+
+  @override
+  void debugFillProperties(DiagnosticPropertiesBuilder properties) {
+    super.debugFillProperties(properties);
+    properties.add(DiagnosticsProperty('type', 'RestaurantState.initial'));
   }
 
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
-        (other.runtimeType == runtimeType && other is _$_Initial);
+        (other.runtimeType == runtimeType && other is _$RestaurantStateInitial);
   }
 
   @override
@@ -255,6 +292,9 @@ class _$_Initial implements _Initial {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
+    required TResult Function() loading,
+    required TResult Function(List<RestaurantModel> restaurants) loaded,
+    required TResult Function(String message) error,
   }) {
     return initial();
   }
@@ -263,6 +303,9 @@ class _$_Initial implements _Initial {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? initial,
+    TResult? Function()? loading,
+    TResult? Function(List<RestaurantModel> restaurants)? loaded,
+    TResult? Function(String message)? error,
   }) {
     return initial?.call();
   }
@@ -271,6 +314,9 @@ class _$_Initial implements _Initial {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
+    TResult Function()? loading,
+    TResult Function(List<RestaurantModel> restaurants)? loaded,
+    TResult Function(String message)? error,
     required TResult orElse(),
   }) {
     if (initial != null) {
@@ -282,7 +328,10 @@ class _$_Initial implements _Initial {
   @override
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
-    required TResult Function(_Initial value) initial,
+    required TResult Function(RestaurantStateInitial value) initial,
+    required TResult Function(RestaurantStateLoading value) loading,
+    required TResult Function(RestaurantStateLoaded value) loaded,
+    required TResult Function(RestaurantStateError value) error,
   }) {
     return initial(this);
   }
@@ -290,7 +339,10 @@ class _$_Initial implements _Initial {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(_Initial value)? initial,
+    TResult? Function(RestaurantStateInitial value)? initial,
+    TResult? Function(RestaurantStateLoading value)? loading,
+    TResult? Function(RestaurantStateLoaded value)? loaded,
+    TResult? Function(RestaurantStateError value)? error,
   }) {
     return initial?.call(this);
   }
@@ -298,7 +350,10 @@ class _$_Initial implements _Initial {
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
-    TResult Function(_Initial value)? initial,
+    TResult Function(RestaurantStateInitial value)? initial,
+    TResult Function(RestaurantStateLoading value)? loading,
+    TResult Function(RestaurantStateLoaded value)? loaded,
+    TResult Function(RestaurantStateError value)? error,
     required TResult orElse(),
   }) {
     if (initial != null) {
@@ -308,6 +363,452 @@ class _$_Initial implements _Initial {
   }
 }
 
-abstract class _Initial implements RestaurantState {
-  const factory _Initial() = _$_Initial;
+abstract class RestaurantStateInitial implements RestaurantState {
+  const factory RestaurantStateInitial() = _$RestaurantStateInitial;
+}
+
+/// @nodoc
+abstract class _$$RestaurantStateLoadingCopyWith<$Res> {
+  factory _$$RestaurantStateLoadingCopyWith(_$RestaurantStateLoading value,
+          $Res Function(_$RestaurantStateLoading) then) =
+      __$$RestaurantStateLoadingCopyWithImpl<$Res>;
+}
+
+/// @nodoc
+class __$$RestaurantStateLoadingCopyWithImpl<$Res>
+    extends _$RestaurantStateCopyWithImpl<$Res, _$RestaurantStateLoading>
+    implements _$$RestaurantStateLoadingCopyWith<$Res> {
+  __$$RestaurantStateLoadingCopyWithImpl(_$RestaurantStateLoading _value,
+      $Res Function(_$RestaurantStateLoading) _then)
+      : super(_value, _then);
+}
+
+/// @nodoc
+
+class _$RestaurantStateLoading
+    with DiagnosticableTreeMixin
+    implements RestaurantStateLoading {
+  const _$RestaurantStateLoading();
+
+  @override
+  String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
+    return 'RestaurantState.loading()';
+  }
+
+  @override
+  void debugFillProperties(DiagnosticPropertiesBuilder properties) {
+    super.debugFillProperties(properties);
+    properties.add(DiagnosticsProperty('type', 'RestaurantState.loading'));
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType && other is _$RestaurantStateLoading);
+  }
+
+  @override
+  int get hashCode => runtimeType.hashCode;
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() initial,
+    required TResult Function() loading,
+    required TResult Function(List<RestaurantModel> restaurants) loaded,
+    required TResult Function(String message) error,
+  }) {
+    return loading();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? initial,
+    TResult? Function()? loading,
+    TResult? Function(List<RestaurantModel> restaurants)? loaded,
+    TResult? Function(String message)? error,
+  }) {
+    return loading?.call();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? initial,
+    TResult Function()? loading,
+    TResult Function(List<RestaurantModel> restaurants)? loaded,
+    TResult Function(String message)? error,
+    required TResult orElse(),
+  }) {
+    if (loading != null) {
+      return loading();
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(RestaurantStateInitial value) initial,
+    required TResult Function(RestaurantStateLoading value) loading,
+    required TResult Function(RestaurantStateLoaded value) loaded,
+    required TResult Function(RestaurantStateError value) error,
+  }) {
+    return loading(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(RestaurantStateInitial value)? initial,
+    TResult? Function(RestaurantStateLoading value)? loading,
+    TResult? Function(RestaurantStateLoaded value)? loaded,
+    TResult? Function(RestaurantStateError value)? error,
+  }) {
+    return loading?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(RestaurantStateInitial value)? initial,
+    TResult Function(RestaurantStateLoading value)? loading,
+    TResult Function(RestaurantStateLoaded value)? loaded,
+    TResult Function(RestaurantStateError value)? error,
+    required TResult orElse(),
+  }) {
+    if (loading != null) {
+      return loading(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class RestaurantStateLoading implements RestaurantState {
+  const factory RestaurantStateLoading() = _$RestaurantStateLoading;
+}
+
+/// @nodoc
+abstract class _$$RestaurantStateLoadedCopyWith<$Res> {
+  factory _$$RestaurantStateLoadedCopyWith(_$RestaurantStateLoaded value,
+          $Res Function(_$RestaurantStateLoaded) then) =
+      __$$RestaurantStateLoadedCopyWithImpl<$Res>;
+  @useResult
+  $Res call({List<RestaurantModel> restaurants});
+}
+
+/// @nodoc
+class __$$RestaurantStateLoadedCopyWithImpl<$Res>
+    extends _$RestaurantStateCopyWithImpl<$Res, _$RestaurantStateLoaded>
+    implements _$$RestaurantStateLoadedCopyWith<$Res> {
+  __$$RestaurantStateLoadedCopyWithImpl(_$RestaurantStateLoaded _value,
+      $Res Function(_$RestaurantStateLoaded) _then)
+      : super(_value, _then);
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? restaurants = null,
+  }) {
+    return _then(_$RestaurantStateLoaded(
+      restaurants: null == restaurants
+          ? _value._restaurants
+          : restaurants // ignore: cast_nullable_to_non_nullable
+              as List<RestaurantModel>,
+    ));
+  }
+}
+
+/// @nodoc
+
+class _$RestaurantStateLoaded
+    with DiagnosticableTreeMixin
+    implements RestaurantStateLoaded {
+  const _$RestaurantStateLoaded(
+      {required final List<RestaurantModel> restaurants})
+      : _restaurants = restaurants;
+
+  final List<RestaurantModel> _restaurants;
+  @override
+  List<RestaurantModel> get restaurants {
+    if (_restaurants is EqualUnmodifiableListView) return _restaurants;
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableListView(_restaurants);
+  }
+
+  @override
+  String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
+    return 'RestaurantState.loaded(restaurants: $restaurants)';
+  }
+
+  @override
+  void debugFillProperties(DiagnosticPropertiesBuilder properties) {
+    super.debugFillProperties(properties);
+    properties
+      ..add(DiagnosticsProperty('type', 'RestaurantState.loaded'))
+      ..add(DiagnosticsProperty('restaurants', restaurants));
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$RestaurantStateLoaded &&
+            const DeepCollectionEquality()
+                .equals(other._restaurants, _restaurants));
+  }
+
+  @override
+  int get hashCode => Object.hash(
+      runtimeType, const DeepCollectionEquality().hash(_restaurants));
+
+  @JsonKey(ignore: true)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$RestaurantStateLoadedCopyWith<_$RestaurantStateLoaded> get copyWith =>
+      __$$RestaurantStateLoadedCopyWithImpl<_$RestaurantStateLoaded>(
+          this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() initial,
+    required TResult Function() loading,
+    required TResult Function(List<RestaurantModel> restaurants) loaded,
+    required TResult Function(String message) error,
+  }) {
+    return loaded(restaurants);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? initial,
+    TResult? Function()? loading,
+    TResult? Function(List<RestaurantModel> restaurants)? loaded,
+    TResult? Function(String message)? error,
+  }) {
+    return loaded?.call(restaurants);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? initial,
+    TResult Function()? loading,
+    TResult Function(List<RestaurantModel> restaurants)? loaded,
+    TResult Function(String message)? error,
+    required TResult orElse(),
+  }) {
+    if (loaded != null) {
+      return loaded(restaurants);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(RestaurantStateInitial value) initial,
+    required TResult Function(RestaurantStateLoading value) loading,
+    required TResult Function(RestaurantStateLoaded value) loaded,
+    required TResult Function(RestaurantStateError value) error,
+  }) {
+    return loaded(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(RestaurantStateInitial value)? initial,
+    TResult? Function(RestaurantStateLoading value)? loading,
+    TResult? Function(RestaurantStateLoaded value)? loaded,
+    TResult? Function(RestaurantStateError value)? error,
+  }) {
+    return loaded?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(RestaurantStateInitial value)? initial,
+    TResult Function(RestaurantStateLoading value)? loading,
+    TResult Function(RestaurantStateLoaded value)? loaded,
+    TResult Function(RestaurantStateError value)? error,
+    required TResult orElse(),
+  }) {
+    if (loaded != null) {
+      return loaded(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class RestaurantStateLoaded implements RestaurantState {
+  const factory RestaurantStateLoaded(
+          {required final List<RestaurantModel> restaurants}) =
+      _$RestaurantStateLoaded;
+
+  List<RestaurantModel> get restaurants;
+  @JsonKey(ignore: true)
+  _$$RestaurantStateLoadedCopyWith<_$RestaurantStateLoaded> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class _$$RestaurantStateErrorCopyWith<$Res> {
+  factory _$$RestaurantStateErrorCopyWith(_$RestaurantStateError value,
+          $Res Function(_$RestaurantStateError) then) =
+      __$$RestaurantStateErrorCopyWithImpl<$Res>;
+  @useResult
+  $Res call({String message});
+}
+
+/// @nodoc
+class __$$RestaurantStateErrorCopyWithImpl<$Res>
+    extends _$RestaurantStateCopyWithImpl<$Res, _$RestaurantStateError>
+    implements _$$RestaurantStateErrorCopyWith<$Res> {
+  __$$RestaurantStateErrorCopyWithImpl(_$RestaurantStateError _value,
+      $Res Function(_$RestaurantStateError) _then)
+      : super(_value, _then);
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? message = null,
+  }) {
+    return _then(_$RestaurantStateError(
+      null == message
+          ? _value.message
+          : message // ignore: cast_nullable_to_non_nullable
+              as String,
+    ));
+  }
+}
+
+/// @nodoc
+
+class _$RestaurantStateError
+    with DiagnosticableTreeMixin
+    implements RestaurantStateError {
+  const _$RestaurantStateError(this.message);
+
+  @override
+  final String message;
+
+  @override
+  String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
+    return 'RestaurantState.error(message: $message)';
+  }
+
+  @override
+  void debugFillProperties(DiagnosticPropertiesBuilder properties) {
+    super.debugFillProperties(properties);
+    properties
+      ..add(DiagnosticsProperty('type', 'RestaurantState.error'))
+      ..add(DiagnosticsProperty('message', message));
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$RestaurantStateError &&
+            (identical(other.message, message) || other.message == message));
+  }
+
+  @override
+  int get hashCode => Object.hash(runtimeType, message);
+
+  @JsonKey(ignore: true)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$RestaurantStateErrorCopyWith<_$RestaurantStateError> get copyWith =>
+      __$$RestaurantStateErrorCopyWithImpl<_$RestaurantStateError>(
+          this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() initial,
+    required TResult Function() loading,
+    required TResult Function(List<RestaurantModel> restaurants) loaded,
+    required TResult Function(String message) error,
+  }) {
+    return error(message);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? initial,
+    TResult? Function()? loading,
+    TResult? Function(List<RestaurantModel> restaurants)? loaded,
+    TResult? Function(String message)? error,
+  }) {
+    return error?.call(message);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? initial,
+    TResult Function()? loading,
+    TResult Function(List<RestaurantModel> restaurants)? loaded,
+    TResult Function(String message)? error,
+    required TResult orElse(),
+  }) {
+    if (error != null) {
+      return error(message);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(RestaurantStateInitial value) initial,
+    required TResult Function(RestaurantStateLoading value) loading,
+    required TResult Function(RestaurantStateLoaded value) loaded,
+    required TResult Function(RestaurantStateError value) error,
+  }) {
+    return error(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(RestaurantStateInitial value)? initial,
+    TResult? Function(RestaurantStateLoading value)? loading,
+    TResult? Function(RestaurantStateLoaded value)? loaded,
+    TResult? Function(RestaurantStateError value)? error,
+  }) {
+    return error?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(RestaurantStateInitial value)? initial,
+    TResult Function(RestaurantStateLoading value)? loading,
+    TResult Function(RestaurantStateLoaded value)? loaded,
+    TResult Function(RestaurantStateError value)? error,
+    required TResult orElse(),
+  }) {
+    if (error != null) {
+      return error(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class RestaurantStateError implements RestaurantState {
+  const factory RestaurantStateError(final String message) =
+      _$RestaurantStateError;
+
+  String get message;
+  @JsonKey(ignore: true)
+  _$$RestaurantStateErrorCopyWith<_$RestaurantStateError> get copyWith =>
+      throw _privateConstructorUsedError;
 }
