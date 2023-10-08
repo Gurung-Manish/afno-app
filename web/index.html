@@ -21,7 +21,10 @@
     <meta charset="UTF-8" />
     <meta content="IE=Edge" http-equiv="X-UA-Compatible" />
     <meta name="description" content="A new Flutter project." />
-
+    <meta
+      http-equiv="Content-Security-Policy"
+      content="upgrade-insecure-requests"
+    />
     <!-- iOS meta tags & icons -->
     <meta name="apple-mobile-web-app-capable" content="yes" />
     <meta name="apple-mobile-web-app-status-bar-style" content="black" />
@@ -33,7 +36,9 @@
 
     <title>afno_app</title>
     <link rel="manifest" href="manifest.json" />
-
+    <script type="text/javascript">
+      window.flutterWebRenderer = 'html';
+    </script>
     <script>
       // The value below is injected by flutter build, do not touch.
       const serviceWorkerVersion = null;
@@ -43,7 +48,7 @@
   </head>
   <body>
     <script>
-      window.addEventListener("load", function (ev) {
+      window.addEventListener('load', function (ev) {
         // Download main.dart.js
         _flutter.loader.loadEntrypoint({
           serviceWorker: {

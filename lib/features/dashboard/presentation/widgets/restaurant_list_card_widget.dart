@@ -13,6 +13,7 @@ class RestaurantListCardWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     var index = restaurant.id;
+
     return GestureDetector(
       child: Hero(
         tag: "restaurant_${index.toString()}",
@@ -45,8 +46,12 @@ class RestaurantListCardWidget extends StatelessWidget {
                       ),
                       child: CachedNetworkImage(
                         fit: BoxFit.cover,
-                        imageUrl:
-                            "https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80",
+                        imageUrl: (restaurant.media!.isNotEmpty
+                                ? restaurant.media!.firstWhere((element) {
+                                    return element.collectionName == "cover";
+                                  }).originalUrl
+                                : "") ??
+                            "",
                         progressIndicatorBuilder:
                             (context, url, downloadProgress) => Center(
                           child: CircularProgressIndicator(
