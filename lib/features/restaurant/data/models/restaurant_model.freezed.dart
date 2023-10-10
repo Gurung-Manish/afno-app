@@ -26,6 +26,7 @@ mixin _$RestaurantModel {
   String? get facebook => throw _privateConstructorUsedError;
   String? get website => throw _privateConstructorUsedError;
   String? get instagram => throw _privateConstructorUsedError;
+  String? get contact => throw _privateConstructorUsedError;
   int? get enabled => throw _privateConstructorUsedError;
   double? get latitude => throw _privateConstructorUsedError;
   double? get longitude => throw _privateConstructorUsedError;
@@ -56,6 +57,7 @@ abstract class $RestaurantModelCopyWith<$Res> {
       String? facebook,
       String? website,
       String? instagram,
+      String? contact,
       int? enabled,
       double? latitude,
       double? longitude,
@@ -84,6 +86,7 @@ class _$RestaurantModelCopyWithImpl<$Res, $Val extends RestaurantModel>
     Object? facebook = freezed,
     Object? website = freezed,
     Object? instagram = freezed,
+    Object? contact = freezed,
     Object? enabled = freezed,
     Object? latitude = freezed,
     Object? longitude = freezed,
@@ -116,6 +119,10 @@ class _$RestaurantModelCopyWithImpl<$Res, $Val extends RestaurantModel>
       instagram: freezed == instagram
           ? _value.instagram
           : instagram // ignore: cast_nullable_to_non_nullable
+              as String?,
+      contact: freezed == contact
+          ? _value.contact
+          : contact // ignore: cast_nullable_to_non_nullable
               as String?,
       enabled: freezed == enabled
           ? _value.enabled
@@ -164,6 +171,7 @@ abstract class _$$_RestaurantModelCopyWith<$Res>
       String? facebook,
       String? website,
       String? instagram,
+      String? contact,
       int? enabled,
       double? latitude,
       double? longitude,
@@ -190,6 +198,7 @@ class __$$_RestaurantModelCopyWithImpl<$Res>
     Object? facebook = freezed,
     Object? website = freezed,
     Object? instagram = freezed,
+    Object? contact = freezed,
     Object? enabled = freezed,
     Object? latitude = freezed,
     Object? longitude = freezed,
@@ -222,6 +231,10 @@ class __$$_RestaurantModelCopyWithImpl<$Res>
       instagram: freezed == instagram
           ? _value.instagram
           : instagram // ignore: cast_nullable_to_non_nullable
+              as String?,
+      contact: freezed == contact
+          ? _value.contact
+          : contact // ignore: cast_nullable_to_non_nullable
               as String?,
       enabled: freezed == enabled
           ? _value.enabled
@@ -265,6 +278,7 @@ class _$_RestaurantModel implements _RestaurantModel {
       this.facebook,
       this.website,
       this.instagram,
+      this.contact,
       this.enabled,
       this.latitude,
       this.longitude,
@@ -289,6 +303,8 @@ class _$_RestaurantModel implements _RestaurantModel {
   final String? website;
   @override
   final String? instagram;
+  @override
+  final String? contact;
   @override
   final int? enabled;
   @override
@@ -317,7 +333,7 @@ class _$_RestaurantModel implements _RestaurantModel {
 
   @override
   String toString() {
-    return 'RestaurantModel(id: $id, title: $title, description: $description, facebook: $facebook, website: $website, instagram: $instagram, enabled: $enabled, latitude: $latitude, longitude: $longitude, media: $media, createdAt: $createdAt, updatedAt: $updatedAt, resourceUrl: $resourceUrl)';
+    return 'RestaurantModel(id: $id, title: $title, description: $description, facebook: $facebook, website: $website, instagram: $instagram, contact: $contact, enabled: $enabled, latitude: $latitude, longitude: $longitude, media: $media, createdAt: $createdAt, updatedAt: $updatedAt, resourceUrl: $resourceUrl)';
   }
 
   @override
@@ -334,6 +350,7 @@ class _$_RestaurantModel implements _RestaurantModel {
             (identical(other.website, website) || other.website == website) &&
             (identical(other.instagram, instagram) ||
                 other.instagram == instagram) &&
+            (identical(other.contact, contact) || other.contact == contact) &&
             (identical(other.enabled, enabled) || other.enabled == enabled) &&
             (identical(other.latitude, latitude) ||
                 other.latitude == latitude) &&
@@ -358,6 +375,7 @@ class _$_RestaurantModel implements _RestaurantModel {
       facebook,
       website,
       instagram,
+      contact,
       enabled,
       latitude,
       longitude,
@@ -388,6 +406,7 @@ abstract class _RestaurantModel implements RestaurantModel {
           final String? facebook,
           final String? website,
           final String? instagram,
+          final String? contact,
           final int? enabled,
           final double? latitude,
           final double? longitude,
@@ -412,6 +431,8 @@ abstract class _RestaurantModel implements RestaurantModel {
   String? get website;
   @override
   String? get instagram;
+  @override
+  String? get contact;
   @override
   int? get enabled;
   @override

@@ -12,6 +12,7 @@ class RestaurantModel with _$RestaurantModel {
     String? facebook,
     String? website,
     String? instagram,
+    String? contact,
     int? enabled,
     double? latitude,
     double? longitude,
