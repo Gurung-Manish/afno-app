@@ -3,6 +3,7 @@ import 'package:afno_app/features/restaurant/data/models/restaurant_model.dart';
 import 'package:afno_app/features/restaurant/presentation/bloc/restaurant_bloc.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:loading_skeleton_niu/loading_skeleton.dart';
 
 class BottomDashboardView extends StatelessWidget {
   const BottomDashboardView({
@@ -61,10 +62,40 @@ class BottomDashboardView extends StatelessWidget {
                     ),
                   );
                 } else if (state is RestaurantStateLoading) {
-                  return const SizedBox(
-                    height: 100,
-                    child: CircularProgressIndicator(),
+                  return Expanded(
+                    child: ListView.builder(
+                        itemCount: 2,
+                        scrollDirection: Axis.horizontal,
+                        itemBuilder: (context, index) {
+                          return Padding(
+                            padding: const EdgeInsets.all(10.0),
+                            child: Container(
+                              width: 300,
+                              decoration: BoxDecoration(
+                                  color: Colors.grey.withOpacity(0.2),
+                                  borderRadius: BorderRadius.circular(25)),
+                              child: ClipRRect(
+                                borderRadius: BorderRadius.circular(25),
+                                child: LoadingSkeleton(
+                                  width: 300,
+                                  height: 200,
+                                ),
+                              ),
+                            ),
+                          );
+                        }),
                   );
+                  // Row(
+                  //   crossAxisAlignment: CrossAxisAlignment.center,
+                  //   mainAxisAlignment: MainAxisAlignment.center,
+                  //   children: [
+                  //     SizedBox(
+                  //       height: 50,
+                  //       width: 50,
+                  //       child: CircularProgressIndicator(),
+                  //     ),
+                  //   ],
+                  // );
                 } else {
                   return const Text("Error");
                 }
