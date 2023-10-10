@@ -23,6 +23,9 @@ mixin _$RestaurantModel {
   int get id => throw _privateConstructorUsedError;
   String? get title => throw _privateConstructorUsedError;
   String? get description => throw _privateConstructorUsedError;
+  String? get facebook => throw _privateConstructorUsedError;
+  String? get website => throw _privateConstructorUsedError;
+  String? get instagram => throw _privateConstructorUsedError;
   int? get enabled => throw _privateConstructorUsedError;
   double? get latitude => throw _privateConstructorUsedError;
   double? get longitude => throw _privateConstructorUsedError;
@@ -50,6 +53,9 @@ abstract class $RestaurantModelCopyWith<$Res> {
       {int id,
       String? title,
       String? description,
+      String? facebook,
+      String? website,
+      String? instagram,
       int? enabled,
       double? latitude,
       double? longitude,
@@ -75,6 +81,9 @@ class _$RestaurantModelCopyWithImpl<$Res, $Val extends RestaurantModel>
     Object? id = null,
     Object? title = freezed,
     Object? description = freezed,
+    Object? facebook = freezed,
+    Object? website = freezed,
+    Object? instagram = freezed,
     Object? enabled = freezed,
     Object? latitude = freezed,
     Object? longitude = freezed,
@@ -95,6 +104,18 @@ class _$RestaurantModelCopyWithImpl<$Res, $Val extends RestaurantModel>
       description: freezed == description
           ? _value.description
           : description // ignore: cast_nullable_to_non_nullable
+              as String?,
+      facebook: freezed == facebook
+          ? _value.facebook
+          : facebook // ignore: cast_nullable_to_non_nullable
+              as String?,
+      website: freezed == website
+          ? _value.website
+          : website // ignore: cast_nullable_to_non_nullable
+              as String?,
+      instagram: freezed == instagram
+          ? _value.instagram
+          : instagram // ignore: cast_nullable_to_non_nullable
               as String?,
       enabled: freezed == enabled
           ? _value.enabled
@@ -140,6 +161,9 @@ abstract class _$$_RestaurantModelCopyWith<$Res>
       {int id,
       String? title,
       String? description,
+      String? facebook,
+      String? website,
+      String? instagram,
       int? enabled,
       double? latitude,
       double? longitude,
@@ -163,6 +187,9 @@ class __$$_RestaurantModelCopyWithImpl<$Res>
     Object? id = null,
     Object? title = freezed,
     Object? description = freezed,
+    Object? facebook = freezed,
+    Object? website = freezed,
+    Object? instagram = freezed,
     Object? enabled = freezed,
     Object? latitude = freezed,
     Object? longitude = freezed,
@@ -183,6 +210,18 @@ class __$$_RestaurantModelCopyWithImpl<$Res>
       description: freezed == description
           ? _value.description
           : description // ignore: cast_nullable_to_non_nullable
+              as String?,
+      facebook: freezed == facebook
+          ? _value.facebook
+          : facebook // ignore: cast_nullable_to_non_nullable
+              as String?,
+      website: freezed == website
+          ? _value.website
+          : website // ignore: cast_nullable_to_non_nullable
+              as String?,
+      instagram: freezed == instagram
+          ? _value.instagram
+          : instagram // ignore: cast_nullable_to_non_nullable
               as String?,
       enabled: freezed == enabled
           ? _value.enabled
@@ -223,6 +262,9 @@ class _$_RestaurantModel implements _RestaurantModel {
       {required this.id,
       this.title,
       this.description,
+      this.facebook,
+      this.website,
+      this.instagram,
       this.enabled,
       this.latitude,
       this.longitude,
@@ -241,6 +283,12 @@ class _$_RestaurantModel implements _RestaurantModel {
   final String? title;
   @override
   final String? description;
+  @override
+  final String? facebook;
+  @override
+  final String? website;
+  @override
+  final String? instagram;
   @override
   final int? enabled;
   @override
@@ -269,7 +317,7 @@ class _$_RestaurantModel implements _RestaurantModel {
 
   @override
   String toString() {
-    return 'RestaurantModel(id: $id, title: $title, description: $description, enabled: $enabled, latitude: $latitude, longitude: $longitude, media: $media, createdAt: $createdAt, updatedAt: $updatedAt, resourceUrl: $resourceUrl)';
+    return 'RestaurantModel(id: $id, title: $title, description: $description, facebook: $facebook, website: $website, instagram: $instagram, enabled: $enabled, latitude: $latitude, longitude: $longitude, media: $media, createdAt: $createdAt, updatedAt: $updatedAt, resourceUrl: $resourceUrl)';
   }
 
   @override
@@ -281,6 +329,11 @@ class _$_RestaurantModel implements _RestaurantModel {
             (identical(other.title, title) || other.title == title) &&
             (identical(other.description, description) ||
                 other.description == description) &&
+            (identical(other.facebook, facebook) ||
+                other.facebook == facebook) &&
+            (identical(other.website, website) || other.website == website) &&
+            (identical(other.instagram, instagram) ||
+                other.instagram == instagram) &&
             (identical(other.enabled, enabled) || other.enabled == enabled) &&
             (identical(other.latitude, latitude) ||
                 other.latitude == latitude) &&
@@ -302,6 +355,9 @@ class _$_RestaurantModel implements _RestaurantModel {
       id,
       title,
       description,
+      facebook,
+      website,
+      instagram,
       enabled,
       latitude,
       longitude,
@@ -329,6 +385,9 @@ abstract class _RestaurantModel implements RestaurantModel {
           {required final int id,
           final String? title,
           final String? description,
+          final String? facebook,
+          final String? website,
+          final String? instagram,
           final int? enabled,
           final double? latitude,
           final double? longitude,
@@ -347,6 +406,12 @@ abstract class _RestaurantModel implements RestaurantModel {
   String? get title;
   @override
   String? get description;
+  @override
+  String? get facebook;
+  @override
+  String? get website;
+  @override
+  String? get instagram;
   @override
   int? get enabled;
   @override

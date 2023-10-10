@@ -6,6 +6,7 @@ import 'package:cached_network_image/cached_network_image.dart';
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:flutter_speed_dial/flutter_speed_dial.dart';
 import 'package:flutter_widget_from_html_core/flutter_widget_from_html_core.dart';
 import 'package:go_router/go_router.dart';
 
@@ -255,10 +256,32 @@ class _RestaurantPageState extends State<RestaurantPage> {
           },
         ),
       ),
-      floatingActionButton: FloatingActionButton(
+      floatingActionButton: SpeedDial(
+        animatedIcon: AnimatedIcons.menu_close,
         backgroundColor: const Color(0xFFFFCC00),
-        onPressed: () {},
-        child: const Icon(Icons.call),
+        overlayColor: Colors.white,
+        children: [
+          SpeedDialChild(
+              child: const Icon(Icons.phone), label: "Call", onTap: () {}),
+          SpeedDialChild(
+              child: Image.asset(
+                "assets/icons/web.png",
+                width: 20,
+              ),
+              label: "Web",
+              onTap: () {}),
+          SpeedDialChild(
+              child: const Icon(Icons.facebook),
+              label: "Facebook",
+              onTap: () {}),
+          SpeedDialChild(
+              child: Image.asset(
+                "assets/icons/instagram.png",
+                width: 20,
+              ),
+              label: "Instagram",
+              onTap: () {}),
+        ],
       ),
     );
   }
