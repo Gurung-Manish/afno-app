@@ -9,6 +9,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_speed_dial/flutter_speed_dial.dart';
 import 'package:flutter_widget_from_html_core/flutter_widget_from_html_core.dart';
 import 'package:go_router/go_router.dart';
+import 'package:url_launcher/url_launcher.dart';
 
 class RestaurantPage extends StatefulWidget {
   final String id;
@@ -269,18 +270,25 @@ class _RestaurantPageState extends State<RestaurantPage> {
                 width: 20,
               ),
               label: "Web",
-              onTap: () {}),
+              onTap: () {
+                launchUrl(Uri.parse("https://aayurtshrestha.com.np/"));
+              }),
           SpeedDialChild(
               child: const Icon(Icons.facebook),
               label: "Facebook",
-              onTap: () {}),
+              onTap: () {
+                launchUrl(Uri.parse(
+                    "https://www.facebook.com/profile.php?id=100011115003487"));
+              }),
           SpeedDialChild(
               child: Image.asset(
                 "assets/icons/instagram.png",
                 width: 20,
               ),
               label: "Instagram",
-              onTap: () {}),
+              onTap: () {
+                launchUrl(Uri.parse("https://www.instagram.com/_manish_grg_/"));
+              }),
         ],
       ),
     );
