@@ -90,9 +90,6 @@ class _DashboardMapViewState extends State<DashboardMapView> {
       //   position: LatLng(value.latitude ?? 0, value.longitude ?? 0),
       // ));
       localVal = value;
-      print("!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!");
-      print("${value.latitude}  ${value.longitude}");
-      print("!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!");
       CameraPosition cameraPosition = CameraPosition(
         target: LatLng(value.latitude ?? 0, value.longitude ?? 0),
         zoom: 14,
