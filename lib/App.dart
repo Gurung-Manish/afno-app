@@ -10,6 +10,10 @@ class App extends StatelessWidget {
       title: "Afno App",
       debugShowCheckedModeBanner: false,
       home: MaterialApp.router(
+        theme: ThemeData(
+          primaryColor:
+              const Color(0xFFFFCC00), // Set your custom primary color here
+        ),
         title: "Afno App",
         debugShowCheckedModeBanner: false,
         routerConfig: Routes.router,

@@ -30,7 +30,7 @@ class Routes {
         ),
         GoRoute(
           path: RoutesConstant.onboarding,
-          builder: (context, state) => const OnboardingPage(),
+          builder: (context, state) => OnboardingPage(),
         ),
         GoRoute(
           path: RoutesConstant.login,
