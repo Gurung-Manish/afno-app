@@ -5,4 +5,5 @@ class RoutesConstant {
   static String register = "/register";
   static String profile = "/profile";
   static String restaurant = "/restaurant";
+  static String onboarding = "/onboarding";
 }
