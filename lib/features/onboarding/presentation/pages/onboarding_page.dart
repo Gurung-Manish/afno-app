@@ -8,27 +8,31 @@ class OnboardingPage extends StatelessWidget {
   OnboardingPage({super.key});
   final List<Introduction> list = [
     Introduction(
+      subTitleTextStyle: const TextStyle(fontSize: 16, color: Colors.grey),
       title: 'Discover',
       subTitle:
-          'Discover the best of Nepali cuisine right around you.\nAfno-App makes exploring hidden flavors a delightful journey.',
+          'Discover the best of Nepali cuisine right around you. Afno-App makes exploring hidden flavors a delightful journey.',
       imageUrl: 'assets/images/community.png',
     ),
     Introduction(
+      subTitleTextStyle: const TextStyle(fontSize: 16, color: Colors.grey),
       title: 'Cherish Moments',
       subTitle:
-          'Create heartwarming moments even far from home.\nAfno-App brings Nepal close to you.',
+          'Create heartwarming moments even far from home. Afno-App brings Nepal close to you.',
       imageUrl: 'assets/images/community.png',
     ),
     Introduction(
+      subTitleTextStyle: const TextStyle(fontSize: 16, color: Colors.grey),
       title: 'Connect',
       subTitle:
-          'Connect with your roots and fellow Nepali souls wherever you go.\nAfno-App bridging gap, one heart at a time.',
+          'Connect with your roots and fellow Nepali souls wherever you go. Afno-App bridging gap, one heart at a time.',
       imageUrl: 'assets/images/community.png',
     ),
     Introduction(
+      subTitleTextStyle: const TextStyle(fontSize: 16, color: Colors.grey),
       title: 'Savor Traditions',
       subTitle:
-          'Savor the rich traditions of Nepal, even far from the Himalayas.\nEnsuring you don`t miss single bite from home.',
+          'Savor the rich traditions of Nepal, even far from the Himalayas. Ensuring you don`t miss single bite from home.',
       imageUrl: 'assets/images/traditions.png',
     ),
   ];
