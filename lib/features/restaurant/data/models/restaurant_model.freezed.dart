@@ -15,28 +15,74 @@ final _privateConstructorUsedError = UnsupportedError(
     'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
 
 RestaurantModel _$RestaurantModelFromJson(Map<String, dynamic> json) {
-  return _RestaurantModel.fromJson(json);
+  return _Restaurant.fromJson(json);
 }
 
 /// @nodoc
 mixin _$RestaurantModel {
-  int get id => throw _privateConstructorUsedError;
+  @JsonKey(name: 'id')
+  int? get id => throw _privateConstructorUsedError;
+  @JsonKey(name: 'title')
   String? get title => throw _privateConstructorUsedError;
+  @JsonKey(name: 'sub_title')
+  String? get subTitle => throw _privateConstructorUsedError;
+  @JsonKey(name: 'description')
   String? get description => throw _privateConstructorUsedError;
-  String? get facebook => throw _privateConstructorUsedError;
-  String? get website => throw _privateConstructorUsedError;
+  @JsonKey(name: 'enabled')
+  String? get enabled => throw _privateConstructorUsedError;
+  @JsonKey(name: 'phone_number')
+  String? get phoneNumber => throw _privateConstructorUsedError;
+  @JsonKey(name: 'alternate_phone_number')
+  String? get alternatePhoneNumber => throw _privateConstructorUsedError;
+  @JsonKey(name: 'link')
+  String? get link => throw _privateConstructorUsedError;
+  @JsonKey(name: 'email')
+  String? get email => throw _privateConstructorUsedError;
+  @JsonKey(name: 'instagram')
   String? get instagram => throw _privateConstructorUsedError;
-  String? get contact => throw _privateConstructorUsedError;
-  int? get enabled => throw _privateConstructorUsedError;
-  double? get latitude => throw _privateConstructorUsedError;
-  double? get longitude => throw _privateConstructorUsedError;
-  List<Media>? get media => throw _privateConstructorUsedError;
+  @JsonKey(name: 'facebook')
+  String? get facebook => throw _privateConstructorUsedError;
+  @JsonKey(name: 'youtube')
+  String? get youtube => throw _privateConstructorUsedError;
+  @JsonKey(name: 'latitude')
+  String? get latitude => throw _privateConstructorUsedError;
+  @JsonKey(name: 'longitude')
+  String? get longitude => throw _privateConstructorUsedError;
+  @JsonKey(name: 'monday_open_time')
+  String? get mondayOpenTime => throw _privateConstructorUsedError;
+  @JsonKey(name: 'monday_close_time')
+  String? get mondayCloseTime => throw _privateConstructorUsedError;
+  @JsonKey(name: 'tuesday_open_time')
+  String? get tuesdayOpenTime => throw _privateConstructorUsedError;
+  @JsonKey(name: 'tuesday_close_time')
+  String? get tuesdayCloseTime => throw _privateConstructorUsedError;
+  @JsonKey(name: 'wednesday_open_time')
+  String? get wednesdayOpenTime => throw _privateConstructorUsedError;
+  @JsonKey(name: 'wednesday_close_time')
+  String? get wednesdayCloseTime => throw _privateConstructorUsedError;
+  @JsonKey(name: 'thursday_open_time')
+  String? get thursdayOpenTime => throw _privateConstructorUsedError;
+  @JsonKey(name: 'thursday_close_time')
+  String? get thursdayCloseTime => throw _privateConstructorUsedError;
+  @JsonKey(name: 'friday_open_time')
+  String? get fridayOpenTime => throw _privateConstructorUsedError;
+  @JsonKey(name: 'friday_close_time')
+  String? get fridayCloseTime => throw _privateConstructorUsedError;
+  @JsonKey(name: 'saturday_open_time')
+  String? get saturdayOpenTime => throw _privateConstructorUsedError;
+  @JsonKey(name: 'saturday_close_time')
+  String? get saturdayCloseTime => throw _privateConstructorUsedError;
+  @JsonKey(name: 'sunday_open_time')
+  String? get sundayOpenTime => throw _privateConstructorUsedError;
+  @JsonKey(name: 'sunday_close_time')
+  String? get sundayCloseTime => throw _privateConstructorUsedError;
   @JsonKey(name: 'created_at')
-  String get createdAt => throw _privateConstructorUsedError;
+  String? get createdAt => throw _privateConstructorUsedError;
   @JsonKey(name: 'updated_at')
-  String get updatedAt => throw _privateConstructorUsedError;
+  String? get updatedAt => throw _privateConstructorUsedError;
   @JsonKey(name: 'resource_url')
-  String get resourceUrl => throw _privateConstructorUsedError;
+  String? get resourceUrl => throw _privateConstructorUsedError;
+  List<Media>? get media => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -51,20 +97,38 @@ abstract class $RestaurantModelCopyWith<$Res> {
       _$RestaurantModelCopyWithImpl<$Res, RestaurantModel>;
   @useResult
   $Res call(
-      {int id,
-      String? title,
-      String? description,
-      String? facebook,
-      String? website,
-      String? instagram,
-      String? contact,
-      int? enabled,
-      double? latitude,
-      double? longitude,
-      List<Media>? media,
-      @JsonKey(name: 'created_at') String createdAt,
-      @JsonKey(name: 'updated_at') String updatedAt,
-      @JsonKey(name: 'resource_url') String resourceUrl});
+      {@JsonKey(name: 'id') int? id,
+      @JsonKey(name: 'title') String? title,
+      @JsonKey(name: 'sub_title') String? subTitle,
+      @JsonKey(name: 'description') String? description,
+      @JsonKey(name: 'enabled') String? enabled,
+      @JsonKey(name: 'phone_number') String? phoneNumber,
+      @JsonKey(name: 'alternate_phone_number') String? alternatePhoneNumber,
+      @JsonKey(name: 'link') String? link,
+      @JsonKey(name: 'email') String? email,
+      @JsonKey(name: 'instagram') String? instagram,
+      @JsonKey(name: 'facebook') String? facebook,
+      @JsonKey(name: 'youtube') String? youtube,
+      @JsonKey(name: 'latitude') String? latitude,
+      @JsonKey(name: 'longitude') String? longitude,
+      @JsonKey(name: 'monday_open_time') String? mondayOpenTime,
+      @JsonKey(name: 'monday_close_time') String? mondayCloseTime,
+      @JsonKey(name: 'tuesday_open_time') String? tuesdayOpenTime,
+      @JsonKey(name: 'tuesday_close_time') String? tuesdayCloseTime,
+      @JsonKey(name: 'wednesday_open_time') String? wednesdayOpenTime,
+      @JsonKey(name: 'wednesday_close_time') String? wednesdayCloseTime,
+      @JsonKey(name: 'thursday_open_time') String? thursdayOpenTime,
+      @JsonKey(name: 'thursday_close_time') String? thursdayCloseTime,
+      @JsonKey(name: 'friday_open_time') String? fridayOpenTime,
+      @JsonKey(name: 'friday_close_time') String? fridayCloseTime,
+      @JsonKey(name: 'saturday_open_time') String? saturdayOpenTime,
+      @JsonKey(name: 'saturday_close_time') String? saturdayCloseTime,
+      @JsonKey(name: 'sunday_open_time') String? sundayOpenTime,
+      @JsonKey(name: 'sunday_close_time') String? sundayCloseTime,
+      @JsonKey(name: 'created_at') String? createdAt,
+      @JsonKey(name: 'updated_at') String? updatedAt,
+      @JsonKey(name: 'resource_url') String? resourceUrl,
+      List<Media>? media});
 }
 
 /// @nodoc
@@ -80,237 +144,526 @@ class _$RestaurantModelCopyWithImpl<$Res, $Val extends RestaurantModel>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? id = null,
+    Object? id = freezed,
     Object? title = freezed,
+    Object? subTitle = freezed,
     Object? description = freezed,
-    Object? facebook = freezed,
-    Object? website = freezed,
-    Object? instagram = freezed,
-    Object? contact = freezed,
     Object? enabled = freezed,
+    Object? phoneNumber = freezed,
+    Object? alternatePhoneNumber = freezed,
+    Object? link = freezed,
+    Object? email = freezed,
+    Object? instagram = freezed,
+    Object? facebook = freezed,
+    Object? youtube = freezed,
     Object? latitude = freezed,
     Object? longitude = freezed,
+    Object? mondayOpenTime = freezed,
+    Object? mondayCloseTime = freezed,
+    Object? tuesdayOpenTime = freezed,
+    Object? tuesdayCloseTime = freezed,
+    Object? wednesdayOpenTime = freezed,
+    Object? wednesdayCloseTime = freezed,
+    Object? thursdayOpenTime = freezed,
+    Object? thursdayCloseTime = freezed,
+    Object? fridayOpenTime = freezed,
+    Object? fridayCloseTime = freezed,
+    Object? saturdayOpenTime = freezed,
+    Object? saturdayCloseTime = freezed,
+    Object? sundayOpenTime = freezed,
+    Object? sundayCloseTime = freezed,
+    Object? createdAt = freezed,
+    Object? updatedAt = freezed,
+    Object? resourceUrl = freezed,
     Object? media = freezed,
-    Object? createdAt = null,
-    Object? updatedAt = null,
-    Object? resourceUrl = null,
   }) {
     return _then(_value.copyWith(
-      id: null == id
+      id: freezed == id
           ? _value.id
           : id // ignore: cast_nullable_to_non_nullable
-              as int,
+              as int?,
       title: freezed == title
           ? _value.title
           : title // ignore: cast_nullable_to_non_nullable
+              as String?,
+      subTitle: freezed == subTitle
+          ? _value.subTitle
+          : subTitle // ignore: cast_nullable_to_non_nullable
               as String?,
       description: freezed == description
           ? _value.description
           : description // ignore: cast_nullable_to_non_nullable
               as String?,
-      facebook: freezed == facebook
-          ? _value.facebook
-          : facebook // ignore: cast_nullable_to_non_nullable
+      enabled: freezed == enabled
+          ? _value.enabled
+          : enabled // ignore: cast_nullable_to_non_nullable
               as String?,
-      website: freezed == website
-          ? _value.website
-          : website // ignore: cast_nullable_to_non_nullable
+      phoneNumber: freezed == phoneNumber
+          ? _value.phoneNumber
+          : phoneNumber // ignore: cast_nullable_to_non_nullable
+              as String?,
+      alternatePhoneNumber: freezed == alternatePhoneNumber
+          ? _value.alternatePhoneNumber
+          : alternatePhoneNumber // ignore: cast_nullable_to_non_nullable
+              as String?,
+      link: freezed == link
+          ? _value.link
+          : link // ignore: cast_nullable_to_non_nullable
+              as String?,
+      email: freezed == email
+          ? _value.email
+          : email // ignore: cast_nullable_to_non_nullable
               as String?,
       instagram: freezed == instagram
           ? _value.instagram
           : instagram // ignore: cast_nullable_to_non_nullable
               as String?,
-      contact: freezed == contact
-          ? _value.contact
-          : contact // ignore: cast_nullable_to_non_nullable
+      facebook: freezed == facebook
+          ? _value.facebook
+          : facebook // ignore: cast_nullable_to_non_nullable
               as String?,
-      enabled: freezed == enabled
-          ? _value.enabled
-          : enabled // ignore: cast_nullable_to_non_nullable
-              as int?,
+      youtube: freezed == youtube
+          ? _value.youtube
+          : youtube // ignore: cast_nullable_to_non_nullable
+              as String?,
       latitude: freezed == latitude
           ? _value.latitude
           : latitude // ignore: cast_nullable_to_non_nullable
-              as double?,
+              as String?,
       longitude: freezed == longitude
           ? _value.longitude
           : longitude // ignore: cast_nullable_to_non_nullable
-              as double?,
+              as String?,
+      mondayOpenTime: freezed == mondayOpenTime
+          ? _value.mondayOpenTime
+          : mondayOpenTime // ignore: cast_nullable_to_non_nullable
+              as String?,
+      mondayCloseTime: freezed == mondayCloseTime
+          ? _value.mondayCloseTime
+          : mondayCloseTime // ignore: cast_nullable_to_non_nullable
+              as String?,
+      tuesdayOpenTime: freezed == tuesdayOpenTime
+          ? _value.tuesdayOpenTime
+          : tuesdayOpenTime // ignore: cast_nullable_to_non_nullable
+              as String?,
+      tuesdayCloseTime: freezed == tuesdayCloseTime
+          ? _value.tuesdayCloseTime
+          : tuesdayCloseTime // ignore: cast_nullable_to_non_nullable
+              as String?,
+      wednesdayOpenTime: freezed == wednesdayOpenTime
+          ? _value.wednesdayOpenTime
+          : wednesdayOpenTime // ignore: cast_nullable_to_non_nullable
+              as String?,
+      wednesdayCloseTime: freezed == wednesdayCloseTime
+          ? _value.wednesdayCloseTime
+          : wednesdayCloseTime // ignore: cast_nullable_to_non_nullable
+              as String?,
+      thursdayOpenTime: freezed == thursdayOpenTime
+          ? _value.thursdayOpenTime
+          : thursdayOpenTime // ignore: cast_nullable_to_non_nullable
+              as String?,
+      thursdayCloseTime: freezed == thursdayCloseTime
+          ? _value.thursdayCloseTime
+          : thursdayCloseTime // ignore: cast_nullable_to_non_nullable
+              as String?,
+      fridayOpenTime: freezed == fridayOpenTime
+          ? _value.fridayOpenTime
+          : fridayOpenTime // ignore: cast_nullable_to_non_nullable
+              as String?,
+      fridayCloseTime: freezed == fridayCloseTime
+          ? _value.fridayCloseTime
+          : fridayCloseTime // ignore: cast_nullable_to_non_nullable
+              as String?,
+      saturdayOpenTime: freezed == saturdayOpenTime
+          ? _value.saturdayOpenTime
+          : saturdayOpenTime // ignore: cast_nullable_to_non_nullable
+              as String?,
+      saturdayCloseTime: freezed == saturdayCloseTime
+          ? _value.saturdayCloseTime
+          : saturdayCloseTime // ignore: cast_nullable_to_non_nullable
+              as String?,
+      sundayOpenTime: freezed == sundayOpenTime
+          ? _value.sundayOpenTime
+          : sundayOpenTime // ignore: cast_nullable_to_non_nullable
+              as String?,
+      sundayCloseTime: freezed == sundayCloseTime
+          ? _value.sundayCloseTime
+          : sundayCloseTime // ignore: cast_nullable_to_non_nullable
+              as String?,
+      createdAt: freezed == createdAt
+          ? _value.createdAt
+          : createdAt // ignore: cast_nullable_to_non_nullable
+              as String?,
+      updatedAt: freezed == updatedAt
+          ? _value.updatedAt
+          : updatedAt // ignore: cast_nullable_to_non_nullable
+              as String?,
+      resourceUrl: freezed == resourceUrl
+          ? _value.resourceUrl
+          : resourceUrl // ignore: cast_nullable_to_non_nullable
+              as String?,
       media: freezed == media
           ? _value.media
           : media // ignore: cast_nullable_to_non_nullable
               as List<Media>?,
-      createdAt: null == createdAt
-          ? _value.createdAt
-          : createdAt // ignore: cast_nullable_to_non_nullable
-              as String,
-      updatedAt: null == updatedAt
-          ? _value.updatedAt
-          : updatedAt // ignore: cast_nullable_to_non_nullable
-              as String,
-      resourceUrl: null == resourceUrl
-          ? _value.resourceUrl
-          : resourceUrl // ignore: cast_nullable_to_non_nullable
-              as String,
     ) as $Val);
   }
 }
 
 /// @nodoc
-abstract class _$$_RestaurantModelCopyWith<$Res>
+abstract class _$$_RestaurantCopyWith<$Res>
     implements $RestaurantModelCopyWith<$Res> {
-  factory _$$_RestaurantModelCopyWith(
-          _$_RestaurantModel value, $Res Function(_$_RestaurantModel) then) =
-      __$$_RestaurantModelCopyWithImpl<$Res>;
+  factory _$$_RestaurantCopyWith(
+          _$_Restaurant value, $Res Function(_$_Restaurant) then) =
+      __$$_RestaurantCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call(
-      {int id,
-      String? title,
-      String? description,
-      String? facebook,
-      String? website,
-      String? instagram,
-      String? contact,
-      int? enabled,
-      double? latitude,
-      double? longitude,
-      List<Media>? media,
-      @JsonKey(name: 'created_at') String createdAt,
-      @JsonKey(name: 'updated_at') String updatedAt,
-      @JsonKey(name: 'resource_url') String resourceUrl});
+      {@JsonKey(name: 'id') int? id,
+      @JsonKey(name: 'title') String? title,
+      @JsonKey(name: 'sub_title') String? subTitle,
+      @JsonKey(name: 'description') String? description,
+      @JsonKey(name: 'enabled') String? enabled,
+      @JsonKey(name: 'phone_number') String? phoneNumber,
+      @JsonKey(name: 'alternate_phone_number') String? alternatePhoneNumber,
+      @JsonKey(name: 'link') String? link,
+      @JsonKey(name: 'email') String? email,
+      @JsonKey(name: 'instagram') String? instagram,
+      @JsonKey(name: 'facebook') String? facebook,
+      @JsonKey(name: 'youtube') String? youtube,
+      @JsonKey(name: 'latitude') String? latitude,
+      @JsonKey(name: 'longitude') String? longitude,
+      @JsonKey(name: 'monday_open_time') String? mondayOpenTime,
+      @JsonKey(name: 'monday_close_time') String? mondayCloseTime,
+      @JsonKey(name: 'tuesday_open_time') String? tuesdayOpenTime,
+      @JsonKey(name: 'tuesday_close_time') String? tuesdayCloseTime,
+      @JsonKey(name: 'wednesday_open_time') String? wednesdayOpenTime,
+      @JsonKey(name: 'wednesday_close_time') String? wednesdayCloseTime,
+      @JsonKey(name: 'thursday_open_time') String? thursdayOpenTime,
+      @JsonKey(name: 'thursday_close_time') String? thursdayCloseTime,
+      @JsonKey(name: 'friday_open_time') String? fridayOpenTime,
+      @JsonKey(name: 'friday_close_time') String? fridayCloseTime,
+      @JsonKey(name: 'saturday_open_time') String? saturdayOpenTime,
+      @JsonKey(name: 'saturday_close_time') String? saturdayCloseTime,
+      @JsonKey(name: 'sunday_open_time') String? sundayOpenTime,
+      @JsonKey(name: 'sunday_close_time') String? sundayCloseTime,
+      @JsonKey(name: 'created_at') String? createdAt,
+      @JsonKey(name: 'updated_at') String? updatedAt,
+      @JsonKey(name: 'resource_url') String? resourceUrl,
+      List<Media>? media});
 }
 
 /// @nodoc
-class __$$_RestaurantModelCopyWithImpl<$Res>
-    extends _$RestaurantModelCopyWithImpl<$Res, _$_RestaurantModel>
-    implements _$$_RestaurantModelCopyWith<$Res> {
-  __$$_RestaurantModelCopyWithImpl(
-      _$_RestaurantModel _value, $Res Function(_$_RestaurantModel) _then)
+class __$$_RestaurantCopyWithImpl<$Res>
+    extends _$RestaurantModelCopyWithImpl<$Res, _$_Restaurant>
+    implements _$$_RestaurantCopyWith<$Res> {
+  __$$_RestaurantCopyWithImpl(
+      _$_Restaurant _value, $Res Function(_$_Restaurant) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? id = null,
+    Object? id = freezed,
     Object? title = freezed,
+    Object? subTitle = freezed,
     Object? description = freezed,
-    Object? facebook = freezed,
-    Object? website = freezed,
-    Object? instagram = freezed,
-    Object? contact = freezed,
     Object? enabled = freezed,
+    Object? phoneNumber = freezed,
+    Object? alternatePhoneNumber = freezed,
+    Object? link = freezed,
+    Object? email = freezed,
+    Object? instagram = freezed,
+    Object? facebook = freezed,
+    Object? youtube = freezed,
     Object? latitude = freezed,
     Object? longitude = freezed,
+    Object? mondayOpenTime = freezed,
+    Object? mondayCloseTime = freezed,
+    Object? tuesdayOpenTime = freezed,
+    Object? tuesdayCloseTime = freezed,
+    Object? wednesdayOpenTime = freezed,
+    Object? wednesdayCloseTime = freezed,
+    Object? thursdayOpenTime = freezed,
+    Object? thursdayCloseTime = freezed,
+    Object? fridayOpenTime = freezed,
+    Object? fridayCloseTime = freezed,
+    Object? saturdayOpenTime = freezed,
+    Object? saturdayCloseTime = freezed,
+    Object? sundayOpenTime = freezed,
+    Object? sundayCloseTime = freezed,
+    Object? createdAt = freezed,
+    Object? updatedAt = freezed,
+    Object? resourceUrl = freezed,
     Object? media = freezed,
-    Object? createdAt = null,
-    Object? updatedAt = null,
-    Object? resourceUrl = null,
   }) {
-    return _then(_$_RestaurantModel(
-      id: null == id
+    return _then(_$_Restaurant(
+      id: freezed == id
           ? _value.id
           : id // ignore: cast_nullable_to_non_nullable
-              as int,
+              as int?,
       title: freezed == title
           ? _value.title
           : title // ignore: cast_nullable_to_non_nullable
+              as String?,
+      subTitle: freezed == subTitle
+          ? _value.subTitle
+          : subTitle // ignore: cast_nullable_to_non_nullable
               as String?,
       description: freezed == description
           ? _value.description
           : description // ignore: cast_nullable_to_non_nullable
               as String?,
-      facebook: freezed == facebook
-          ? _value.facebook
-          : facebook // ignore: cast_nullable_to_non_nullable
+      enabled: freezed == enabled
+          ? _value.enabled
+          : enabled // ignore: cast_nullable_to_non_nullable
               as String?,
-      website: freezed == website
-          ? _value.website
-          : website // ignore: cast_nullable_to_non_nullable
+      phoneNumber: freezed == phoneNumber
+          ? _value.phoneNumber
+          : phoneNumber // ignore: cast_nullable_to_non_nullable
+              as String?,
+      alternatePhoneNumber: freezed == alternatePhoneNumber
+          ? _value.alternatePhoneNumber
+          : alternatePhoneNumber // ignore: cast_nullable_to_non_nullable
+              as String?,
+      link: freezed == link
+          ? _value.link
+          : link // ignore: cast_nullable_to_non_nullable
+              as String?,
+      email: freezed == email
+          ? _value.email
+          : email // ignore: cast_nullable_to_non_nullable
               as String?,
       instagram: freezed == instagram
           ? _value.instagram
           : instagram // ignore: cast_nullable_to_non_nullable
               as String?,
-      contact: freezed == contact
-          ? _value.contact
-          : contact // ignore: cast_nullable_to_non_nullable
+      facebook: freezed == facebook
+          ? _value.facebook
+          : facebook // ignore: cast_nullable_to_non_nullable
               as String?,
-      enabled: freezed == enabled
-          ? _value.enabled
-          : enabled // ignore: cast_nullable_to_non_nullable
-              as int?,
+      youtube: freezed == youtube
+          ? _value.youtube
+          : youtube // ignore: cast_nullable_to_non_nullable
+              as String?,
       latitude: freezed == latitude
           ? _value.latitude
           : latitude // ignore: cast_nullable_to_non_nullable
-              as double?,
+              as String?,
       longitude: freezed == longitude
           ? _value.longitude
           : longitude // ignore: cast_nullable_to_non_nullable
-              as double?,
+              as String?,
+      mondayOpenTime: freezed == mondayOpenTime
+          ? _value.mondayOpenTime
+          : mondayOpenTime // ignore: cast_nullable_to_non_nullable
+              as String?,
+      mondayCloseTime: freezed == mondayCloseTime
+          ? _value.mondayCloseTime
+          : mondayCloseTime // ignore: cast_nullable_to_non_nullable
+              as String?,
+      tuesdayOpenTime: freezed == tuesdayOpenTime
+          ? _value.tuesdayOpenTime
+          : tuesdayOpenTime // ignore: cast_nullable_to_non_nullable
+              as String?,
+      tuesdayCloseTime: freezed == tuesdayCloseTime
+          ? _value.tuesdayCloseTime
+          : tuesdayCloseTime // ignore: cast_nullable_to_non_nullable
+              as String?,
+      wednesdayOpenTime: freezed == wednesdayOpenTime
+          ? _value.wednesdayOpenTime
+          : wednesdayOpenTime // ignore: cast_nullable_to_non_nullable
+              as String?,
+      wednesdayCloseTime: freezed == wednesdayCloseTime
+          ? _value.wednesdayCloseTime
+          : wednesdayCloseTime // ignore: cast_nullable_to_non_nullable
+              as String?,
+      thursdayOpenTime: freezed == thursdayOpenTime
+          ? _value.thursdayOpenTime
+          : thursdayOpenTime // ignore: cast_nullable_to_non_nullable
+              as String?,
+      thursdayCloseTime: freezed == thursdayCloseTime
+          ? _value.thursdayCloseTime
+          : thursdayCloseTime // ignore: cast_nullable_to_non_nullable
+              as String?,
+      fridayOpenTime: freezed == fridayOpenTime
+          ? _value.fridayOpenTime
+          : fridayOpenTime // ignore: cast_nullable_to_non_nullable
+              as String?,
+      fridayCloseTime: freezed == fridayCloseTime
+          ? _value.fridayCloseTime
+          : fridayCloseTime // ignore: cast_nullable_to_non_nullable
+              as String?,
+      saturdayOpenTime: freezed == saturdayOpenTime
+          ? _value.saturdayOpenTime
+          : saturdayOpenTime // ignore: cast_nullable_to_non_nullable
+              as String?,
+      saturdayCloseTime: freezed == saturdayCloseTime
+          ? _value.saturdayCloseTime
+          : saturdayCloseTime // ignore: cast_nullable_to_non_nullable
+              as String?,
+      sundayOpenTime: freezed == sundayOpenTime
+          ? _value.sundayOpenTime
+          : sundayOpenTime // ignore: cast_nullable_to_non_nullable
+              as String?,
+      sundayCloseTime: freezed == sundayCloseTime
+          ? _value.sundayCloseTime
+          : sundayCloseTime // ignore: cast_nullable_to_non_nullable
+              as String?,
+      createdAt: freezed == createdAt
+          ? _value.createdAt
+          : createdAt // ignore: cast_nullable_to_non_nullable
+              as String?,
+      updatedAt: freezed == updatedAt
+          ? _value.updatedAt
+          : updatedAt // ignore: cast_nullable_to_non_nullable
+              as String?,
+      resourceUrl: freezed == resourceUrl
+          ? _value.resourceUrl
+          : resourceUrl // ignore: cast_nullable_to_non_nullable
+              as String?,
       media: freezed == media
           ? _value._media
           : media // ignore: cast_nullable_to_non_nullable
               as List<Media>?,
-      createdAt: null == createdAt
-          ? _value.createdAt
-          : createdAt // ignore: cast_nullable_to_non_nullable
-              as String,
-      updatedAt: null == updatedAt
-          ? _value.updatedAt
-          : updatedAt // ignore: cast_nullable_to_non_nullable
-              as String,
-      resourceUrl: null == resourceUrl
-          ? _value.resourceUrl
-          : resourceUrl // ignore: cast_nullable_to_non_nullable
-              as String,
     ));
   }
 }
 
 /// @nodoc
 @JsonSerializable()
-class _$_RestaurantModel implements _RestaurantModel {
-  const _$_RestaurantModel(
-      {required this.id,
-      this.title,
-      this.description,
-      this.facebook,
-      this.website,
-      this.instagram,
-      this.contact,
-      this.enabled,
-      this.latitude,
-      this.longitude,
-      final List<Media>? media,
-      @JsonKey(name: 'created_at') required this.createdAt,
-      @JsonKey(name: 'updated_at') required this.updatedAt,
-      @JsonKey(name: 'resource_url') required this.resourceUrl})
+class _$_Restaurant implements _Restaurant {
+  const _$_Restaurant(
+      {@JsonKey(name: 'id') this.id,
+      @JsonKey(name: 'title') this.title,
+      @JsonKey(name: 'sub_title') this.subTitle,
+      @JsonKey(name: 'description') this.description,
+      @JsonKey(name: 'enabled') this.enabled,
+      @JsonKey(name: 'phone_number') this.phoneNumber,
+      @JsonKey(name: 'alternate_phone_number') this.alternatePhoneNumber,
+      @JsonKey(name: 'link') this.link,
+      @JsonKey(name: 'email') this.email,
+      @JsonKey(name: 'instagram') this.instagram,
+      @JsonKey(name: 'facebook') this.facebook,
+      @JsonKey(name: 'youtube') this.youtube,
+      @JsonKey(name: 'latitude') this.latitude,
+      @JsonKey(name: 'longitude') this.longitude,
+      @JsonKey(name: 'monday_open_time') this.mondayOpenTime,
+      @JsonKey(name: 'monday_close_time') this.mondayCloseTime,
+      @JsonKey(name: 'tuesday_open_time') this.tuesdayOpenTime,
+      @JsonKey(name: 'tuesday_close_time') this.tuesdayCloseTime,
+      @JsonKey(name: 'wednesday_open_time') this.wednesdayOpenTime,
+      @JsonKey(name: 'wednesday_close_time') this.wednesdayCloseTime,
+      @JsonKey(name: 'thursday_open_time') this.thursdayOpenTime,
+      @JsonKey(name: 'thursday_close_time') this.thursdayCloseTime,
+      @JsonKey(name: 'friday_open_time') this.fridayOpenTime,
+      @JsonKey(name: 'friday_close_time') this.fridayCloseTime,
+      @JsonKey(name: 'saturday_open_time') this.saturdayOpenTime,
+      @JsonKey(name: 'saturday_close_time') this.saturdayCloseTime,
+      @JsonKey(name: 'sunday_open_time') this.sundayOpenTime,
+      @JsonKey(name: 'sunday_close_time') this.sundayCloseTime,
+      @JsonKey(name: 'created_at') this.createdAt,
+      @JsonKey(name: 'updated_at') this.updatedAt,
+      @JsonKey(name: 'resource_url') this.resourceUrl,
+      final List<Media>? media})
       : _media = media;
 
-  factory _$_RestaurantModel.fromJson(Map<String, dynamic> json) =>
-      _$$_RestaurantModelFromJson(json);
+  factory _$_Restaurant.fromJson(Map<String, dynamic> json) =>
+      _$$_RestaurantFromJson(json);
 
   @override
-  final int id;
+  @JsonKey(name: 'id')
+  final int? id;
   @override
+  @JsonKey(name: 'title')
   final String? title;
   @override
+  @JsonKey(name: 'sub_title')
+  final String? subTitle;
+  @override
+  @JsonKey(name: 'description')
   final String? description;
   @override
-  final String? facebook;
+  @JsonKey(name: 'enabled')
+  final String? enabled;
   @override
-  final String? website;
+  @JsonKey(name: 'phone_number')
+  final String? phoneNumber;
   @override
+  @JsonKey(name: 'alternate_phone_number')
+  final String? alternatePhoneNumber;
+  @override
+  @JsonKey(name: 'link')
+  final String? link;
+  @override
+  @JsonKey(name: 'email')
+  final String? email;
+  @override
+  @JsonKey(name: 'instagram')
   final String? instagram;
   @override
-  final String? contact;
+  @JsonKey(name: 'facebook')
+  final String? facebook;
   @override
-  final int? enabled;
+  @JsonKey(name: 'youtube')
+  final String? youtube;
   @override
-  final double? latitude;
+  @JsonKey(name: 'latitude')
+  final String? latitude;
   @override
-  final double? longitude;
+  @JsonKey(name: 'longitude')
+  final String? longitude;
+  @override
+  @JsonKey(name: 'monday_open_time')
+  final String? mondayOpenTime;
+  @override
+  @JsonKey(name: 'monday_close_time')
+  final String? mondayCloseTime;
+  @override
+  @JsonKey(name: 'tuesday_open_time')
+  final String? tuesdayOpenTime;
+  @override
+  @JsonKey(name: 'tuesday_close_time')
+  final String? tuesdayCloseTime;
+  @override
+  @JsonKey(name: 'wednesday_open_time')
+  final String? wednesdayOpenTime;
+  @override
+  @JsonKey(name: 'wednesday_close_time')
+  final String? wednesdayCloseTime;
+  @override
+  @JsonKey(name: 'thursday_open_time')
+  final String? thursdayOpenTime;
+  @override
+  @JsonKey(name: 'thursday_close_time')
+  final String? thursdayCloseTime;
+  @override
+  @JsonKey(name: 'friday_open_time')
+  final String? fridayOpenTime;
+  @override
+  @JsonKey(name: 'friday_close_time')
+  final String? fridayCloseTime;
+  @override
+  @JsonKey(name: 'saturday_open_time')
+  final String? saturdayOpenTime;
+  @override
+  @JsonKey(name: 'saturday_close_time')
+  final String? saturdayCloseTime;
+  @override
+  @JsonKey(name: 'sunday_open_time')
+  final String? sundayOpenTime;
+  @override
+  @JsonKey(name: 'sunday_close_time')
+  final String? sundayCloseTime;
+  @override
+  @JsonKey(name: 'created_at')
+  final String? createdAt;
+  @override
+  @JsonKey(name: 'updated_at')
+  final String? updatedAt;
+  @override
+  @JsonKey(name: 'resource_url')
+  final String? resourceUrl;
   final List<Media>? _media;
   @override
   List<Media>? get media {
@@ -322,137 +675,263 @@ class _$_RestaurantModel implements _RestaurantModel {
   }
 
   @override
-  @JsonKey(name: 'created_at')
-  final String createdAt;
-  @override
-  @JsonKey(name: 'updated_at')
-  final String updatedAt;
-  @override
-  @JsonKey(name: 'resource_url')
-  final String resourceUrl;
-
-  @override
   String toString() {
-    return 'RestaurantModel(id: $id, title: $title, description: $description, facebook: $facebook, website: $website, instagram: $instagram, contact: $contact, enabled: $enabled, latitude: $latitude, longitude: $longitude, media: $media, createdAt: $createdAt, updatedAt: $updatedAt, resourceUrl: $resourceUrl)';
+    return 'RestaurantModel(id: $id, title: $title, subTitle: $subTitle, description: $description, enabled: $enabled, phoneNumber: $phoneNumber, alternatePhoneNumber: $alternatePhoneNumber, link: $link, email: $email, instagram: $instagram, facebook: $facebook, youtube: $youtube, latitude: $latitude, longitude: $longitude, mondayOpenTime: $mondayOpenTime, mondayCloseTime: $mondayCloseTime, tuesdayOpenTime: $tuesdayOpenTime, tuesdayCloseTime: $tuesdayCloseTime, wednesdayOpenTime: $wednesdayOpenTime, wednesdayCloseTime: $wednesdayCloseTime, thursdayOpenTime: $thursdayOpenTime, thursdayCloseTime: $thursdayCloseTime, fridayOpenTime: $fridayOpenTime, fridayCloseTime: $fridayCloseTime, saturdayOpenTime: $saturdayOpenTime, saturdayCloseTime: $saturdayCloseTime, sundayOpenTime: $sundayOpenTime, sundayCloseTime: $sundayCloseTime, createdAt: $createdAt, updatedAt: $updatedAt, resourceUrl: $resourceUrl, media: $media)';
   }
 
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_RestaurantModel &&
+            other is _$_Restaurant &&
             (identical(other.id, id) || other.id == id) &&
             (identical(other.title, title) || other.title == title) &&
+            (identical(other.subTitle, subTitle) ||
+                other.subTitle == subTitle) &&
             (identical(other.description, description) ||
                 other.description == description) &&
-            (identical(other.facebook, facebook) ||
-                other.facebook == facebook) &&
-            (identical(other.website, website) || other.website == website) &&
+            (identical(other.enabled, enabled) || other.enabled == enabled) &&
+            (identical(other.phoneNumber, phoneNumber) ||
+                other.phoneNumber == phoneNumber) &&
+            (identical(other.alternatePhoneNumber, alternatePhoneNumber) ||
+                other.alternatePhoneNumber == alternatePhoneNumber) &&
+            (identical(other.link, link) || other.link == link) &&
+            (identical(other.email, email) || other.email == email) &&
             (identical(other.instagram, instagram) ||
                 other.instagram == instagram) &&
-            (identical(other.contact, contact) || other.contact == contact) &&
-            (identical(other.enabled, enabled) || other.enabled == enabled) &&
+            (identical(other.facebook, facebook) ||
+                other.facebook == facebook) &&
+            (identical(other.youtube, youtube) || other.youtube == youtube) &&
             (identical(other.latitude, latitude) ||
                 other.latitude == latitude) &&
             (identical(other.longitude, longitude) ||
                 other.longitude == longitude) &&
-            const DeepCollectionEquality().equals(other._media, _media) &&
+            (identical(other.mondayOpenTime, mondayOpenTime) ||
+                other.mondayOpenTime == mondayOpenTime) &&
+            (identical(other.mondayCloseTime, mondayCloseTime) ||
+                other.mondayCloseTime == mondayCloseTime) &&
+            (identical(other.tuesdayOpenTime, tuesdayOpenTime) ||
+                other.tuesdayOpenTime == tuesdayOpenTime) &&
+            (identical(other.tuesdayCloseTime, tuesdayCloseTime) ||
+                other.tuesdayCloseTime == tuesdayCloseTime) &&
+            (identical(other.wednesdayOpenTime, wednesdayOpenTime) ||
+                other.wednesdayOpenTime == wednesdayOpenTime) &&
+            (identical(other.wednesdayCloseTime, wednesdayCloseTime) ||
+                other.wednesdayCloseTime == wednesdayCloseTime) &&
+            (identical(other.thursdayOpenTime, thursdayOpenTime) ||
+                other.thursdayOpenTime == thursdayOpenTime) &&
+            (identical(other.thursdayCloseTime, thursdayCloseTime) ||
+                other.thursdayCloseTime == thursdayCloseTime) &&
+            (identical(other.fridayOpenTime, fridayOpenTime) ||
+                other.fridayOpenTime == fridayOpenTime) &&
+            (identical(other.fridayCloseTime, fridayCloseTime) ||
+                other.fridayCloseTime == fridayCloseTime) &&
+            (identical(other.saturdayOpenTime, saturdayOpenTime) ||
+                other.saturdayOpenTime == saturdayOpenTime) &&
+            (identical(other.saturdayCloseTime, saturdayCloseTime) ||
+                other.saturdayCloseTime == saturdayCloseTime) &&
+            (identical(other.sundayOpenTime, sundayOpenTime) ||
+                other.sundayOpenTime == sundayOpenTime) &&
+            (identical(other.sundayCloseTime, sundayCloseTime) ||
+                other.sundayCloseTime == sundayCloseTime) &&
             (identical(other.createdAt, createdAt) ||
                 other.createdAt == createdAt) &&
             (identical(other.updatedAt, updatedAt) ||
                 other.updatedAt == updatedAt) &&
             (identical(other.resourceUrl, resourceUrl) ||
-                other.resourceUrl == resourceUrl));
+                other.resourceUrl == resourceUrl) &&
+            const DeepCollectionEquality().equals(other._media, _media));
   }
 
   @JsonKey(ignore: true)
   @override
-  int get hashCode => Object.hash(
-      runtimeType,
-      id,
-      title,
-      description,
-      facebook,
-      website,
-      instagram,
-      contact,
-      enabled,
-      latitude,
-      longitude,
-      const DeepCollectionEquality().hash(_media),
-      createdAt,
-      updatedAt,
-      resourceUrl);
+  int get hashCode => Object.hashAll([
+        runtimeType,
+        id,
+        title,
+        subTitle,
+        description,
+        enabled,
+        phoneNumber,
+        alternatePhoneNumber,
+        link,
+        email,
+        instagram,
+        facebook,
+        youtube,
+        latitude,
+        longitude,
+        mondayOpenTime,
+        mondayCloseTime,
+        tuesdayOpenTime,
+        tuesdayCloseTime,
+        wednesdayOpenTime,
+        wednesdayCloseTime,
+        thursdayOpenTime,
+        thursdayCloseTime,
+        fridayOpenTime,
+        fridayCloseTime,
+        saturdayOpenTime,
+        saturdayCloseTime,
+        sundayOpenTime,
+        sundayCloseTime,
+        createdAt,
+        updatedAt,
+        resourceUrl,
+        const DeepCollectionEquality().hash(_media)
+      ]);
 
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$_RestaurantModelCopyWith<_$_RestaurantModel> get copyWith =>
-      __$$_RestaurantModelCopyWithImpl<_$_RestaurantModel>(this, _$identity);
+  _$$_RestaurantCopyWith<_$_Restaurant> get copyWith =>
+      __$$_RestaurantCopyWithImpl<_$_Restaurant>(this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$_RestaurantModelToJson(
+    return _$$_RestaurantToJson(
       this,
     );
   }
 }
 
-abstract class _RestaurantModel implements RestaurantModel {
-  const factory _RestaurantModel(
-          {required final int id,
-          final String? title,
-          final String? description,
-          final String? facebook,
-          final String? website,
-          final String? instagram,
-          final String? contact,
-          final int? enabled,
-          final double? latitude,
-          final double? longitude,
-          final List<Media>? media,
-          @JsonKey(name: 'created_at') required final String createdAt,
-          @JsonKey(name: 'updated_at') required final String updatedAt,
-          @JsonKey(name: 'resource_url') required final String resourceUrl}) =
-      _$_RestaurantModel;
+abstract class _Restaurant implements RestaurantModel {
+  const factory _Restaurant(
+      {@JsonKey(name: 'id') final int? id,
+      @JsonKey(name: 'title') final String? title,
+      @JsonKey(name: 'sub_title') final String? subTitle,
+      @JsonKey(name: 'description') final String? description,
+      @JsonKey(name: 'enabled') final String? enabled,
+      @JsonKey(name: 'phone_number') final String? phoneNumber,
+      @JsonKey(name: 'alternate_phone_number')
+      final String? alternatePhoneNumber,
+      @JsonKey(name: 'link') final String? link,
+      @JsonKey(name: 'email') final String? email,
+      @JsonKey(name: 'instagram') final String? instagram,
+      @JsonKey(name: 'facebook') final String? facebook,
+      @JsonKey(name: 'youtube') final String? youtube,
+      @JsonKey(name: 'latitude') final String? latitude,
+      @JsonKey(name: 'longitude') final String? longitude,
+      @JsonKey(name: 'monday_open_time') final String? mondayOpenTime,
+      @JsonKey(name: 'monday_close_time') final String? mondayCloseTime,
+      @JsonKey(name: 'tuesday_open_time') final String? tuesdayOpenTime,
+      @JsonKey(name: 'tuesday_close_time') final String? tuesdayCloseTime,
+      @JsonKey(name: 'wednesday_open_time') final String? wednesdayOpenTime,
+      @JsonKey(name: 'wednesday_close_time') final String? wednesdayCloseTime,
+      @JsonKey(name: 'thursday_open_time') final String? thursdayOpenTime,
+      @JsonKey(name: 'thursday_close_time') final String? thursdayCloseTime,
+      @JsonKey(name: 'friday_open_time') final String? fridayOpenTime,
+      @JsonKey(name: 'friday_close_time') final String? fridayCloseTime,
+      @JsonKey(name: 'saturday_open_time') final String? saturdayOpenTime,
+      @JsonKey(name: 'saturday_close_time') final String? saturdayCloseTime,
+      @JsonKey(name: 'sunday_open_time') final String? sundayOpenTime,
+      @JsonKey(name: 'sunday_close_time') final String? sundayCloseTime,
+      @JsonKey(name: 'created_at') final String? createdAt,
+      @JsonKey(name: 'updated_at') final String? updatedAt,
+      @JsonKey(name: 'resource_url') final String? resourceUrl,
+      final List<Media>? media}) = _$_Restaurant;
 
-  factory _RestaurantModel.fromJson(Map<String, dynamic> json) =
-      _$_RestaurantModel.fromJson;
+  factory _Restaurant.fromJson(Map<String, dynamic> json) =
+      _$_Restaurant.fromJson;
 
   @override
-  int get id;
+  @JsonKey(name: 'id')
+  int? get id;
   @override
+  @JsonKey(name: 'title')
   String? get title;
   @override
+  @JsonKey(name: 'sub_title')
+  String? get subTitle;
+  @override
+  @JsonKey(name: 'description')
   String? get description;
   @override
-  String? get facebook;
+  @JsonKey(name: 'enabled')
+  String? get enabled;
   @override
-  String? get website;
+  @JsonKey(name: 'phone_number')
+  String? get phoneNumber;
   @override
+  @JsonKey(name: 'alternate_phone_number')
+  String? get alternatePhoneNumber;
+  @override
+  @JsonKey(name: 'link')
+  String? get link;
+  @override
+  @JsonKey(name: 'email')
+  String? get email;
+  @override
+  @JsonKey(name: 'instagram')
   String? get instagram;
   @override
-  String? get contact;
+  @JsonKey(name: 'facebook')
+  String? get facebook;
   @override
-  int? get enabled;
+  @JsonKey(name: 'youtube')
+  String? get youtube;
   @override
-  double? get latitude;
+  @JsonKey(name: 'latitude')
+  String? get latitude;
   @override
-  double? get longitude;
+  @JsonKey(name: 'longitude')
+  String? get longitude;
+  @override
+  @JsonKey(name: 'monday_open_time')
+  String? get mondayOpenTime;
+  @override
+  @JsonKey(name: 'monday_close_time')
+  String? get mondayCloseTime;
+  @override
+  @JsonKey(name: 'tuesday_open_time')
+  String? get tuesdayOpenTime;
+  @override
+  @JsonKey(name: 'tuesday_close_time')
+  String? get tuesdayCloseTime;
+  @override
+  @JsonKey(name: 'wednesday_open_time')
+  String? get wednesdayOpenTime;
+  @override
+  @JsonKey(name: 'wednesday_close_time')
+  String? get wednesdayCloseTime;
+  @override
+  @JsonKey(name: 'thursday_open_time')
+  String? get thursdayOpenTime;
+  @override
+  @JsonKey(name: 'thursday_close_time')
+  String? get thursdayCloseTime;
+  @override
+  @JsonKey(name: 'friday_open_time')
+  String? get fridayOpenTime;
+  @override
+  @JsonKey(name: 'friday_close_time')
+  String? get fridayCloseTime;
+  @override
+  @JsonKey(name: 'saturday_open_time')
+  String? get saturdayOpenTime;
+  @override
+  @JsonKey(name: 'saturday_close_time')
+  String? get saturdayCloseTime;
+  @override
+  @JsonKey(name: 'sunday_open_time')
+  String? get sundayOpenTime;
+  @override
+  @JsonKey(name: 'sunday_close_time')
+  String? get sundayCloseTime;
+  @override
+  @JsonKey(name: 'created_at')
+  String? get createdAt;
+  @override
+  @JsonKey(name: 'updated_at')
+  String? get updatedAt;
+  @override
+  @JsonKey(name: 'resource_url')
+  String? get resourceUrl;
   @override
   List<Media>? get media;
   @override
-  @JsonKey(name: 'created_at')
-  String get createdAt;
-  @override
-  @JsonKey(name: 'updated_at')
-  String get updatedAt;
-  @override
-  @JsonKey(name: 'resource_url')
-  String get resourceUrl;
-  @override
   @JsonKey(ignore: true)
-  _$$_RestaurantModelCopyWith<_$_RestaurantModel> get copyWith =>
+  _$$_RestaurantCopyWith<_$_Restaurant> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
@@ -462,38 +941,37 @@ Media _$MediaFromJson(Map<String, dynamic> json) {
 
 /// @nodoc
 mixin _$Media {
-  int get id => throw _privateConstructorUsedError;
+  @JsonKey(name: 'id')
+  int? get id => throw _privateConstructorUsedError;
   @JsonKey(name: 'model_type')
-  String get modelType => throw _privateConstructorUsedError;
+  String? get modelType => throw _privateConstructorUsedError;
   @JsonKey(name: 'model_id')
-  int get modelId => throw _privateConstructorUsedError;
-  String get uuid => throw _privateConstructorUsedError;
+  String? get modelId => throw _privateConstructorUsedError;
   @JsonKey(name: 'collection_name')
   String? get collectionName => throw _privateConstructorUsedError;
+  @JsonKey(name: 'name')
   String? get name => throw _privateConstructorUsedError;
   @JsonKey(name: 'file_name')
   String? get fileName => throw _privateConstructorUsedError;
   @JsonKey(name: 'mime_type')
   String? get mimeType => throw _privateConstructorUsedError;
+  @JsonKey(name: 'disk')
   String? get disk => throw _privateConstructorUsedError;
-  @JsonKey(name: 'conversions_disk')
-  String? get conversionsDisk => throw _privateConstructorUsedError;
-  int? get size => throw _privateConstructorUsedError;
-  Map<String, dynamic>? get customProperties =>
+  @JsonKey(name: 'size')
+  String? get size => throw _privateConstructorUsedError;
+  @JsonKey(name: 'custom_properties')
+  MediaCustomProperties? get customProperties =>
       throw _privateConstructorUsedError;
-  Map<String, dynamic>? get generatedConversions =>
-      throw _privateConstructorUsedError;
+  @JsonKey(name: 'manipulations')
+  List<dynamic>? get manipulations => throw _privateConstructorUsedError;
+  @JsonKey(name: 'responsive_images')
   List<dynamic>? get responsiveImages => throw _privateConstructorUsedError;
   @JsonKey(name: 'order_column')
-  int? get orderColumn => throw _privateConstructorUsedError;
+  String? get orderColumn => throw _privateConstructorUsedError;
   @JsonKey(name: 'created_at')
   String? get createdAt => throw _privateConstructorUsedError;
   @JsonKey(name: 'updated_at')
   String? get updatedAt => throw _privateConstructorUsedError;
-  @JsonKey(name: 'original_url')
-  String? get originalUrl => throw _privateConstructorUsedError;
-  @JsonKey(name: 'preview_url')
-  String? get previewUrl => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -506,25 +984,24 @@ abstract class $MediaCopyWith<$Res> {
       _$MediaCopyWithImpl<$Res, Media>;
   @useResult
   $Res call(
-      {int id,
-      @JsonKey(name: 'model_type') String modelType,
-      @JsonKey(name: 'model_id') int modelId,
-      String uuid,
+      {@JsonKey(name: 'id') int? id,
+      @JsonKey(name: 'model_type') String? modelType,
+      @JsonKey(name: 'model_id') String? modelId,
       @JsonKey(name: 'collection_name') String? collectionName,
-      String? name,
+      @JsonKey(name: 'name') String? name,
       @JsonKey(name: 'file_name') String? fileName,
       @JsonKey(name: 'mime_type') String? mimeType,
-      String? disk,
-      @JsonKey(name: 'conversions_disk') String? conversionsDisk,
-      int? size,
-      Map<String, dynamic>? customProperties,
-      Map<String, dynamic>? generatedConversions,
-      List<dynamic>? responsiveImages,
-      @JsonKey(name: 'order_column') int? orderColumn,
+      @JsonKey(name: 'disk') String? disk,
+      @JsonKey(name: 'size') String? size,
+      @JsonKey(name: 'custom_properties')
+      MediaCustomProperties? customProperties,
+      @JsonKey(name: 'manipulations') List<dynamic>? manipulations,
+      @JsonKey(name: 'responsive_images') List<dynamic>? responsiveImages,
+      @JsonKey(name: 'order_column') String? orderColumn,
       @JsonKey(name: 'created_at') String? createdAt,
-      @JsonKey(name: 'updated_at') String? updatedAt,
-      @JsonKey(name: 'original_url') String? originalUrl,
-      @JsonKey(name: 'preview_url') String? previewUrl});
+      @JsonKey(name: 'updated_at') String? updatedAt});
+
+  $MediaCustomPropertiesCopyWith<$Res>? get customProperties;
 }
 
 /// @nodoc
@@ -540,43 +1017,35 @@ class _$MediaCopyWithImpl<$Res, $Val extends Media>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? id = null,
-    Object? modelType = null,
-    Object? modelId = null,
-    Object? uuid = null,
+    Object? id = freezed,
+    Object? modelType = freezed,
+    Object? modelId = freezed,
     Object? collectionName = freezed,
     Object? name = freezed,
     Object? fileName = freezed,
     Object? mimeType = freezed,
     Object? disk = freezed,
-    Object? conversionsDisk = freezed,
     Object? size = freezed,
     Object? customProperties = freezed,
-    Object? generatedConversions = freezed,
+    Object? manipulations = freezed,
     Object? responsiveImages = freezed,
     Object? orderColumn = freezed,
     Object? createdAt = freezed,
     Object? updatedAt = freezed,
-    Object? originalUrl = freezed,
-    Object? previewUrl = freezed,
   }) {
     return _then(_value.copyWith(
-      id: null == id
+      id: freezed == id
           ? _value.id
           : id // ignore: cast_nullable_to_non_nullable
-              as int,
-      modelType: null == modelType
+              as int?,
+      modelType: freezed == modelType
           ? _value.modelType
           : modelType // ignore: cast_nullable_to_non_nullable
-              as String,
-      modelId: null == modelId
+              as String?,
+      modelId: freezed == modelId
           ? _value.modelId
           : modelId // ignore: cast_nullable_to_non_nullable
-              as int,
-      uuid: null == uuid
-          ? _value.uuid
-          : uuid // ignore: cast_nullable_to_non_nullable
-              as String,
+              as String?,
       collectionName: freezed == collectionName
           ? _value.collectionName
           : collectionName // ignore: cast_nullable_to_non_nullable
@@ -597,22 +1066,18 @@ class _$MediaCopyWithImpl<$Res, $Val extends Media>
           ? _value.disk
           : disk // ignore: cast_nullable_to_non_nullable
               as String?,
-      conversionsDisk: freezed == conversionsDisk
-          ? _value.conversionsDisk
-          : conversionsDisk // ignore: cast_nullable_to_non_nullable
-              as String?,
       size: freezed == size
           ? _value.size
           : size // ignore: cast_nullable_to_non_nullable
-              as int?,
+              as String?,
       customProperties: freezed == customProperties
           ? _value.customProperties
           : customProperties // ignore: cast_nullable_to_non_nullable
-              as Map<String, dynamic>?,
-      generatedConversions: freezed == generatedConversions
-          ? _value.generatedConversions
-          : generatedConversions // ignore: cast_nullable_to_non_nullable
-              as Map<String, dynamic>?,
+              as MediaCustomProperties?,
+      manipulations: freezed == manipulations
+          ? _value.manipulations
+          : manipulations // ignore: cast_nullable_to_non_nullable
+              as List<dynamic>?,
       responsiveImages: freezed == responsiveImages
           ? _value.responsiveImages
           : responsiveImages // ignore: cast_nullable_to_non_nullable
@@ -620,7 +1085,7 @@ class _$MediaCopyWithImpl<$Res, $Val extends Media>
       orderColumn: freezed == orderColumn
           ? _value.orderColumn
           : orderColumn // ignore: cast_nullable_to_non_nullable
-              as int?,
+              as String?,
       createdAt: freezed == createdAt
           ? _value.createdAt
           : createdAt // ignore: cast_nullable_to_non_nullable
@@ -629,15 +1094,20 @@ class _$MediaCopyWithImpl<$Res, $Val extends Media>
           ? _value.updatedAt
           : updatedAt // ignore: cast_nullable_to_non_nullable
               as String?,
-      originalUrl: freezed == originalUrl
-          ? _value.originalUrl
-          : originalUrl // ignore: cast_nullable_to_non_nullable
-              as String?,
-      previewUrl: freezed == previewUrl
-          ? _value.previewUrl
-          : previewUrl // ignore: cast_nullable_to_non_nullable
-              as String?,
     ) as $Val);
+  }
+
+  @override
+  @pragma('vm:prefer-inline')
+  $MediaCustomPropertiesCopyWith<$Res>? get customProperties {
+    if (_value.customProperties == null) {
+      return null;
+    }
+
+    return $MediaCustomPropertiesCopyWith<$Res>(_value.customProperties!,
+        (value) {
+      return _then(_value.copyWith(customProperties: value) as $Val);
+    });
   }
 }
 
@@ -648,25 +1118,25 @@ abstract class _$$_MediaCopyWith<$Res> implements $MediaCopyWith<$Res> {
   @override
   @useResult
   $Res call(
-      {int id,
-      @JsonKey(name: 'model_type') String modelType,
-      @JsonKey(name: 'model_id') int modelId,
-      String uuid,
+      {@JsonKey(name: 'id') int? id,
+      @JsonKey(name: 'model_type') String? modelType,
+      @JsonKey(name: 'model_id') String? modelId,
       @JsonKey(name: 'collection_name') String? collectionName,
-      String? name,
+      @JsonKey(name: 'name') String? name,
       @JsonKey(name: 'file_name') String? fileName,
       @JsonKey(name: 'mime_type') String? mimeType,
-      String? disk,
-      @JsonKey(name: 'conversions_disk') String? conversionsDisk,
-      int? size,
-      Map<String, dynamic>? customProperties,
-      Map<String, dynamic>? generatedConversions,
-      List<dynamic>? responsiveImages,
-      @JsonKey(name: 'order_column') int? orderColumn,
+      @JsonKey(name: 'disk') String? disk,
+      @JsonKey(name: 'size') String? size,
+      @JsonKey(name: 'custom_properties')
+      MediaCustomProperties? customProperties,
+      @JsonKey(name: 'manipulations') List<dynamic>? manipulations,
+      @JsonKey(name: 'responsive_images') List<dynamic>? responsiveImages,
+      @JsonKey(name: 'order_column') String? orderColumn,
       @JsonKey(name: 'created_at') String? createdAt,
-      @JsonKey(name: 'updated_at') String? updatedAt,
-      @JsonKey(name: 'original_url') String? originalUrl,
-      @JsonKey(name: 'preview_url') String? previewUrl});
+      @JsonKey(name: 'updated_at') String? updatedAt});
+
+  @override
+  $MediaCustomPropertiesCopyWith<$Res>? get customProperties;
 }
 
 /// @nodoc
@@ -678,43 +1148,35 @@ class __$$_MediaCopyWithImpl<$Res> extends _$MediaCopyWithImpl<$Res, _$_Media>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? id = null,
-    Object? modelType = null,
-    Object? modelId = null,
-    Object? uuid = null,
+    Object? id = freezed,
+    Object? modelType = freezed,
+    Object? modelId = freezed,
     Object? collectionName = freezed,
     Object? name = freezed,
     Object? fileName = freezed,
     Object? mimeType = freezed,
     Object? disk = freezed,
-    Object? conversionsDisk = freezed,
     Object? size = freezed,
     Object? customProperties = freezed,
-    Object? generatedConversions = freezed,
+    Object? manipulations = freezed,
     Object? responsiveImages = freezed,
     Object? orderColumn = freezed,
     Object? createdAt = freezed,
     Object? updatedAt = freezed,
-    Object? originalUrl = freezed,
-    Object? previewUrl = freezed,
   }) {
     return _then(_$_Media(
-      id: null == id
+      id: freezed == id
           ? _value.id
           : id // ignore: cast_nullable_to_non_nullable
-              as int,
-      modelType: null == modelType
+              as int?,
+      modelType: freezed == modelType
           ? _value.modelType
           : modelType // ignore: cast_nullable_to_non_nullable
-              as String,
-      modelId: null == modelId
+              as String?,
+      modelId: freezed == modelId
           ? _value.modelId
           : modelId // ignore: cast_nullable_to_non_nullable
-              as int,
-      uuid: null == uuid
-          ? _value.uuid
-          : uuid // ignore: cast_nullable_to_non_nullable
-              as String,
+              as String?,
       collectionName: freezed == collectionName
           ? _value.collectionName
           : collectionName // ignore: cast_nullable_to_non_nullable
@@ -735,22 +1197,18 @@ class __$$_MediaCopyWithImpl<$Res> extends _$MediaCopyWithImpl<$Res, _$_Media>
           ? _value.disk
           : disk // ignore: cast_nullable_to_non_nullable
               as String?,
-      conversionsDisk: freezed == conversionsDisk
-          ? _value.conversionsDisk
-          : conversionsDisk // ignore: cast_nullable_to_non_nullable
-              as String?,
       size: freezed == size
           ? _value.size
           : size // ignore: cast_nullable_to_non_nullable
-              as int?,
+              as String?,
       customProperties: freezed == customProperties
-          ? _value._customProperties
+          ? _value.customProperties
           : customProperties // ignore: cast_nullable_to_non_nullable
-              as Map<String, dynamic>?,
-      generatedConversions: freezed == generatedConversions
-          ? _value._generatedConversions
-          : generatedConversions // ignore: cast_nullable_to_non_nullable
-              as Map<String, dynamic>?,
+              as MediaCustomProperties?,
+      manipulations: freezed == manipulations
+          ? _value._manipulations
+          : manipulations // ignore: cast_nullable_to_non_nullable
+              as List<dynamic>?,
       responsiveImages: freezed == responsiveImages
           ? _value._responsiveImages
           : responsiveImages // ignore: cast_nullable_to_non_nullable
@@ -758,7 +1216,7 @@ class __$$_MediaCopyWithImpl<$Res> extends _$MediaCopyWithImpl<$Res, _$_Media>
       orderColumn: freezed == orderColumn
           ? _value.orderColumn
           : orderColumn // ignore: cast_nullable_to_non_nullable
-              as int?,
+              as String?,
       createdAt: freezed == createdAt
           ? _value.createdAt
           : createdAt // ignore: cast_nullable_to_non_nullable
@@ -766,14 +1224,6 @@ class __$$_MediaCopyWithImpl<$Res> extends _$MediaCopyWithImpl<$Res, _$_Media>
       updatedAt: freezed == updatedAt
           ? _value.updatedAt
           : updatedAt // ignore: cast_nullable_to_non_nullable
-              as String?,
-      originalUrl: freezed == originalUrl
-          ? _value.originalUrl
-          : originalUrl // ignore: cast_nullable_to_non_nullable
-              as String?,
-      previewUrl: freezed == previewUrl
-          ? _value.previewUrl
-          : previewUrl // ignore: cast_nullable_to_non_nullable
               as String?,
     ));
   }
@@ -783,46 +1233,41 @@ class __$$_MediaCopyWithImpl<$Res> extends _$MediaCopyWithImpl<$Res, _$_Media>
 @JsonSerializable()
 class _$_Media implements _Media {
   const _$_Media(
-      {required this.id,
-      @JsonKey(name: 'model_type') required this.modelType,
-      @JsonKey(name: 'model_id') required this.modelId,
-      required this.uuid,
+      {@JsonKey(name: 'id') this.id,
+      @JsonKey(name: 'model_type') this.modelType,
+      @JsonKey(name: 'model_id') this.modelId,
       @JsonKey(name: 'collection_name') this.collectionName,
-      this.name,
+      @JsonKey(name: 'name') this.name,
       @JsonKey(name: 'file_name') this.fileName,
       @JsonKey(name: 'mime_type') this.mimeType,
-      this.disk,
-      @JsonKey(name: 'conversions_disk') this.conversionsDisk,
-      this.size,
-      final Map<String, dynamic>? customProperties,
-      final Map<String, dynamic>? generatedConversions,
-      final List<dynamic>? responsiveImages,
+      @JsonKey(name: 'disk') this.disk,
+      @JsonKey(name: 'size') this.size,
+      @JsonKey(name: 'custom_properties') this.customProperties,
+      @JsonKey(name: 'manipulations') final List<dynamic>? manipulations,
+      @JsonKey(name: 'responsive_images') final List<dynamic>? responsiveImages,
       @JsonKey(name: 'order_column') this.orderColumn,
       @JsonKey(name: 'created_at') this.createdAt,
-      @JsonKey(name: 'updated_at') this.updatedAt,
-      @JsonKey(name: 'original_url') this.originalUrl,
-      @JsonKey(name: 'preview_url') this.previewUrl})
-      : _customProperties = customProperties,
-        _generatedConversions = generatedConversions,
+      @JsonKey(name: 'updated_at') this.updatedAt})
+      : _manipulations = manipulations,
         _responsiveImages = responsiveImages;
 
   factory _$_Media.fromJson(Map<String, dynamic> json) =>
       _$$_MediaFromJson(json);
 
   @override
-  final int id;
+  @JsonKey(name: 'id')
+  final int? id;
   @override
   @JsonKey(name: 'model_type')
-  final String modelType;
+  final String? modelType;
   @override
   @JsonKey(name: 'model_id')
-  final int modelId;
-  @override
-  final String uuid;
+  final String? modelId;
   @override
   @JsonKey(name: 'collection_name')
   final String? collectionName;
   @override
+  @JsonKey(name: 'name')
   final String? name;
   @override
   @JsonKey(name: 'file_name')
@@ -831,35 +1276,28 @@ class _$_Media implements _Media {
   @JsonKey(name: 'mime_type')
   final String? mimeType;
   @override
+  @JsonKey(name: 'disk')
   final String? disk;
   @override
-  @JsonKey(name: 'conversions_disk')
-  final String? conversionsDisk;
+  @JsonKey(name: 'size')
+  final String? size;
   @override
-  final int? size;
-  final Map<String, dynamic>? _customProperties;
+  @JsonKey(name: 'custom_properties')
+  final MediaCustomProperties? customProperties;
+  final List<dynamic>? _manipulations;
   @override
-  Map<String, dynamic>? get customProperties {
-    final value = _customProperties;
+  @JsonKey(name: 'manipulations')
+  List<dynamic>? get manipulations {
+    final value = _manipulations;
     if (value == null) return null;
-    if (_customProperties is EqualUnmodifiableMapView) return _customProperties;
+    if (_manipulations is EqualUnmodifiableListView) return _manipulations;
     // ignore: implicit_dynamic_type
-    return EqualUnmodifiableMapView(value);
-  }
-
-  final Map<String, dynamic>? _generatedConversions;
-  @override
-  Map<String, dynamic>? get generatedConversions {
-    final value = _generatedConversions;
-    if (value == null) return null;
-    if (_generatedConversions is EqualUnmodifiableMapView)
-      return _generatedConversions;
-    // ignore: implicit_dynamic_type
-    return EqualUnmodifiableMapView(value);
+    return EqualUnmodifiableListView(value);
   }
 
   final List<dynamic>? _responsiveImages;
   @override
+  @JsonKey(name: 'responsive_images')
   List<dynamic>? get responsiveImages {
     final value = _responsiveImages;
     if (value == null) return null;
@@ -871,23 +1309,17 @@ class _$_Media implements _Media {
 
   @override
   @JsonKey(name: 'order_column')
-  final int? orderColumn;
+  final String? orderColumn;
   @override
   @JsonKey(name: 'created_at')
   final String? createdAt;
   @override
   @JsonKey(name: 'updated_at')
   final String? updatedAt;
-  @override
-  @JsonKey(name: 'original_url')
-  final String? originalUrl;
-  @override
-  @JsonKey(name: 'preview_url')
-  final String? previewUrl;
 
   @override
   String toString() {
-    return 'Media(id: $id, modelType: $modelType, modelId: $modelId, uuid: $uuid, collectionName: $collectionName, name: $name, fileName: $fileName, mimeType: $mimeType, disk: $disk, conversionsDisk: $conversionsDisk, size: $size, customProperties: $customProperties, generatedConversions: $generatedConversions, responsiveImages: $responsiveImages, orderColumn: $orderColumn, createdAt: $createdAt, updatedAt: $updatedAt, originalUrl: $originalUrl, previewUrl: $previewUrl)';
+    return 'Media(id: $id, modelType: $modelType, modelId: $modelId, collectionName: $collectionName, name: $name, fileName: $fileName, mimeType: $mimeType, disk: $disk, size: $size, customProperties: $customProperties, manipulations: $manipulations, responsiveImages: $responsiveImages, orderColumn: $orderColumn, createdAt: $createdAt, updatedAt: $updatedAt)';
   }
 
   @override
@@ -899,7 +1331,6 @@ class _$_Media implements _Media {
             (identical(other.modelType, modelType) ||
                 other.modelType == modelType) &&
             (identical(other.modelId, modelId) || other.modelId == modelId) &&
-            (identical(other.uuid, uuid) || other.uuid == uuid) &&
             (identical(other.collectionName, collectionName) ||
                 other.collectionName == collectionName) &&
             (identical(other.name, name) || other.name == name) &&
@@ -908,13 +1339,11 @@ class _$_Media implements _Media {
             (identical(other.mimeType, mimeType) ||
                 other.mimeType == mimeType) &&
             (identical(other.disk, disk) || other.disk == disk) &&
-            (identical(other.conversionsDisk, conversionsDisk) ||
-                other.conversionsDisk == conversionsDisk) &&
             (identical(other.size, size) || other.size == size) &&
+            (identical(other.customProperties, customProperties) ||
+                other.customProperties == customProperties) &&
             const DeepCollectionEquality()
-                .equals(other._customProperties, _customProperties) &&
-            const DeepCollectionEquality()
-                .equals(other._generatedConversions, _generatedConversions) &&
+                .equals(other._manipulations, _manipulations) &&
             const DeepCollectionEquality()
                 .equals(other._responsiveImages, _responsiveImages) &&
             (identical(other.orderColumn, orderColumn) ||
@@ -922,37 +1351,28 @@ class _$_Media implements _Media {
             (identical(other.createdAt, createdAt) ||
                 other.createdAt == createdAt) &&
             (identical(other.updatedAt, updatedAt) ||
-                other.updatedAt == updatedAt) &&
-            (identical(other.originalUrl, originalUrl) ||
-                other.originalUrl == originalUrl) &&
-            (identical(other.previewUrl, previewUrl) ||
-                other.previewUrl == previewUrl));
+                other.updatedAt == updatedAt));
   }
 
   @JsonKey(ignore: true)
   @override
-  int get hashCode => Object.hashAll([
-        runtimeType,
-        id,
-        modelType,
-        modelId,
-        uuid,
-        collectionName,
-        name,
-        fileName,
-        mimeType,
-        disk,
-        conversionsDisk,
-        size,
-        const DeepCollectionEquality().hash(_customProperties),
-        const DeepCollectionEquality().hash(_generatedConversions),
-        const DeepCollectionEquality().hash(_responsiveImages),
-        orderColumn,
-        createdAt,
-        updatedAt,
-        originalUrl,
-        previewUrl
-      ]);
+  int get hashCode => Object.hash(
+      runtimeType,
+      id,
+      modelType,
+      modelId,
+      collectionName,
+      name,
+      fileName,
+      mimeType,
+      disk,
+      size,
+      customProperties,
+      const DeepCollectionEquality().hash(_manipulations),
+      const DeepCollectionEquality().hash(_responsiveImages),
+      orderColumn,
+      createdAt,
+      updatedAt);
 
   @JsonKey(ignore: true)
   @override
@@ -970,42 +1390,39 @@ class _$_Media implements _Media {
 
 abstract class _Media implements Media {
   const factory _Media(
-      {required final int id,
-      @JsonKey(name: 'model_type') required final String modelType,
-      @JsonKey(name: 'model_id') required final int modelId,
-      required final String uuid,
+      {@JsonKey(name: 'id') final int? id,
+      @JsonKey(name: 'model_type') final String? modelType,
+      @JsonKey(name: 'model_id') final String? modelId,
       @JsonKey(name: 'collection_name') final String? collectionName,
-      final String? name,
+      @JsonKey(name: 'name') final String? name,
       @JsonKey(name: 'file_name') final String? fileName,
       @JsonKey(name: 'mime_type') final String? mimeType,
-      final String? disk,
-      @JsonKey(name: 'conversions_disk') final String? conversionsDisk,
-      final int? size,
-      final Map<String, dynamic>? customProperties,
-      final Map<String, dynamic>? generatedConversions,
-      final List<dynamic>? responsiveImages,
-      @JsonKey(name: 'order_column') final int? orderColumn,
+      @JsonKey(name: 'disk') final String? disk,
+      @JsonKey(name: 'size') final String? size,
+      @JsonKey(name: 'custom_properties')
+      final MediaCustomProperties? customProperties,
+      @JsonKey(name: 'manipulations') final List<dynamic>? manipulations,
+      @JsonKey(name: 'responsive_images') final List<dynamic>? responsiveImages,
+      @JsonKey(name: 'order_column') final String? orderColumn,
       @JsonKey(name: 'created_at') final String? createdAt,
-      @JsonKey(name: 'updated_at') final String? updatedAt,
-      @JsonKey(name: 'original_url') final String? originalUrl,
-      @JsonKey(name: 'preview_url') final String? previewUrl}) = _$_Media;
+      @JsonKey(name: 'updated_at') final String? updatedAt}) = _$_Media;
 
   factory _Media.fromJson(Map<String, dynamic> json) = _$_Media.fromJson;
 
   @override
-  int get id;
+  @JsonKey(name: 'id')
+  int? get id;
   @override
   @JsonKey(name: 'model_type')
-  String get modelType;
+  String? get modelType;
   @override
   @JsonKey(name: 'model_id')
-  int get modelId;
-  @override
-  String get uuid;
+  String? get modelId;
   @override
   @JsonKey(name: 'collection_name')
   String? get collectionName;
   @override
+  @JsonKey(name: 'name')
   String? get name;
   @override
   @JsonKey(name: 'file_name')
@@ -1014,21 +1431,23 @@ abstract class _Media implements Media {
   @JsonKey(name: 'mime_type')
   String? get mimeType;
   @override
+  @JsonKey(name: 'disk')
   String? get disk;
   @override
-  @JsonKey(name: 'conversions_disk')
-  String? get conversionsDisk;
+  @JsonKey(name: 'size')
+  String? get size;
   @override
-  int? get size;
+  @JsonKey(name: 'custom_properties')
+  MediaCustomProperties? get customProperties;
   @override
-  Map<String, dynamic>? get customProperties;
+  @JsonKey(name: 'manipulations')
+  List<dynamic>? get manipulations;
   @override
-  Map<String, dynamic>? get generatedConversions;
-  @override
+  @JsonKey(name: 'responsive_images')
   List<dynamic>? get responsiveImages;
   @override
   @JsonKey(name: 'order_column')
-  int? get orderColumn;
+  String? get orderColumn;
   @override
   @JsonKey(name: 'created_at')
   String? get createdAt;
@@ -1036,13 +1455,263 @@ abstract class _Media implements Media {
   @JsonKey(name: 'updated_at')
   String? get updatedAt;
   @override
-  @JsonKey(name: 'original_url')
-  String? get originalUrl;
-  @override
-  @JsonKey(name: 'preview_url')
-  String? get previewUrl;
-  @override
   @JsonKey(ignore: true)
   _$$_MediaCopyWith<_$_Media> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+MediaCustomProperties _$MediaCustomPropertiesFromJson(
+    Map<String, dynamic> json) {
+  return _MediaCustomProperties.fromJson(json);
+}
+
+/// @nodoc
+mixin _$MediaCustomProperties {
+  @JsonKey(name: 'name')
+  String? get name => throw _privateConstructorUsedError;
+  @JsonKey(name: 'file_name')
+  String? get fileName => throw _privateConstructorUsedError;
+  @JsonKey(name: 'width')
+  String? get width => throw _privateConstructorUsedError;
+  @JsonKey(name: 'height')
+  String? get height => throw _privateConstructorUsedError;
+  @JsonKey(name: 'generated_conversions')
+  Map<String, bool>? get generatedConversions =>
+      throw _privateConstructorUsedError;
+
+  Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
+  @JsonKey(ignore: true)
+  $MediaCustomPropertiesCopyWith<MediaCustomProperties> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class $MediaCustomPropertiesCopyWith<$Res> {
+  factory $MediaCustomPropertiesCopyWith(MediaCustomProperties value,
+          $Res Function(MediaCustomProperties) then) =
+      _$MediaCustomPropertiesCopyWithImpl<$Res, MediaCustomProperties>;
+  @useResult
+  $Res call(
+      {@JsonKey(name: 'name') String? name,
+      @JsonKey(name: 'file_name') String? fileName,
+      @JsonKey(name: 'width') String? width,
+      @JsonKey(name: 'height') String? height,
+      @JsonKey(name: 'generated_conversions')
+      Map<String, bool>? generatedConversions});
+}
+
+/// @nodoc
+class _$MediaCustomPropertiesCopyWithImpl<$Res,
+        $Val extends MediaCustomProperties>
+    implements $MediaCustomPropertiesCopyWith<$Res> {
+  _$MediaCustomPropertiesCopyWithImpl(this._value, this._then);
+
+  // ignore: unused_field
+  final $Val _value;
+  // ignore: unused_field
+  final $Res Function($Val) _then;
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? name = freezed,
+    Object? fileName = freezed,
+    Object? width = freezed,
+    Object? height = freezed,
+    Object? generatedConversions = freezed,
+  }) {
+    return _then(_value.copyWith(
+      name: freezed == name
+          ? _value.name
+          : name // ignore: cast_nullable_to_non_nullable
+              as String?,
+      fileName: freezed == fileName
+          ? _value.fileName
+          : fileName // ignore: cast_nullable_to_non_nullable
+              as String?,
+      width: freezed == width
+          ? _value.width
+          : width // ignore: cast_nullable_to_non_nullable
+              as String?,
+      height: freezed == height
+          ? _value.height
+          : height // ignore: cast_nullable_to_non_nullable
+              as String?,
+      generatedConversions: freezed == generatedConversions
+          ? _value.generatedConversions
+          : generatedConversions // ignore: cast_nullable_to_non_nullable
+              as Map<String, bool>?,
+    ) as $Val);
+  }
+}
+
+/// @nodoc
+abstract class _$$_MediaCustomPropertiesCopyWith<$Res>
+    implements $MediaCustomPropertiesCopyWith<$Res> {
+  factory _$$_MediaCustomPropertiesCopyWith(_$_MediaCustomProperties value,
+          $Res Function(_$_MediaCustomProperties) then) =
+      __$$_MediaCustomPropertiesCopyWithImpl<$Res>;
+  @override
+  @useResult
+  $Res call(
+      {@JsonKey(name: 'name') String? name,
+      @JsonKey(name: 'file_name') String? fileName,
+      @JsonKey(name: 'width') String? width,
+      @JsonKey(name: 'height') String? height,
+      @JsonKey(name: 'generated_conversions')
+      Map<String, bool>? generatedConversions});
+}
+
+/// @nodoc
+class __$$_MediaCustomPropertiesCopyWithImpl<$Res>
+    extends _$MediaCustomPropertiesCopyWithImpl<$Res, _$_MediaCustomProperties>
+    implements _$$_MediaCustomPropertiesCopyWith<$Res> {
+  __$$_MediaCustomPropertiesCopyWithImpl(_$_MediaCustomProperties _value,
+      $Res Function(_$_MediaCustomProperties) _then)
+      : super(_value, _then);
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? name = freezed,
+    Object? fileName = freezed,
+    Object? width = freezed,
+    Object? height = freezed,
+    Object? generatedConversions = freezed,
+  }) {
+    return _then(_$_MediaCustomProperties(
+      name: freezed == name
+          ? _value.name
+          : name // ignore: cast_nullable_to_non_nullable
+              as String?,
+      fileName: freezed == fileName
+          ? _value.fileName
+          : fileName // ignore: cast_nullable_to_non_nullable
+              as String?,
+      width: freezed == width
+          ? _value.width
+          : width // ignore: cast_nullable_to_non_nullable
+              as String?,
+      height: freezed == height
+          ? _value.height
+          : height // ignore: cast_nullable_to_non_nullable
+              as String?,
+      generatedConversions: freezed == generatedConversions
+          ? _value._generatedConversions
+          : generatedConversions // ignore: cast_nullable_to_non_nullable
+              as Map<String, bool>?,
+    ));
+  }
+}
+
+/// @nodoc
+@JsonSerializable()
+class _$_MediaCustomProperties implements _MediaCustomProperties {
+  const _$_MediaCustomProperties(
+      {@JsonKey(name: 'name') this.name,
+      @JsonKey(name: 'file_name') this.fileName,
+      @JsonKey(name: 'width') this.width,
+      @JsonKey(name: 'height') this.height,
+      @JsonKey(name: 'generated_conversions')
+      final Map<String, bool>? generatedConversions})
+      : _generatedConversions = generatedConversions;
+
+  factory _$_MediaCustomProperties.fromJson(Map<String, dynamic> json) =>
+      _$$_MediaCustomPropertiesFromJson(json);
+
+  @override
+  @JsonKey(name: 'name')
+  final String? name;
+  @override
+  @JsonKey(name: 'file_name')
+  final String? fileName;
+  @override
+  @JsonKey(name: 'width')
+  final String? width;
+  @override
+  @JsonKey(name: 'height')
+  final String? height;
+  final Map<String, bool>? _generatedConversions;
+  @override
+  @JsonKey(name: 'generated_conversions')
+  Map<String, bool>? get generatedConversions {
+    final value = _generatedConversions;
+    if (value == null) return null;
+    if (_generatedConversions is EqualUnmodifiableMapView)
+      return _generatedConversions;
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableMapView(value);
+  }
+
+  @override
+  String toString() {
+    return 'MediaCustomProperties(name: $name, fileName: $fileName, width: $width, height: $height, generatedConversions: $generatedConversions)';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$_MediaCustomProperties &&
+            (identical(other.name, name) || other.name == name) &&
+            (identical(other.fileName, fileName) ||
+                other.fileName == fileName) &&
+            (identical(other.width, width) || other.width == width) &&
+            (identical(other.height, height) || other.height == height) &&
+            const DeepCollectionEquality()
+                .equals(other._generatedConversions, _generatedConversions));
+  }
+
+  @JsonKey(ignore: true)
+  @override
+  int get hashCode => Object.hash(runtimeType, name, fileName, width, height,
+      const DeepCollectionEquality().hash(_generatedConversions));
+
+  @JsonKey(ignore: true)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$_MediaCustomPropertiesCopyWith<_$_MediaCustomProperties> get copyWith =>
+      __$$_MediaCustomPropertiesCopyWithImpl<_$_MediaCustomProperties>(
+          this, _$identity);
+
+  @override
+  Map<String, dynamic> toJson() {
+    return _$$_MediaCustomPropertiesToJson(
+      this,
+    );
+  }
+}
+
+abstract class _MediaCustomProperties implements MediaCustomProperties {
+  const factory _MediaCustomProperties(
+          {@JsonKey(name: 'name') final String? name,
+          @JsonKey(name: 'file_name') final String? fileName,
+          @JsonKey(name: 'width') final String? width,
+          @JsonKey(name: 'height') final String? height,
+          @JsonKey(name: 'generated_conversions')
+          final Map<String, bool>? generatedConversions}) =
+      _$_MediaCustomProperties;
+
+  factory _MediaCustomProperties.fromJson(Map<String, dynamic> json) =
+      _$_MediaCustomProperties.fromJson;
+
+  @override
+  @JsonKey(name: 'name')
+  String? get name;
+  @override
+  @JsonKey(name: 'file_name')
+  String? get fileName;
+  @override
+  @JsonKey(name: 'width')
+  String? get width;
+  @override
+  @JsonKey(name: 'height')
+  String? get height;
+  @override
+  @JsonKey(name: 'generated_conversions')
+  Map<String, bool>? get generatedConversions;
+  @override
+  @JsonKey(ignore: true)
+  _$$_MediaCustomPropertiesCopyWith<_$_MediaCustomProperties> get copyWith =>
       throw _privateConstructorUsedError;
 }

@@ -1,3 +1,4 @@
+import 'package:afno_app/core/constants/constants.dart';
 import 'package:afno_app/features/dashboard/presentation/widgets/triangular_container.dart';
 import 'package:afno_app/features/restaurant/data/models/restaurant_model.dart';
 import 'package:afno_app/routes/routes_constant.dart';
@@ -13,7 +14,11 @@ class RestaurantListCardWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     var index = restaurant.id;
-
+    var coverImage = restaurant.media!.firstWhere((element) {
+      return element.collectionName == "cover";
+    });
+    var coverImageGet =
+        '${AppConstants.publicUrl}/media/${coverImage.id}/${coverImage.fileName}';
     return GestureDetector(
       child: Hero(
         tag: "restaurant_${index.toString()}",
@@ -37,6 +42,7 @@ class RestaurantListCardWidget extends StatelessWidget {
               borderRadius: BorderRadius.circular(25),
               child: Column(
                 children: [
+                  Text(coverImageGet),
                   Flexible(
                     flex: 2,
                     child: Container(
@@ -46,12 +52,7 @@ class RestaurantListCardWidget extends StatelessWidget {
                       ),
                       child: CachedNetworkImage(
                         fit: BoxFit.cover,
-                        imageUrl: (restaurant.media!.isNotEmpty
-                                ? restaurant.media!.firstWhere((element) {
-                                    return element.collectionName == "cover";
-                                  }).originalUrl
-                                : "") ??
-                            "",
+                        imageUrl: coverImageGet,
                         progressIndicatorBuilder:
                             (context, url, downloadProgress) => Center(
                           child: CircularProgressIndicator(

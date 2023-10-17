@@ -1,3 +1,4 @@
+import 'package:afno_app/core/constants/constants.dart';
 import 'package:afno_app/features/restaurant/data/models/restaurant_model.dart';
 import 'package:afno_app/features/restaurant/presentation/bloc/restaurant_bloc.dart';
 import 'package:afno_app/features/restaurant/presentation/widgets/opening_hours.dart';
@@ -44,6 +45,7 @@ class _RestaurantPageState extends State<RestaurantPage> {
                       return element.collectionName == "gallery";
                     }).toList()
                   : [];
+
               return Stack(
                 children: [
                   CustomScrollView(
@@ -85,6 +87,8 @@ class _RestaurantPageState extends State<RestaurantPage> {
                                         initialPage: 0,
                                       ),
                                       items: imgList.map((img) {
+                                        var coverImageGet =
+                                            '${AppConstants.publicUrl}/media/${img.id}/${img.fileName}';
                                         return Builder(
                                           builder: (BuildContext context) {
                                             return Container(
@@ -99,8 +103,7 @@ class _RestaurantPageState extends State<RestaurantPage> {
                                                     BorderRadius.circular(10),
                                                 child: CachedNetworkImage(
                                                   fit: BoxFit.cover,
-                                                  imageUrl:
-                                                      img.originalUrl ?? "",
+                                                  imageUrl: coverImageGet ?? "",
                                                   progressIndicatorBuilder:
                                                       (context, url,
                                                               downloadProgress) =>
