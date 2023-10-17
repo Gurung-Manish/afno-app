@@ -6,8 +6,8 @@ part of 'restaurant_model.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-_$_Restaurant _$$_RestaurantFromJson(Map<String, dynamic> json) =>
-    _$_Restaurant(
+RestaurantModel _$RestaurantModelFromJson(Map<String, dynamic> json) =>
+    RestaurantModel(
       id: json['id'] as int?,
       title: json['title'] as String?,
       subTitle: json['sub_title'] as String?,
@@ -44,7 +44,7 @@ _$_Restaurant _$$_RestaurantFromJson(Map<String, dynamic> json) =>
           .toList(),
     );
 
-Map<String, dynamic> _$$_RestaurantToJson(_$_Restaurant instance) =>
+Map<String, dynamic> _$RestaurantModelToJson(RestaurantModel instance) =>
     <String, dynamic>{
       'id': instance.id,
       'title': instance.title,
@@ -80,7 +80,7 @@ Map<String, dynamic> _$$_RestaurantToJson(_$_Restaurant instance) =>
       'media': instance.media,
     };
 
-_$_Media _$$_MediaFromJson(Map<String, dynamic> json) => _$_Media(
+Media _$MediaFromJson(Map<String, dynamic> json) => Media(
       id: json['id'] as int?,
       modelType: json['model_type'] as String?,
       modelId: json['model_id'] as String?,
@@ -94,14 +94,9 @@ _$_Media _$$_MediaFromJson(Map<String, dynamic> json) => _$_Media(
           ? null
           : MediaCustomProperties.fromJson(
               json['custom_properties'] as Map<String, dynamic>),
-      manipulations: json['manipulations'] as List<dynamic>?,
-      responsiveImages: json['responsive_images'] as List<dynamic>?,
-      orderColumn: json['order_column'] as String?,
-      createdAt: json['created_at'] as String?,
-      updatedAt: json['updated_at'] as String?,
     );
 
-Map<String, dynamic> _$$_MediaToJson(_$_Media instance) => <String, dynamic>{
+Map<String, dynamic> _$MediaToJson(Media instance) => <String, dynamic>{
       'id': instance.id,
       'model_type': instance.modelType,
       'model_id': instance.modelId,
@@ -112,28 +107,23 @@ Map<String, dynamic> _$$_MediaToJson(_$_Media instance) => <String, dynamic>{
       'disk': instance.disk,
       'size': instance.size,
       'custom_properties': instance.customProperties,
-      'manipulations': instance.manipulations,
-      'responsive_images': instance.responsiveImages,
-      'order_column': instance.orderColumn,
-      'created_at': instance.createdAt,
-      'updated_at': instance.updatedAt,
     };
 
-_$_MediaCustomProperties _$$_MediaCustomPropertiesFromJson(
+MediaCustomProperties _$MediaCustomPropertiesFromJson(
         Map<String, dynamic> json) =>
-    _$_MediaCustomProperties(
+    MediaCustomProperties(
       name: json['name'] as String?,
       fileName: json['file_name'] as String?,
-      width: json['width'] as String?,
-      height: json['height'] as String?,
+      width: json['width'] as int?,
+      height: json['height'] as int?,
       generatedConversions:
           (json['generated_conversions'] as Map<String, dynamic>?)?.map(
         (k, e) => MapEntry(k, e as bool),
       ),
     );
 
-Map<String, dynamic> _$$_MediaCustomPropertiesToJson(
-        _$_MediaCustomProperties instance) =>
+Map<String, dynamic> _$MediaCustomPropertiesToJson(
+        MediaCustomProperties instance) =>
     <String, dynamic>{
       'name': instance.name,
       'file_name': instance.fileName,

@@ -25,6 +25,7 @@ class RestaurantDataSourceImpl implements RestaurantRemoteDataSource {
           List restaurants = response.data["data"];
 
           List<RestaurantModel> restaurantFormatted = restaurants.map((e) {
+            print(e);
             return RestaurantModel.fromJson(e);
           }).toList();
           if (restaurants.isNotEmpty) {
@@ -40,6 +41,7 @@ class RestaurantDataSourceImpl implements RestaurantRemoteDataSource {
       }
       return const Left(ConnectionFailure("BaseUrl not found"));
     } catch (e) {
+      print(e);
       return const Left(
         Exception('Exception Occured in RestaurantsRemoteDataSourceImpl'),
       );
