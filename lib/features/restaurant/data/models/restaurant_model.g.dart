@@ -6,85 +6,128 @@ part of 'restaurant_model.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-_$_RestaurantModel _$$_RestaurantModelFromJson(Map<String, dynamic> json) =>
-    _$_RestaurantModel(
-      id: json['id'] as int,
+RestaurantModel _$RestaurantModelFromJson(Map<String, dynamic> json) =>
+    RestaurantModel(
+      id: json['id'] as int?,
       title: json['title'] as String?,
+      subTitle: json['sub_title'] as String?,
       description: json['description'] as String?,
-      facebook: json['facebook'] as String?,
-      website: json['website'] as String?,
+      enabled: json['enabled'] as String?,
+      phoneNumber: json['phone_number'] as String?,
+      alternatePhoneNumber: json['alternate_phone_number'] as String?,
+      link: json['link'] as String?,
+      email: json['email'] as String?,
       instagram: json['instagram'] as String?,
-      contact: json['contact'] as String?,
-      enabled: json['enabled'] as int?,
-      latitude: (json['latitude'] as num?)?.toDouble(),
-      longitude: (json['longitude'] as num?)?.toDouble(),
+      facebook: json['facebook'] as String?,
+      youtube: json['youtube'] as String?,
+      latitude: json['latitude'] as String?,
+      longitude: json['longitude'] as String?,
+      mondayOpenTime: json['monday_open_time'] as String?,
+      mondayCloseTime: json['monday_close_time'] as String?,
+      tuesdayOpenTime: json['tuesday_open_time'] as String?,
+      tuesdayCloseTime: json['tuesday_close_time'] as String?,
+      wednesdayOpenTime: json['wednesday_open_time'] as String?,
+      wednesdayCloseTime: json['wednesday_close_time'] as String?,
+      thursdayOpenTime: json['thursday_open_time'] as String?,
+      thursdayCloseTime: json['thursday_close_time'] as String?,
+      fridayOpenTime: json['friday_open_time'] as String?,
+      fridayCloseTime: json['friday_close_time'] as String?,
+      saturdayOpenTime: json['saturday_open_time'] as String?,
+      saturdayCloseTime: json['saturday_close_time'] as String?,
+      sundayOpenTime: json['sunday_open_time'] as String?,
+      sundayCloseTime: json['sunday_close_time'] as String?,
+      createdAt: json['created_at'] as String?,
+      updatedAt: json['updated_at'] as String?,
+      resourceUrl: json['resource_url'] as String?,
       media: (json['media'] as List<dynamic>?)
           ?.map((e) => Media.fromJson(e as Map<String, dynamic>))
           .toList(),
-      createdAt: json['created_at'] as String,
-      updatedAt: json['updated_at'] as String,
-      resourceUrl: json['resource_url'] as String,
     );
 
-Map<String, dynamic> _$$_RestaurantModelToJson(_$_RestaurantModel instance) =>
+Map<String, dynamic> _$RestaurantModelToJson(RestaurantModel instance) =>
     <String, dynamic>{
       'id': instance.id,
       'title': instance.title,
+      'sub_title': instance.subTitle,
       'description': instance.description,
-      'facebook': instance.facebook,
-      'website': instance.website,
-      'instagram': instance.instagram,
-      'contact': instance.contact,
       'enabled': instance.enabled,
+      'phone_number': instance.phoneNumber,
+      'alternate_phone_number': instance.alternatePhoneNumber,
+      'link': instance.link,
+      'email': instance.email,
+      'instagram': instance.instagram,
+      'facebook': instance.facebook,
+      'youtube': instance.youtube,
       'latitude': instance.latitude,
       'longitude': instance.longitude,
-      'media': instance.media,
+      'monday_open_time': instance.mondayOpenTime,
+      'monday_close_time': instance.mondayCloseTime,
+      'tuesday_open_time': instance.tuesdayOpenTime,
+      'tuesday_close_time': instance.tuesdayCloseTime,
+      'wednesday_open_time': instance.wednesdayOpenTime,
+      'wednesday_close_time': instance.wednesdayCloseTime,
+      'thursday_open_time': instance.thursdayOpenTime,
+      'thursday_close_time': instance.thursdayCloseTime,
+      'friday_open_time': instance.fridayOpenTime,
+      'friday_close_time': instance.fridayCloseTime,
+      'saturday_open_time': instance.saturdayOpenTime,
+      'saturday_close_time': instance.saturdayCloseTime,
+      'sunday_open_time': instance.sundayOpenTime,
+      'sunday_close_time': instance.sundayCloseTime,
       'created_at': instance.createdAt,
       'updated_at': instance.updatedAt,
       'resource_url': instance.resourceUrl,
+      'media': instance.media,
     };
 
-_$_Media _$$_MediaFromJson(Map<String, dynamic> json) => _$_Media(
-      id: json['id'] as int,
-      modelType: json['model_type'] as String,
-      modelId: json['model_id'] as int,
-      uuid: json['uuid'] as String,
+Media _$MediaFromJson(Map<String, dynamic> json) => Media(
+      id: json['id'] as int?,
+      modelType: json['model_type'] as String?,
+      modelId: json['model_id'] as String?,
       collectionName: json['collection_name'] as String?,
       name: json['name'] as String?,
       fileName: json['file_name'] as String?,
       mimeType: json['mime_type'] as String?,
       disk: json['disk'] as String?,
-      conversionsDisk: json['conversions_disk'] as String?,
-      size: json['size'] as int?,
-      customProperties: json['customProperties'] as Map<String, dynamic>?,
-      generatedConversions:
-          json['generatedConversions'] as Map<String, dynamic>?,
-      responsiveImages: json['responsiveImages'] as List<dynamic>?,
-      orderColumn: json['order_column'] as int?,
-      createdAt: json['created_at'] as String?,
-      updatedAt: json['updated_at'] as String?,
-      originalUrl: json['original_url'] as String?,
-      previewUrl: json['preview_url'] as String?,
+      size: json['size'] as String?,
+      customProperties: json['custom_properties'] == null
+          ? null
+          : MediaCustomProperties.fromJson(
+              json['custom_properties'] as Map<String, dynamic>),
     );
 
-Map<String, dynamic> _$$_MediaToJson(_$_Media instance) => <String, dynamic>{
+Map<String, dynamic> _$MediaToJson(Media instance) => <String, dynamic>{
       'id': instance.id,
       'model_type': instance.modelType,
       'model_id': instance.modelId,
-      'uuid': instance.uuid,
       'collection_name': instance.collectionName,
       'name': instance.name,
       'file_name': instance.fileName,
       'mime_type': instance.mimeType,
       'disk': instance.disk,
-      'conversions_disk': instance.conversionsDisk,
       'size': instance.size,
-      'customProperties': instance.customProperties,
-      'generatedConversions': instance.generatedConversions,
-      'responsiveImages': instance.responsiveImages,
-      'order_column': instance.orderColumn,
-      'created_at': instance.createdAt,
-      'updated_at': instance.updatedAt,
-      'original_url': instance.originalUrl,
-      'preview_url': instance.previewUrl,
+      'custom_properties': instance.customProperties,
+    };
+
+MediaCustomProperties _$MediaCustomPropertiesFromJson(
+        Map<String, dynamic> json) =>
+    MediaCustomProperties(
+      name: json['name'] as String?,
+      fileName: json['file_name'] as String?,
+      width: json['width'] as int?,
+      height: json['height'] as int?,
+      generatedConversions:
+          (json['generated_conversions'] as Map<String, dynamic>?)?.map(
+        (k, e) => MapEntry(k, e as bool),
+      ),
+    );
+
+Map<String, dynamic> _$MediaCustomPropertiesToJson(
+        MediaCustomProperties instance) =>
+    <String, dynamic>{
+      'name': instance.name,
+      'file_name': instance.fileName,
+      'width': instance.width,
+      'height': instance.height,
+      'generated_conversions': instance.generatedConversions,
     };

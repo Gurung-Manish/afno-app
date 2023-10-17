@@ -1,3 +1,4 @@
+import 'package:afno_app/core/constants/constants.dart';
 import 'package:afno_app/features/dashboard/presentation/widgets/triangular_container.dart';
 import 'package:afno_app/features/restaurant/data/models/restaurant_model.dart';
 import 'package:afno_app/routes/routes_constant.dart';
@@ -13,7 +14,23 @@ class RestaurantListCardWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     var index = restaurant.id;
+    List<Media>? coverImages = restaurant.media
+        ?.where(
+          (element) => element.collectionName == "cover",
+        )
+        .toList();
+    Media? coverImage;
+    if (coverImages!.isNotEmpty) {
+      coverImage = restaurant.media?.firstWhere(
+        (element) {
+          return element.collectionName == "cover";
+        },
+      );
+    }
 
+    String? coverImageGet = coverImage != null
+        ? '${AppConstants.publicUrl}/media/${coverImage.id}/${coverImage.fileName}'
+        : "";
     return GestureDetector(
       child: Hero(
         tag: "restaurant_${index.toString()}",
@@ -44,73 +61,19 @@ class RestaurantListCardWidget extends StatelessWidget {
                       decoration: BoxDecoration(
                         color: Colors.grey.withOpacity(0.5),
                       ),
-                      child: CachedNetworkImage(
-                        fit: BoxFit.cover,
-                        imageUrl: (restaurant.media!.isNotEmpty
-                                ? restaurant.media!.firstWhere((element) {
-                                    return element.collectionName == "cover";
-                                  }).originalUrl
-                                : "") ??
-                            "",
-                        progressIndicatorBuilder:
-                            (context, url, downloadProgress) => Center(
-                          child: CircularProgressIndicator(
-                              value: downloadProgress.progress),
-                        ),
-                        errorWidget: (context, url, error) =>
-                            const Icon(Icons.error),
-                      ),
-                    ),
-                  ),
-                  Flexible(
-                    flex: 1,
-                    child: Container(
-                      padding: const EdgeInsets.all(10),
-                      width: double.infinity,
-                      child: Column(
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        children: [
-                          Row(
-                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                            children: [
-                              Text(
-                                restaurant.title ?? "",
-                                style: const TextStyle(
-                                    fontSize: 16, fontWeight: FontWeight.bold),
+                      child: coverImageGet != null
+                          ? CachedNetworkImage(
+                              fit: BoxFit.cover,
+                              imageUrl: coverImageGet,
+                              progressIndicatorBuilder:
+                                  (context, url, downloadProgress) => Center(
+                                child: CircularProgressIndicator(
+                                    value: downloadProgress.progress),
                               ),
-                              TriangularContainer(
-                                child: const Padding(
-                                  padding: EdgeInsets.all(4.0),
-                                  child: Text(
-                                    "1km",
-                                    style: TextStyle(fontSize: 12),
-                                  ),
-                                ),
-                              )
-                            ],
-                          ),
-                          const SizedBox(
-                            height: 5,
-                          ),
-                          Row(
-                              crossAxisAlignment: CrossAxisAlignment.center,
-                              children: [
-                                const Icon(
-                                  Icons.wallet,
-                                  size: 14,
-                                  color: Color(0xFFFFCC00),
-                                ),
-                                const SizedBox(
-                                  width: 5,
-                                ),
-                                Text(
-                                  restaurant.description ?? "",
-                                  style: const TextStyle(
-                                      fontSize: 12, color: Colors.grey),
-                                )
-                              ])
-                        ],
-                      ),
+                              errorWidget: (context, url, error) =>
+                                  const Icon(Icons.error),
+                            )
+                          : const SizedBox(),
                     ),
                   ),
                 ],

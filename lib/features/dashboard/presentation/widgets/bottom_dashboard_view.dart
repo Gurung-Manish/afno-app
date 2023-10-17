@@ -46,6 +46,7 @@ class BottomDashboardView extends StatelessWidget {
               builder: (context, state) {
                 if (state is RestaurantStateLoaded) {
                   List<RestaurantModel> restaurants = state.restaurants;
+
                   return Expanded(
                     child: ListView.builder(
                       itemCount: restaurants.length,
