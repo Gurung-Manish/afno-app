@@ -149,62 +149,13 @@ class _RestaurantPageState extends State<RestaurantPage> {
                                   const SizedBox(
                                     height: 10,
                                   ),
+                                  OpeningHours(
+                                    restaurants: restaurant,
+                                  ),
                                   HtmlWidget(restaurant.description ?? ""),
-                                  Text(restaurant.description ?? ""),
-                                  // Row(
-                                  //   children: [
-                                  //     Container(
-                                  //       padding: const EdgeInsets.symmetric(
-                                  //           horizontal: 15, vertical: 8),
-                                  //       decoration: BoxDecoration(
-                                  //           color: const Color(0xFF79DE89),
-                                  //           borderRadius:
-                                  //               BorderRadius.circular(10)),
-                                  //       child: const Text(
-                                  //         "Open",
-                                  //         style: TextStyle(
-                                  //             fontSize: 12,
-                                  //             color: Colors.white),
-                                  //       ),
-                                  //     ),
-                                  //     const SizedBox(
-                                  //       width: 15,
-                                  //     ),
-                                  //     const Icon(
-                                  //       Icons.location_on,
-                                  //       size: 16,
-                                  //       color: Color(0xFFFFCC00),
-                                  //     ),
-                                  //     const SizedBox(
-                                  //       width: 2,
-                                  //     ),
-                                  //     const Text(
-                                  //       "Reading, UK",
-                                  //       style: TextStyle(
-                                  //           fontSize: 12, color: Colors.grey),
-                                  //     )
-                                  //   ],
-                                  // ),
-                                  // const OpeningHours(),
-                                  // const Text(
-                                  //   "Description",
-                                  //   style: TextStyle(
-                                  //       fontWeight: FontWeight.bold,
-                                  //       fontSize: 16),
-                                  // ),
-                                  // const SizedBox(
-                                  //   height: 10,
-                                  // ),
-                                  // const Text(
-                                  //   "Welcome to The Rustic Fork, where culinary excellence meets cozy charm. Our chefs artfully blend flavors from around the world to create dishes that will delight your palate. Whether you're savoring a romantic dinner or catching up with friends, our warm ambiance and delectable menu ensure an unforgettable dining experience. Join us today and discover why we're a favorite among food enthusiasts.",
-                                  //   textAlign: TextAlign.justify,
-                                  //   style: TextStyle(
-                                  //       fontSize: 12, color: Colors.grey),
-                                  // ),
                                   const SizedBox(
                                     height: 30,
                                   ),
-
                                   Container(
                                     width: double.infinity,
                                     height: 150,

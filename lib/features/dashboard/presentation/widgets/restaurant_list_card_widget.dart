@@ -119,7 +119,7 @@ class RestaurantListCardWidget extends StatelessWidget {
                                   width: 5,
                                 ),
                                 Text(
-                                  restaurant.description ?? "",
+                                  restaurant.subTitle ?? "",
                                   style: const TextStyle(
                                       fontSize: 12, color: Colors.grey),
                                 )
