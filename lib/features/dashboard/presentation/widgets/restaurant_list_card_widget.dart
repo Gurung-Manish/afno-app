@@ -71,11 +71,63 @@ class RestaurantListCardWidget extends StatelessWidget {
                                     value: downloadProgress.progress),
                               ),
                               errorWidget: (context, url, error) =>
-                                  const Icon(Icons.error),
+                                  const SizedBox(
+                                      height: 200, child: Icon(Icons.error)),
                             )
                           : const SizedBox(),
                     ),
                   ),
+                  Flexible(
+                    flex: 1,
+                    child: Container(
+                      padding: const EdgeInsets.all(10),
+                      width: double.infinity,
+                      child: Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          Row(
+                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                            children: [
+                              Text(
+                                restaurant.title ?? "",
+                                style: const TextStyle(
+                                    fontSize: 16, fontWeight: FontWeight.bold),
+                              ),
+                              TriangularContainer(
+                                child: const Padding(
+                                  padding: EdgeInsets.all(4.0),
+                                  child: Text(
+                                    "1km",
+                                    style: TextStyle(fontSize: 12),
+                                  ),
+                                ),
+                              )
+                            ],
+                          ),
+                          const SizedBox(
+                            height: 5,
+                          ),
+                          Row(
+                              crossAxisAlignment: CrossAxisAlignment.center,
+                              children: [
+                                const Icon(
+                                  Icons.wallet,
+                                  size: 14,
+                                  color: Color(0xFFFFCC00),
+                                ),
+                                const SizedBox(
+                                  width: 5,
+                                ),
+                                Text(
+                                  restaurant.description ?? "",
+                                  style: const TextStyle(
+                                      fontSize: 12, color: Colors.grey),
+                                )
+                              ])
+                        ],
+                      ),
+                    ),
+                  )
                 ],
               ),
             ),
