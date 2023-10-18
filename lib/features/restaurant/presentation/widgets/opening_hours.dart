@@ -100,6 +100,42 @@ class GetDay extends StatefulWidget {
 }
 
 class _GetDayState extends State<GetDay> {
+  bool isToday = false;
+
+  @override
+  void initState() {
+    // TODO: implement initState
+    super.initState();
+    final todayWeekday = DateTime.now().weekday;
+
+    if (widget.day == getWeekdayName(todayWeekday)) {
+      setState(() {
+        isToday = true;
+      });
+    }
+  }
+
+  String getWeekdayName(int weekday) {
+    switch (weekday) {
+      case 1:
+        return "Mon";
+      case 2:
+        return "Tue";
+      case 3:
+        return "Wed";
+      case 4:
+        return "Thu";
+      case 5:
+        return "Fri";
+      case 6:
+        return "Sat";
+      case 7:
+        return "Sun";
+      default:
+        return "";
+    }
+  }
+
   @override
   Widget build(BuildContext context) {
     return Row(
@@ -108,14 +144,22 @@ class _GetDayState extends State<GetDay> {
           children: [
             Text(
               widget.day,
-              style: const TextStyle(color: Colors.grey, fontSize: 12),
+              style: TextStyle(
+                color:
+                    isToday ? Colors.black : Colors.grey, // Highlight if today
+                fontSize: 12,
+              ),
             ),
             const SizedBox(
               width: 5,
             ),
             Text(
               widget.openingTime,
-              style: const TextStyle(color: Colors.grey, fontSize: 12),
+              style: TextStyle(
+                color:
+                    isToday ? Colors.black : Colors.grey, // Highlight if today
+                fontSize: 12,
+              ),
             ),
             Container(
               color: Colors.grey,
@@ -124,7 +168,11 @@ class _GetDayState extends State<GetDay> {
             ),
             Text(
               widget.closingTime,
-              style: const TextStyle(color: Colors.grey, fontSize: 12),
+              style: TextStyle(
+                color:
+                    isToday ? Colors.black : Colors.grey, // Highlight if today
+                fontSize: 12,
+              ),
             ),
           ],
         ),
