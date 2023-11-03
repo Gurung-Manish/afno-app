@@ -7,8 +7,10 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:loading_skeleton_niu/loading_skeleton.dart';
 
 class BottomDashboardView extends StatefulWidget {
+  final List<RestaurantModel> restaurants;
   const BottomDashboardView({
     super.key,
+    required this.restaurants,
   });
 
   @override
@@ -16,25 +18,6 @@ class BottomDashboardView extends StatefulWidget {
 }
 
 class _BottomDashboardViewState extends State<BottomDashboardView> {
-  List<RestaurantModel> restaurants = [];
-
-  @override
-  void initState() {
-    getRestaurantsFromCache().then((value) {
-      setState(() {
-        restaurants = value;
-      });
-    });
-    // TODO: implement initState
-    WidgetsBinding.instance.addPostFrameCallback((_) async {
-      context
-          .read<RestaurantBloc>()
-          .add(const RestaurantEvent.getRestaurants());
-    });
-
-    super.initState();
-  }
-
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -67,29 +50,22 @@ class _BottomDashboardViewState extends State<BottomDashboardView> {
             const SizedBox(
               height: 10,
             ),
-            restaurants.isNotEmpty
-                ? BlocListener<RestaurantBloc, RestaurantState>(
-                    listener: (context, state) {
-                      if (state is RestaurantStateLoaded) {
-                        restaurants = state.restaurants;
-                        setState(() {});
-                      }
-                    },
-                    child: Expanded(
-                      child: ListView.builder(
-                        itemCount: restaurants.length,
-                        scrollDirection: Axis.horizontal,
-                        itemBuilder: (context, index) {
-                          RestaurantModel restaurant = restaurants[index];
-                          return Padding(
-                            padding: const EdgeInsets.all(10.0),
-                            child: RestaurantListCardWidget(
-                              restaurant: restaurant,
-                            ),
-                          );
-                        },
-                      ),
-                    ))
+            widget.restaurants.isNotEmpty
+                ? Expanded(
+                    child: ListView.builder(
+                      itemCount: widget.restaurants.length,
+                      scrollDirection: Axis.horizontal,
+                      itemBuilder: (context, index) {
+                        RestaurantModel restaurant = widget.restaurants[index];
+                        return Padding(
+                          padding: const EdgeInsets.all(10.0),
+                          child: RestaurantListCardWidget(
+                            restaurant: restaurant,
+                          ),
+                        );
+                      },
+                    ),
+                  )
                 : Expanded(
                     child: ListView.builder(
                         itemCount: 2,
