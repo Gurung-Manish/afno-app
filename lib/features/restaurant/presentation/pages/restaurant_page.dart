@@ -103,7 +103,7 @@ class _RestaurantPageState extends State<RestaurantPage> {
                                                 borderRadius:
                                                     BorderRadius.circular(10),
                                                 child: CachedNetworkImage(
-                                                  fit: BoxFit.cover,
+                                                  fit: BoxFit.contain,
                                                   imageUrl: coverImageGet ?? "",
                                                   progressIndicatorBuilder:
                                                       (context, url,
