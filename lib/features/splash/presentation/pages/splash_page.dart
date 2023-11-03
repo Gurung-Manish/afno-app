@@ -33,7 +33,7 @@ class _SplashPageState extends State<SplashPage> {
           child: BlocListener<RestaurantBloc, RestaurantState>(
         listener: (context, state) {
           if (state is RestaurantStateLoaded) {
-            context.go(RoutesConstant.dashboard);
+            context.go(RoutesConstant.onboarding);
           }
           // TODO: implement listener
         },

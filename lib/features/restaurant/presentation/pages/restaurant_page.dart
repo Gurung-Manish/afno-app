@@ -10,6 +10,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_speed_dial/flutter_speed_dial.dart';
 import 'package:flutter_widget_from_html_core/flutter_widget_from_html_core.dart';
 import 'package:go_router/go_router.dart';
+import 'package:url_launcher/url_launcher.dart';
 
 class RestaurantPage extends StatefulWidget {
   final String id;
@@ -102,7 +103,7 @@ class _RestaurantPageState extends State<RestaurantPage> {
                                                 borderRadius:
                                                     BorderRadius.circular(10),
                                                 child: CachedNetworkImage(
-                                                  fit: BoxFit.cover,
+                                                  fit: BoxFit.contain,
                                                   imageUrl: coverImageGet ?? "",
                                                   progressIndicatorBuilder:
                                                       (context, url,
@@ -148,62 +149,13 @@ class _RestaurantPageState extends State<RestaurantPage> {
                                   const SizedBox(
                                     height: 10,
                                   ),
+                                  OpeningHours(
+                                    restaurants: restaurant,
+                                  ),
                                   HtmlWidget(restaurant.description ?? ""),
-                                  Text(restaurant.description ?? ""),
-                                  // Row(
-                                  //   children: [
-                                  //     Container(
-                                  //       padding: const EdgeInsets.symmetric(
-                                  //           horizontal: 15, vertical: 8),
-                                  //       decoration: BoxDecoration(
-                                  //           color: const Color(0xFF79DE89),
-                                  //           borderRadius:
-                                  //               BorderRadius.circular(10)),
-                                  //       child: const Text(
-                                  //         "Open",
-                                  //         style: TextStyle(
-                                  //             fontSize: 12,
-                                  //             color: Colors.white),
-                                  //       ),
-                                  //     ),
-                                  //     const SizedBox(
-                                  //       width: 15,
-                                  //     ),
-                                  //     const Icon(
-                                  //       Icons.location_on,
-                                  //       size: 16,
-                                  //       color: Color(0xFFFFCC00),
-                                  //     ),
-                                  //     const SizedBox(
-                                  //       width: 2,
-                                  //     ),
-                                  //     const Text(
-                                  //       "Reading, UK",
-                                  //       style: TextStyle(
-                                  //           fontSize: 12, color: Colors.grey),
-                                  //     )
-                                  //   ],
-                                  // ),
-                                  // const OpeningHours(),
-                                  // const Text(
-                                  //   "Description",
-                                  //   style: TextStyle(
-                                  //       fontWeight: FontWeight.bold,
-                                  //       fontSize: 16),
-                                  // ),
-                                  // const SizedBox(
-                                  //   height: 10,
-                                  // ),
-                                  // const Text(
-                                  //   "Welcome to The Rustic Fork, where culinary excellence meets cozy charm. Our chefs artfully blend flavors from around the world to create dishes that will delight your palate. Whether you're savoring a romantic dinner or catching up with friends, our warm ambiance and delectable menu ensure an unforgettable dining experience. Join us today and discover why we're a favorite among food enthusiasts.",
-                                  //   textAlign: TextAlign.justify,
-                                  //   style: TextStyle(
-                                  //       fontSize: 12, color: Colors.grey),
-                                  // ),
                                   const SizedBox(
                                     height: 30,
                                   ),
-
                                   Container(
                                     width: double.infinity,
                                     height: 150,
@@ -272,18 +224,25 @@ class _RestaurantPageState extends State<RestaurantPage> {
                 width: 20,
               ),
               label: "Web",
-              onTap: () {}),
+              onTap: () {
+                launchUrl(Uri.parse("https://aayurtshrestha.com.np/"));
+              }),
           SpeedDialChild(
               child: const Icon(Icons.facebook),
               label: "Facebook",
-              onTap: () {}),
+              onTap: () {
+                launchUrl(Uri.parse(
+                    "https://www.facebook.com/profile.php?id=100011115003487"));
+              }),
           SpeedDialChild(
               child: Image.asset(
                 "assets/icons/instagram.png",
                 width: 20,
               ),
               label: "Instagram",
-              onTap: () {}),
+              onTap: () {
+                launchUrl(Uri.parse("https://www.instagram.com/_manish_grg_/"));
+              }),
         ],
       ),
     );

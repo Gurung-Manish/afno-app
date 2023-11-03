@@ -18,6 +18,8 @@ class GoogleMapWidget extends StatelessWidget {
   Widget build(BuildContext context) {
     return GoogleMap(
       initialCameraPosition: _kGooglePlex,
+      myLocationEnabled: true,
+      compassEnabled: true,
       onMapCreated: (GoogleMapController controller) {
         _controller.complete(controller);
       },
