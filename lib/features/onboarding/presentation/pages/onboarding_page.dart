@@ -1,3 +1,4 @@
+import 'package:afno_app/core/shared_pref/shared_pref.dart';
 import 'package:afno_app/routes/routes_constant.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
@@ -42,6 +43,7 @@ class OnboardingPage extends StatelessWidget {
     return IntroScreenOnboarding(
       introductionList: list,
       onTapSkipButton: () {
+        SharedPrefService.storeToken(SharedPrefKey.firstLogin, "false");
         context.go(RoutesConstant.dashboard);
       },
       backgroudColor: Colors.white,

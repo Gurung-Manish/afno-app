@@ -37,7 +37,7 @@ class RestaurantListCardWidget extends StatelessWidget {
         child: Material(
           type: MaterialType.transparency,
           child: Container(
-            width: 300,
+            width: 302,
             decoration: BoxDecoration(
               boxShadow: [
                 BoxShadow(
@@ -63,7 +63,7 @@ class RestaurantListCardWidget extends StatelessWidget {
                       ),
                       child: coverImageGet != null
                           ? CachedNetworkImage(
-                              fit: BoxFit.cover,
+                              fit: BoxFit.contain,
                               imageUrl: coverImageGet,
                               progressIndicatorBuilder:
                                   (context, url, downloadProgress) => Center(
@@ -88,10 +88,17 @@ class RestaurantListCardWidget extends StatelessWidget {
                           Row(
                             mainAxisAlignment: MainAxisAlignment.spaceBetween,
                             children: [
-                              Text(
-                                restaurant.title ?? "",
-                                style: const TextStyle(
-                                    fontSize: 16, fontWeight: FontWeight.bold),
+                              Expanded(
+                                child: Text(
+                                  restaurant.title ?? "",
+                                  style: const TextStyle(
+                                    fontSize: 16,
+                                    fontWeight: FontWeight.bold,
+                                  ),
+                                  overflow: TextOverflow.ellipsis,
+                                  maxLines:
+                                      1, // Limit the text to a single line
+                                ),
                               ),
                               TriangularContainer(
                                 child: const Padding(
@@ -101,29 +108,39 @@ class RestaurantListCardWidget extends StatelessWidget {
                                     style: TextStyle(fontSize: 12),
                                   ),
                                 ),
-                              )
+                              ),
                             ],
                           ),
                           const SizedBox(
                             height: 5,
                           ),
                           Row(
-                              crossAxisAlignment: CrossAxisAlignment.center,
-                              children: [
-                                const Icon(
-                                  Icons.wallet,
-                                  size: 14,
-                                  color: Color(0xFFFFCC00),
-                                ),
-                                const SizedBox(
-                                  width: 5,
-                                ),
-                                Text(
+                            crossAxisAlignment: CrossAxisAlignment.center,
+                            children: [
+                              const Icon(
+                                Icons.wallet,
+                                size: 14,
+                                color: Color(0xFFFFCC00),
+                              ),
+                              const SizedBox(
+                                width: 5,
+                              ),
+                              SizedBox(
+                                width:
+                                    200, // Set a specific width to limit the space for the text
+                                child: Text(
                                   restaurant.subTitle ?? "",
                                   style: const TextStyle(
-                                      fontSize: 12, color: Colors.grey),
-                                )
-                              ])
+                                    fontSize: 12,
+                                    color: Colors.grey,
+                                  ),
+                                  maxLines: 2, // Allow at most 2 lines of text
+                                  overflow: TextOverflow
+                                      .ellipsis, // Display ellipsis (...) if text overflows
+                                ),
+                              ),
+                            ],
+                          )
                         ],
                       ),
                     ),

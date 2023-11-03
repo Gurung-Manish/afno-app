@@ -1,4 +1,5 @@
 import 'package:afno_app/core/constants/constants.dart';
+import 'package:afno_app/features/restaurant/data/datasources/restaurant_datasource.dart';
 import 'package:afno_app/features/restaurant/data/models/restaurant_model.dart';
 import 'package:afno_app/features/restaurant/presentation/bloc/restaurant_bloc.dart';
 import 'package:afno_app/features/restaurant/presentation/widgets/opening_hours.dart';
@@ -22,9 +23,23 @@ class RestaurantPage extends StatefulWidget {
 
 class _RestaurantPageState extends State<RestaurantPage> {
   RestaurantModel? restaurant;
+  List<RestaurantModel> restaurants = [];
+  List<Media> imgList = [];
   @override
   void initState() {
+    getRestaurantsFromCache().then((value) {
+      setState(() {
+        restaurants = value;
+        restaurant = restaurants
+            .firstWhere((element) => element.id.toString() == widget.id);
+      });
+    });
     // TODO: implement initState
+    WidgetsBinding.instance.addPostFrameCallback((_) async {
+      context
+          .read<RestaurantBloc>()
+          .add(const RestaurantEvent.getRestaurants());
+    });
 
     super.initState();
   }
@@ -33,29 +48,35 @@ class _RestaurantPageState extends State<RestaurantPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       body: SafeArea(
-        child: BlocBuilder<RestaurantBloc, RestaurantState>(
-          builder: (context, state) {
-            if (state is RestaurantStateLoading) {
-              return const CircularProgressIndicator();
-            } else if (state is RestaurantStateLoaded) {
-              List<RestaurantModel> restaurants = state.restaurants;
-              RestaurantModel? restaurant = restaurants
-                  .firstWhere((element) => element.id.toString() == widget.id);
-              List<Media> imgList = restaurant.media!.isNotEmpty
-                  ? restaurant.media!.where((element) {
-                      return element.collectionName == "gallery";
-                    }).toList()
-                  : [];
+//
+          child: BlocListener<RestaurantBloc, RestaurantState>(
+        listener: (context, state) {
+          // TODO: implement listener
+          print("geting from server");
 
-              return Stack(
+          if (state is RestaurantStateLoaded) {
+            restaurants = state.restaurants;
+            RestaurantModel? newRestaurant = restaurants
+                .firstWhere((element) => element.id.toString() == widget.id);
+            imgList = newRestaurant.media!.isNotEmpty
+                ? newRestaurant.media!.where((element) {
+                    return element.collectionName == "gallery";
+                  }).toList()
+                : [];
+            restaurant = newRestaurant;
+            setState(() {});
+          }
+        },
+        child: restaurant != null
+            ? Stack(
                 children: [
                   CustomScrollView(
                     slivers: <Widget>[
                       SliverAppBar(
                         backgroundColor: Colors.white,
                         expandedHeight: 350,
-                        floating: true,
-                        pinned: false,
+                        floating: false,
+                        pinned: true,
                         stretch: true,
                         stretchTriggerOffset: 150.0,
                         flexibleSpace: FlexibleSpaceBar(
@@ -141,7 +162,7 @@ class _RestaurantPageState extends State<RestaurantPage> {
                                 crossAxisAlignment: CrossAxisAlignment.start,
                                 children: [
                                   Text(
-                                    restaurant.title ?? "",
+                                    restaurant!.title ?? "",
                                     style: const TextStyle(
                                         fontWeight: FontWeight.bold,
                                         fontSize: 20),
@@ -152,17 +173,21 @@ class _RestaurantPageState extends State<RestaurantPage> {
                                   OpeningHours(
                                     restaurants: restaurant,
                                   ),
-                                  HtmlWidget(restaurant.description ?? ""),
+                                  restaurant!.description != null &&
+                                          restaurant!.description!.isNotEmpty
+                                      ? HtmlWidget(
+                                          restaurant!.description ?? "")
+                                      : const SizedBox(),
                                   const SizedBox(
                                     height: 30,
                                   ),
-                                  Container(
+                                  const SizedBox(
                                     width: double.infinity,
                                     height: 150,
-                                    decoration: BoxDecoration(
-                                      color: Colors.grey,
-                                      borderRadius: BorderRadius.circular(15),
-                                    ),
+                                    // decoration: BoxDecoration(
+                                    //   color: Colors.grey,
+                                    //   borderRadius: BorderRadius.circular(15),
+                                    // ),
                                   )
                                 ],
                               ),
@@ -204,13 +229,9 @@ class _RestaurantPageState extends State<RestaurantPage> {
                     ),
                   ),
                 ],
-              );
-            } else {
-              return const Text("Error");
-            }
-          },
-        ),
-      ),
+              )
+            : const SizedBox(),
+      )),
       floatingActionButton: SpeedDial(
         animatedIcon: AnimatedIcons.menu_close,
         backgroundColor: const Color(0xFFFFCC00),

@@ -1,7 +1,10 @@
+import 'dart:convert';
+
 import 'package:afno_app/core/constants/constants.dart';
 import 'package:afno_app/core/failure/failure.dart';
 import 'package:afno_app/core/network/api_list.dart';
 import 'package:afno_app/core/network/api_service.dart';
+import 'package:afno_app/core/shared_pref/shared_pref.dart';
 import 'package:afno_app/features/restaurant/data/models/restaurant_model.dart';
 import 'package:dartz/dartz.dart';
 
@@ -28,6 +31,12 @@ class RestaurantDataSourceImpl implements RestaurantRemoteDataSource {
             print(e);
             return RestaurantModel.fromJson(e);
           }).toList();
+          var jsonVal =
+              jsonEncode(restaurantFormatted.map((e) => e.toJson()).toList());
+
+          await SharedPrefService.storeToken(
+              SharedPrefKey.restaurants, jsonVal);
+
           if (restaurants.isNotEmpty) {
             return Right(restaurantFormatted);
           } else {
@@ -46,5 +55,21 @@ class RestaurantDataSourceImpl implements RestaurantRemoteDataSource {
         Exception('Exception Occured in RestaurantsRemoteDataSourceImpl'),
       );
     }
+  }
+}
+
+Future<List<RestaurantModel>> getRestaurantsFromCache() async {
+  try {
+    final String productResponseString =
+        await SharedPrefService.getToken(SharedPrefKey.restaurants);
+    List jsonList =
+        json.decode(productResponseString == "" ? '[]' : productResponseString);
+    List<RestaurantModel> cacheRestaurants = jsonList.map((e) {
+      return RestaurantModel.fromJson(e);
+    }).toList();
+
+    return cacheRestaurants;
+  } catch (e) {
+    return [];
   }
 }

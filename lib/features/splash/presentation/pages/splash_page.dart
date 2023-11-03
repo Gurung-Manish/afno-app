@@ -1,3 +1,4 @@
+import 'package:afno_app/core/shared_pref/shared_pref.dart';
 import 'package:afno_app/features/restaurant/presentation/bloc/restaurant_bloc.dart';
 import 'package:afno_app/routes/routes_constant.dart';
 import 'package:flutter/foundation.dart';
@@ -19,26 +20,40 @@ class _SplashPageState extends State<SplashPage> {
     super.initState();
 
     WidgetsBinding.instance.addPostFrameCallback((_) async {
-      context
-          .read<RestaurantBloc>()
-          .add(const RestaurantEvent.getRestaurants());
+      if (await SharedPrefService.getToken(SharedPrefKey.firstLogin) !=
+          "false") {
+        context.go(RoutesConstant.onboarding);
+      } else {
+        context.go(RoutesConstant.dashboard);
+      }
+      // context
+      //     .read<RestaurantBloc>()
+      //     .add(const RestaurantEvent.getRestaurants());
     });
     print("going to dashboard now.........");
   }
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      body: SafeArea(
-          child: BlocListener<RestaurantBloc, RestaurantState>(
-        listener: (context, state) {
-          if (state is RestaurantStateLoaded) {
-            context.go(RoutesConstant.onboarding);
-          }
-          // TODO: implement listener
-        },
-        child: Text("Splash"),
-      )),
-    );
+    return const Scaffold(
+        body: SafeArea(
+            child: Center(
+                child: Column(
+      mainAxisAlignment: MainAxisAlignment.center,
+      children: [
+        Text(
+          "AFNO APP",
+          style: TextStyle(
+            fontSize: 24.0,
+            fontWeight: FontWeight.bold,
+          ),
+        ),
+        SizedBox(height: 16.0),
+        SizedBox(
+          width: 200.0,
+          child: LinearProgressIndicator(),
+        ),
+      ],
+    ))));
   }
 }

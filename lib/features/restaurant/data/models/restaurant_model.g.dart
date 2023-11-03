@@ -6,8 +6,8 @@ part of 'restaurant_model.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-RestaurantModel _$RestaurantModelFromJson(Map<String, dynamic> json) =>
-    RestaurantModel(
+_$_RestaurantModel _$$_RestaurantModelFromJson(Map<String, dynamic> json) =>
+    _$_RestaurantModel(
       id: json['id'] as int?,
       title: json['title'] as String?,
       subTitle: json['sub_title'] as String?,
@@ -44,7 +44,7 @@ RestaurantModel _$RestaurantModelFromJson(Map<String, dynamic> json) =>
           .toList(),
     );
 
-Map<String, dynamic> _$RestaurantModelToJson(RestaurantModel instance) =>
+Map<String, dynamic> _$$_RestaurantModelToJson(_$_RestaurantModel instance) =>
     <String, dynamic>{
       'id': instance.id,
       'title': instance.title,
@@ -80,7 +80,7 @@ Map<String, dynamic> _$RestaurantModelToJson(RestaurantModel instance) =>
       'media': instance.media,
     };
 
-Media _$MediaFromJson(Map<String, dynamic> json) => Media(
+_$_Media _$$_MediaFromJson(Map<String, dynamic> json) => _$_Media(
       id: json['id'] as int?,
       modelType: json['model_type'] as String?,
       modelId: json['model_id'] as String?,
@@ -96,7 +96,7 @@ Media _$MediaFromJson(Map<String, dynamic> json) => Media(
               json['custom_properties'] as Map<String, dynamic>),
     );
 
-Map<String, dynamic> _$MediaToJson(Media instance) => <String, dynamic>{
+Map<String, dynamic> _$$_MediaToJson(_$_Media instance) => <String, dynamic>{
       'id': instance.id,
       'model_type': instance.modelType,
       'model_id': instance.modelId,
@@ -109,9 +109,9 @@ Map<String, dynamic> _$MediaToJson(Media instance) => <String, dynamic>{
       'custom_properties': instance.customProperties,
     };
 
-MediaCustomProperties _$MediaCustomPropertiesFromJson(
+_$_MediaCustomProperties _$$_MediaCustomPropertiesFromJson(
         Map<String, dynamic> json) =>
-    MediaCustomProperties(
+    _$_MediaCustomProperties(
       name: json['name'] as String?,
       fileName: json['file_name'] as String?,
       width: json['width'] as int?,
@@ -122,8 +122,8 @@ MediaCustomProperties _$MediaCustomPropertiesFromJson(
       ),
     );
 
-Map<String, dynamic> _$MediaCustomPropertiesToJson(
-        MediaCustomProperties instance) =>
+Map<String, dynamic> _$$_MediaCustomPropertiesToJson(
+        _$_MediaCustomProperties instance) =>
     <String, dynamic>{
       'name': instance.name,
       'file_name': instance.fileName,

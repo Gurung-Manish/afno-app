@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
 
 class OpeningHours extends StatefulWidget {
-  final RestaurantModel restaurants;
+  final RestaurantModel? restaurants;
 
   const OpeningHours({super.key, required this.restaurants});
 
@@ -26,55 +26,63 @@ class _OpeningHoursState extends State<OpeningHours> {
         ),
         Column(
           children: [
-            GetDay(
-              day: "Mon",
-              openingTime: DateFormat('HH:mm').format(
-                  getHours(widget.restaurants.mondayOpenTime.toString())),
-              closingTime: DateFormat('HH:mm').format(
-                  getHours(widget.restaurants.mondayCloseTime.toString())),
-            ),
-            GetDay(
-              day: "Tue",
-              openingTime: DateFormat('HH:mm').format(
-                  getHours(widget.restaurants.tuesdayOpenTime.toString())),
-              closingTime: DateFormat('HH:mm').format(
-                  getHours(widget.restaurants.tuesdayCloseTime.toString())),
-            ),
-            GetDay(
-              day: "Wed",
-              openingTime: DateFormat('HH:mm').format(
-                  getHours(widget.restaurants.wednesdayOpenTime.toString())),
-              closingTime: DateFormat('HH:mm').format(
-                  getHours(widget.restaurants.wednesdayCloseTime.toString())),
-            ),
-            GetDay(
-              day: "Thu",
-              openingTime: DateFormat('HH:mm').format(
-                  getHours(widget.restaurants.thursdayOpenTime.toString())),
-              closingTime: DateFormat('HH:mm').format(
-                  getHours(widget.restaurants.thursdayCloseTime.toString())),
-            ),
-            GetDay(
-              day: "Fri",
-              openingTime: DateFormat('HH:mm').format(
-                  getHours(widget.restaurants.fridayOpenTime.toString())),
-              closingTime: DateFormat('HH:mm').format(
-                  getHours(widget.restaurants.fridayCloseTime.toString())),
-            ),
-            GetDay(
-              day: "Sat",
-              openingTime: DateFormat('HH:mm').format(
-                  getHours(widget.restaurants.saturdayOpenTime.toString())),
-              closingTime: DateFormat('HH:mm').format(
-                  getHours(widget.restaurants.saturdayCloseTime.toString())),
-            ),
-            GetDay(
-              day: "Sun",
-              openingTime: DateFormat('HH:mm').format(
-                  getHours(widget.restaurants.sundayOpenTime.toString())),
-              closingTime: DateFormat('HH:mm').format(
-                  getHours(widget.restaurants.sundayCloseTime.toString())),
-            ),
+            widget.restaurants!.mondayOpenTime != null
+                ? GetDay(
+                    day: "Mon",
+                    openingTime: DateFormat('HH:mm').format(getHours(
+                        widget.restaurants!.mondayOpenTime.toString())),
+                    closingTime: DateFormat('HH:mm').format(getHours(
+                        widget.restaurants!.mondayCloseTime.toString())),
+                  )
+                : const SizedBox(),
+            if (widget.restaurants!.tuesdayOpenTime != null)
+              GetDay(
+                day: "Tue",
+                openingTime: DateFormat('HH:mm').format(
+                    getHours(widget.restaurants!.tuesdayOpenTime.toString())),
+                closingTime: DateFormat('HH:mm').format(
+                    getHours(widget.restaurants!.tuesdayCloseTime.toString())),
+              ),
+            if (widget.restaurants!.wednesdayOpenTime != null)
+              GetDay(
+                day: "Wed",
+                openingTime: DateFormat('HH:mm').format(
+                    getHours(widget.restaurants!.wednesdayOpenTime.toString())),
+                closingTime: DateFormat('HH:mm').format(getHours(
+                    widget.restaurants!.wednesdayCloseTime.toString())),
+              ),
+            if (widget.restaurants!.thursdayOpenTime != null)
+              GetDay(
+                day: "Thu",
+                openingTime: DateFormat('HH:mm').format(
+                    getHours(widget.restaurants!.thursdayOpenTime.toString())),
+                closingTime: DateFormat('HH:mm').format(
+                    getHours(widget.restaurants!.thursdayCloseTime.toString())),
+              ),
+            if (widget.restaurants!.fridayOpenTime != null)
+              GetDay(
+                day: "Fri",
+                openingTime: DateFormat('HH:mm').format(
+                    getHours(widget.restaurants!.fridayOpenTime.toString())),
+                closingTime: DateFormat('HH:mm').format(
+                    getHours(widget.restaurants!.fridayCloseTime.toString())),
+              ),
+            if (widget.restaurants!.saturdayOpenTime != null)
+              GetDay(
+                day: "Sat",
+                openingTime: DateFormat('HH:mm').format(
+                    getHours(widget.restaurants!.saturdayOpenTime.toString())),
+                closingTime: DateFormat('HH:mm').format(
+                    getHours(widget.restaurants!.saturdayCloseTime.toString())),
+              ),
+            if (widget.restaurants!.sundayOpenTime != null)
+              GetDay(
+                day: "Sun",
+                openingTime: DateFormat('HH:mm').format(
+                    getHours(widget.restaurants!.sundayOpenTime.toString())),
+                closingTime: DateFormat('HH:mm').format(
+                    getHours(widget.restaurants!.sundayCloseTime.toString())),
+              ),
           ],
         ),
         const SizedBox(

@@ -1,19 +1,44 @@
 import 'package:afno_app/features/dashboard/presentation/widgets/restaurant_list_card_widget.dart';
+import 'package:afno_app/features/restaurant/data/datasources/restaurant_datasource.dart';
 import 'package:afno_app/features/restaurant/data/models/restaurant_model.dart';
 import 'package:afno_app/features/restaurant/presentation/bloc/restaurant_bloc.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:loading_skeleton_niu/loading_skeleton.dart';
 
-class BottomDashboardView extends StatelessWidget {
+class BottomDashboardView extends StatefulWidget {
   const BottomDashboardView({
     super.key,
   });
 
   @override
+  State<BottomDashboardView> createState() => _BottomDashboardViewState();
+}
+
+class _BottomDashboardViewState extends State<BottomDashboardView> {
+  List<RestaurantModel> restaurants = [];
+
+  @override
+  void initState() {
+    getRestaurantsFromCache().then((value) {
+      setState(() {
+        restaurants = value;
+      });
+    });
+    // TODO: implement initState
+    WidgetsBinding.instance.addPostFrameCallback((_) async {
+      context
+          .read<RestaurantBloc>()
+          .add(const RestaurantEvent.getRestaurants());
+    });
+
+    super.initState();
+  }
+
+  @override
   Widget build(BuildContext context) {
     return Container(
-        height: 300,
+        height: 302,
         decoration: BoxDecoration(
           boxShadow: [
             BoxShadow(
@@ -42,28 +67,30 @@ class BottomDashboardView extends StatelessWidget {
             const SizedBox(
               height: 10,
             ),
-            BlocBuilder<RestaurantBloc, RestaurantState>(
-              builder: (context, state) {
-                if (state is RestaurantStateLoaded) {
-                  List<RestaurantModel> restaurants = state.restaurants;
-
-                  return Expanded(
-                    child: ListView.builder(
-                      itemCount: restaurants.length,
-                      scrollDirection: Axis.horizontal,
-                      itemBuilder: (context, index) {
-                        RestaurantModel restaurant = restaurants[index];
-                        return Padding(
-                          padding: const EdgeInsets.all(10.0),
-                          child: RestaurantListCardWidget(
-                            restaurant: restaurant,
-                          ),
-                        );
-                      },
-                    ),
-                  );
-                } else if (state is RestaurantStateLoading) {
-                  return Expanded(
+            restaurants.isNotEmpty
+                ? BlocListener<RestaurantBloc, RestaurantState>(
+                    listener: (context, state) {
+                      if (state is RestaurantStateLoaded) {
+                        restaurants = state.restaurants;
+                        setState(() {});
+                      }
+                    },
+                    child: Expanded(
+                      child: ListView.builder(
+                        itemCount: restaurants.length,
+                        scrollDirection: Axis.horizontal,
+                        itemBuilder: (context, index) {
+                          RestaurantModel restaurant = restaurants[index];
+                          return Padding(
+                            padding: const EdgeInsets.all(10.0),
+                            child: RestaurantListCardWidget(
+                              restaurant: restaurant,
+                            ),
+                          );
+                        },
+                      ),
+                    ))
+                : Expanded(
                     child: ListView.builder(
                         itemCount: 2,
                         scrollDirection: Axis.horizontal,
@@ -85,23 +112,7 @@ class BottomDashboardView extends StatelessWidget {
                             ),
                           );
                         }),
-                  );
-                  // Row(
-                  //   crossAxisAlignment: CrossAxisAlignment.center,
-                  //   mainAxisAlignment: MainAxisAlignment.center,
-                  //   children: [
-                  //     SizedBox(
-                  //       height: 50,
-                  //       width: 50,
-                  //       child: CircularProgressIndicator(),
-                  //     ),
-                  //   ],
-                  // );
-                } else {
-                  return const Text("Error");
-                }
-              },
-            ),
+                  ),
             const SizedBox(
               height: 10,
             )
