@@ -59,7 +59,7 @@ class RestaurantListCardWidget extends StatelessWidget {
                     child: Container(
                       width: double.infinity,
                       decoration: BoxDecoration(
-                        color: Colors.grey.withOpacity(0.5),
+                        color: Colors.grey.withOpacity(0.1),
                       ),
                       child: coverImageGet != null
                           ? CachedNetworkImage(

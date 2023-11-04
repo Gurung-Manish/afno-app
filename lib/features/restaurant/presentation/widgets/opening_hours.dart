@@ -109,16 +109,26 @@ class GetDay extends StatefulWidget {
 
 class _GetDayState extends State<GetDay> {
   bool isToday = false;
+  bool isOpen = false;
 
   @override
   void initState() {
-    // TODO: implement initState
     super.initState();
     final todayWeekday = DateTime.now().weekday;
 
     if (widget.day == getWeekdayName(todayWeekday)) {
       setState(() {
         isToday = true;
+      });
+    }
+
+    // Check if current time is within opening and closing times
+    final currentTime = DateTime.now().toLocal();
+    if (isToday &&
+        currentTime.isAfter(currentGetDateTime(widget.openingTime)) &&
+        currentTime.isBefore(currentGetDateTime(widget.closingTime))) {
+      setState(() {
+        isOpen = true;
       });
     }
   }
@@ -150,12 +160,16 @@ class _GetDayState extends State<GetDay> {
       children: [
         Row(
           children: [
-            Text(
-              widget.day,
-              style: TextStyle(
-                color:
-                    isToday ? Colors.black : Colors.grey, // Highlight if today
-                fontSize: 12,
+            SizedBox(
+              width: 40,
+              child: Text(
+                widget.day,
+                style: TextStyle(
+                  color: isToday
+                      ? Colors.black
+                      : Colors.grey, // Highlight if today
+                  fontSize: 14,
+                ),
               ),
             ),
             const SizedBox(
@@ -164,9 +178,8 @@ class _GetDayState extends State<GetDay> {
             Text(
               widget.openingTime,
               style: TextStyle(
-                color:
-                    isToday ? Colors.black : Colors.grey, // Highlight if today
-                fontSize: 12,
+                color: isToday ? Colors.black : Colors.grey,
+                fontSize: 14,
               ),
             ),
             Container(
@@ -177,11 +190,42 @@ class _GetDayState extends State<GetDay> {
             Text(
               widget.closingTime,
               style: TextStyle(
-                color:
-                    isToday ? Colors.black : Colors.grey, // Highlight if today
-                fontSize: 12,
+                color: isToday ? Colors.black : Colors.grey,
+                fontSize: 14,
               ),
             ),
+            isToday
+                ? (isOpen)
+                    ? const Row(
+                        children: [
+                          SizedBox(
+                            width: 10,
+                          ),
+                          Text(
+                            "(Open)",
+                            style: TextStyle(
+                                color:
+                                    Colors.green, // Customize open text color
+                                fontSize: 14,
+                                fontWeight: FontWeight.bold),
+                          ),
+                        ],
+                      )
+                    : const Row(
+                        children: [
+                          SizedBox(
+                            width: 10,
+                          ),
+                          Text(
+                            "(Closed)",
+                            style: TextStyle(
+                                color: Colors.red, // Customize open text color
+                                fontSize: 14,
+                                fontWeight: FontWeight.bold),
+                          ),
+                        ],
+                      )
+                : const SizedBox()
           ],
         ),
         const SizedBox(
@@ -193,6 +237,19 @@ class _GetDayState extends State<GetDay> {
 }
 
 DateTime getHours(String time) {
+  List<String> parts = time.split(':');
+
   DateTime openingHour = DateFormat('HH:mm').parse(time);
   return openingHour;
+}
+
+DateTime currentGetDateTime(String time) {
+  List<String> parts = time.split(':');
+  int hours = int.parse(parts[0]);
+  int minutes = int.parse(parts[1]);
+  DateTime now = DateTime.now();
+
+  DateTime dateTime = DateTime(now.year, now.month, now.day, hours, minutes);
+
+  return dateTime;
 }

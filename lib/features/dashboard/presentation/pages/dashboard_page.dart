@@ -56,81 +56,72 @@ class _DashboardPageState extends State<DashboardPage> {
       },
       child: Column(
         children: [
-          Flexible(
-              flex: 1,
-              child: Stack(
-                children: [
-                  DashboardMapView(
-                    restaurants: filteredRestaurants,
-                  ),
-                  Positioned(
-                    top: 0,
-                    left: 0,
-                    right: 0,
-                    child: Padding(
-                      padding: const EdgeInsets.all(10.0),
-                      child: Container(
-                        decoration: BoxDecoration(
-                          color: Colors.white,
-                          borderRadius: BorderRadius.circular(20.0),
-                          boxShadow: [
-                            BoxShadow(
-                              color: Colors.grey.withOpacity(0.5),
-                              spreadRadius: 1,
-                              blurRadius: 10,
-                              offset: const Offset(0, 2),
-                            ),
-                          ],
+          SizedBox(
+            child: Container(
+              height: MediaQuery.of(context).size.height / 2,
+              constraints: const BoxConstraints(maxHeight: 400),
+              child: DashboardMapView(
+                restaurants: filteredRestaurants,
+              ),
+            ),
+          ),
+          Expanded(
+            child: Column(
+              children: [
+                Padding(
+                  padding: const EdgeInsets.all(10.0),
+                  child: Container(
+                    decoration: BoxDecoration(
+                      color: Colors.white,
+                      borderRadius: BorderRadius.circular(20.0),
+                      boxShadow: [
+                        BoxShadow(
+                          color: Colors.grey.withOpacity(0.5),
+                          spreadRadius: 1,
+                          blurRadius: 10,
+                          offset: const Offset(0, 2),
                         ),
-                        child: Padding(
-                          padding: const EdgeInsets.symmetric(horizontal: 16.0),
-                          child: Row(
-                            children: [
-                              Expanded(
-                                child: TextFormField(
-                                  controller: textEditingController,
-                                  onChanged: (val) {
-                                    applyFilters();
-                                  },
-                                  decoration: const InputDecoration(
-                                    hintText: "Search...",
-                                    prefixIcon: Icon(Icons.search),
-                                    border: InputBorder.none,
-                                    filled: true,
-                                    isDense: true,
-                                    suffixIconConstraints: BoxConstraints(
-                                      maxHeight: 34,
-                                    ),
-                                    fillColor: Colors.white,
-                                    hoverColor: Colors.white,
-                                    contentPadding: EdgeInsets.only(
-                                      top: 14.0,
-                                      right: 16.0,
-                                      bottom: 14.0,
-                                    ),
-                                  ),
-                                ),
-                              ),
-                              // IconButton(
-                              //   onPressed: () {
-                              //     // Handle search button press
-                              //     applyFilters();
-                              //   },
-                              //   icon: Icon(
-                              //     Icons.search,
-                              //     color: Theme.of(context).colorScheme.primary,
-                              //   ),
-                              // ),
-                            ],
+                      ],
+                    ),
+                    child: Padding(
+                      padding: const EdgeInsets.symmetric(horizontal: 16.0),
+                      child: Expanded(
+                        child: TextFormField(
+                          controller: textEditingController,
+                          onChanged: (val) {
+                            applyFilters();
+                          },
+                          decoration: const InputDecoration(
+                            hintText: "Search...",
+                            prefixIcon: Icon(Icons.search),
+                            border: InputBorder.none,
+                            filled: true,
+                            isDense: true,
+                            suffixIconConstraints: BoxConstraints(
+                              maxHeight: 34,
+                            ),
+                            fillColor: Colors.white,
+                            hoverColor: Colors.white,
+                            contentPadding: EdgeInsets.only(
+                              top: 14.0,
+                              right: 16.0,
+                              bottom: 14.0,
+                            ),
                           ),
                         ),
                       ),
                     ),
                   ),
-                ],
-              )),
-          BottomDashboardView(
-            restaurants: filteredRestaurants,
+                ),
+                Expanded(
+                  child: SingleChildScrollView(
+                    child: BottomDashboardView(
+                      restaurants: filteredRestaurants,
+                    ),
+                  ),
+                ),
+              ],
+            ),
           ),
         ],
       ),

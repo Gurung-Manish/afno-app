@@ -165,13 +165,16 @@ class _RestaurantPageState extends State<RestaurantPage> {
                                     restaurant!.title ?? "",
                                     style: const TextStyle(
                                         fontWeight: FontWeight.bold,
-                                        fontSize: 20),
+                                        fontSize: 30),
                                   ),
                                   const SizedBox(
                                     height: 10,
                                   ),
-                                  OpeningHours(
-                                    restaurants: restaurant,
+                                  Padding(
+                                    padding: const EdgeInsets.only(left: 10),
+                                    child: OpeningHours(
+                                      restaurants: restaurant,
+                                    ),
                                   ),
                                   restaurant!.description != null &&
                                           restaurant!.description!.isNotEmpty
