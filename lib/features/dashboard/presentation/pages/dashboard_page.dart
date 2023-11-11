@@ -54,19 +54,19 @@ class _DashboardPageState extends State<DashboardPage> {
           setState(() {});
         }
       },
-      child: Column(
-        children: [
-          SizedBox(
-            child: Container(
-              height: MediaQuery.of(context).size.height / 2,
-              constraints: const BoxConstraints(maxHeight: 400),
-              child: DashboardMapView(
-                restaurants: filteredRestaurants,
+      child: SingleChildScrollView(
+        child: Column(
+          children: [
+            SizedBox(
+              child: Container(
+                height: MediaQuery.of(context).size.height / 2,
+                constraints: const BoxConstraints(maxHeight: 400),
+                child: DashboardMapView(
+                  restaurants: filteredRestaurants,
+                ),
               ),
             ),
-          ),
-          Expanded(
-            child: Column(
+            Column(
               children: [
                 Padding(
                   padding: const EdgeInsets.all(10.0),
@@ -113,17 +113,13 @@ class _DashboardPageState extends State<DashboardPage> {
                     ),
                   ),
                 ),
-                Expanded(
-                  child: SingleChildScrollView(
-                    child: BottomDashboardView(
-                      restaurants: filteredRestaurants,
-                    ),
-                  ),
+                BottomDashboardView(
+                  restaurants: filteredRestaurants,
                 ),
               ],
             ),
-          ),
-        ],
+          ],
+        ),
       ),
     );
   }

@@ -20,6 +20,7 @@ abstract class RestaurantModel with _$RestaurantModel {
     @JsonKey(name: 'youtube') String? youtube,
     @JsonKey(name: 'latitude') String? latitude,
     @JsonKey(name: 'longitude') String? longitude,
+    @JsonKey(name: 'distance') double? distance,
     @JsonKey(name: 'monday_open_time') String? mondayOpenTime,
     @JsonKey(name: 'monday_close_time') String? mondayCloseTime,
     @JsonKey(name: 'tuesday_open_time') String? tuesdayOpenTime,

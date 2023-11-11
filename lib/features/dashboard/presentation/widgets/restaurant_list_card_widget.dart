@@ -2,26 +2,31 @@ import 'package:afno_app/core/constants/constants.dart';
 import 'package:afno_app/features/dashboard/presentation/widgets/triangular_container.dart';
 import 'package:afno_app/features/restaurant/data/models/restaurant_model.dart';
 import 'package:afno_app/routes/routes_constant.dart';
-import 'package:flutter/material.dart';
 import 'package:cached_network_image/cached_network_image.dart';
+import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 
-class RestaurantListCardWidget extends StatelessWidget {
+class RestaurantListCardWidget extends StatefulWidget {
   const RestaurantListCardWidget({super.key, required this.restaurant});
-
   final RestaurantModel restaurant;
 
   @override
+  State<RestaurantListCardWidget> createState() =>
+      _RestaurantListCardWidgetState();
+}
+
+class _RestaurantListCardWidgetState extends State<RestaurantListCardWidget> {
+  @override
   Widget build(BuildContext context) {
-    var index = restaurant.id;
-    List<Media>? coverImages = restaurant.media
+    var index = widget.restaurant.id;
+    List<Media>? coverImages = widget.restaurant.media
         ?.where(
           (element) => element.collectionName == "cover",
         )
         .toList();
     Media? coverImage;
     if (coverImages!.isNotEmpty) {
-      coverImage = restaurant.media?.firstWhere(
+      coverImage = widget.restaurant.media?.firstWhere(
         (element) {
           return element.collectionName == "cover";
         },
@@ -31,6 +36,7 @@ class RestaurantListCardWidget extends StatelessWidget {
     String? coverImageGet = coverImage != null
         ? '${AppConstants.publicUrl}/media/${coverImage.id}/${coverImage.fileName}'
         : "";
+
     return GestureDetector(
       child: Hero(
         tag: "restaurant_${index.toString()}",
@@ -48,22 +54,25 @@ class RestaurantListCardWidget extends StatelessWidget {
                 ),
               ],
               color: Colors.white,
-              borderRadius: BorderRadius.circular(25),
+              borderRadius: BorderRadius.circular(10),
             ),
             child: ClipRRect(
-              borderRadius: BorderRadius.circular(25),
+              borderRadius: BorderRadius.circular(10),
               child: Column(
                 children: [
                   Flexible(
                     flex: 2,
                     child: Container(
-                      width: double.infinity,
-                      decoration: BoxDecoration(
-                        color: Colors.grey.withOpacity(0.1),
+                      height: 200,
+                      width: double.maxFinite,
+                      decoration: const BoxDecoration(
+                        color: Colors.white,
                       ),
                       child: coverImageGet != null
                           ? CachedNetworkImage(
-                              fit: BoxFit.contain,
+                              fit: BoxFit.fitWidth,
+                              height: 200,
+                              width: double.maxFinite,
                               imageUrl: coverImageGet,
                               progressIndicatorBuilder:
                                   (context, url, downloadProgress) => Center(
@@ -90,7 +99,7 @@ class RestaurantListCardWidget extends StatelessWidget {
                             children: [
                               Expanded(
                                 child: Text(
-                                  restaurant.title ?? "",
+                                  widget.restaurant.title ?? "",
                                   style: const TextStyle(
                                     fontSize: 16,
                                     fontWeight: FontWeight.bold,
@@ -100,12 +109,21 @@ class RestaurantListCardWidget extends StatelessWidget {
                                       1, // Limit the text to a single line
                                 ),
                               ),
+                              // Text(
+                              //   '${isMylocationSet ? distance : ""}' ?? "",
+                              //   style: const TextStyle(
+                              //     fontSize: 16,
+                              //     fontWeight: FontWeight.bold,
+                              //   ),
+                              //   overflow: TextOverflow.ellipsis,
+                              //   maxLines: 1, // Limit the text to a single line
+                              // ),
                               TriangularContainer(
-                                child: const Padding(
-                                  padding: EdgeInsets.all(4.0),
+                                child: Padding(
+                                  padding: const EdgeInsets.all(4.0),
                                   child: Text(
-                                    "1km",
-                                    style: TextStyle(fontSize: 12),
+                                    '${widget.restaurant.distance != null ? num.parse(widget.restaurant.distance!.toStringAsFixed(1)) : "-"} km',
+                                    style: const TextStyle(fontSize: 12),
                                   ),
                                 ),
                               ),
@@ -129,7 +147,8 @@ class RestaurantListCardWidget extends StatelessWidget {
                                 width:
                                     200, // Set a specific width to limit the space for the text
                                 child: Text(
-                                  restaurant.subTitle ?? "",
+                                  widget.restaurant.subTitle ??
+                                      "No description.",
                                   style: const TextStyle(
                                     fontSize: 12,
                                     color: Colors.grey,

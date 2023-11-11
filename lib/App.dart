@@ -11,6 +11,7 @@ class App extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       home: MaterialApp.router(
         theme: ThemeData(
+          fontFamily: "SfPro",
           primaryColor:
               const Color(0xFFFFCC00), // Set your custom primary color here
         ),

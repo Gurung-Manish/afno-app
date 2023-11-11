@@ -158,6 +158,7 @@ class _RestaurantPageState extends State<RestaurantPage> {
                           [
                             Container(
                               padding: const EdgeInsets.all(15),
+                              color: Colors.white,
                               child: Column(
                                 crossAxisAlignment: CrossAxisAlignment.start,
                                 children: [
@@ -179,7 +180,16 @@ class _RestaurantPageState extends State<RestaurantPage> {
                                   restaurant!.description != null &&
                                           restaurant!.description!.isNotEmpty
                                       ? HtmlWidget(
-                                          restaurant!.description ?? "")
+                                          restaurant!.description ?? "",
+                                          textStyle: const TextStyle(
+                                            fontSize: 18,
+                                            fontFamily: 'SfPro',
+                                            fontFamilyFallback: <String>[
+                                              'Noto Sans CJK SC',
+                                              'Noto Color Emoji',
+                                            ],
+                                          ),
+                                        )
                                       : const SizedBox(),
                                   const SizedBox(
                                     height: 30,

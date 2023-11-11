@@ -69,27 +69,27 @@ class _$RestaurantEventCopyWithImpl<$Res, $Val extends RestaurantEvent>
 }
 
 /// @nodoc
-abstract class _$$_GetRestaurantsCopyWith<$Res> {
-  factory _$$_GetRestaurantsCopyWith(
-          _$_GetRestaurants value, $Res Function(_$_GetRestaurants) then) =
-      __$$_GetRestaurantsCopyWithImpl<$Res>;
+abstract class _$$GetRestaurantsImplCopyWith<$Res> {
+  factory _$$GetRestaurantsImplCopyWith(_$GetRestaurantsImpl value,
+          $Res Function(_$GetRestaurantsImpl) then) =
+      __$$GetRestaurantsImplCopyWithImpl<$Res>;
 }
 
 /// @nodoc
-class __$$_GetRestaurantsCopyWithImpl<$Res>
-    extends _$RestaurantEventCopyWithImpl<$Res, _$_GetRestaurants>
-    implements _$$_GetRestaurantsCopyWith<$Res> {
-  __$$_GetRestaurantsCopyWithImpl(
-      _$_GetRestaurants _value, $Res Function(_$_GetRestaurants) _then)
+class __$$GetRestaurantsImplCopyWithImpl<$Res>
+    extends _$RestaurantEventCopyWithImpl<$Res, _$GetRestaurantsImpl>
+    implements _$$GetRestaurantsImplCopyWith<$Res> {
+  __$$GetRestaurantsImplCopyWithImpl(
+      _$GetRestaurantsImpl _value, $Res Function(_$GetRestaurantsImpl) _then)
       : super(_value, _then);
 }
 
 /// @nodoc
 
-class _$_GetRestaurants
+class _$GetRestaurantsImpl
     with DiagnosticableTreeMixin
     implements _GetRestaurants {
-  const _$_GetRestaurants();
+  const _$GetRestaurantsImpl();
 
   @override
   String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
@@ -106,7 +106,7 @@ class _$_GetRestaurants
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
-        (other.runtimeType == runtimeType && other is _$_GetRestaurants);
+        (other.runtimeType == runtimeType && other is _$GetRestaurantsImpl);
   }
 
   @override
@@ -170,7 +170,7 @@ class _$_GetRestaurants
 }
 
 abstract class _GetRestaurants implements RestaurantEvent {
-  const factory _GetRestaurants() = _$_GetRestaurants;
+  const factory _GetRestaurants() = _$GetRestaurantsImpl;
 }
 
 /// @nodoc
@@ -246,27 +246,29 @@ class _$RestaurantStateCopyWithImpl<$Res, $Val extends RestaurantState>
 }
 
 /// @nodoc
-abstract class _$$RestaurantStateInitialCopyWith<$Res> {
-  factory _$$RestaurantStateInitialCopyWith(_$RestaurantStateInitial value,
-          $Res Function(_$RestaurantStateInitial) then) =
-      __$$RestaurantStateInitialCopyWithImpl<$Res>;
+abstract class _$$RestaurantStateInitialImplCopyWith<$Res> {
+  factory _$$RestaurantStateInitialImplCopyWith(
+          _$RestaurantStateInitialImpl value,
+          $Res Function(_$RestaurantStateInitialImpl) then) =
+      __$$RestaurantStateInitialImplCopyWithImpl<$Res>;
 }
 
 /// @nodoc
-class __$$RestaurantStateInitialCopyWithImpl<$Res>
-    extends _$RestaurantStateCopyWithImpl<$Res, _$RestaurantStateInitial>
-    implements _$$RestaurantStateInitialCopyWith<$Res> {
-  __$$RestaurantStateInitialCopyWithImpl(_$RestaurantStateInitial _value,
-      $Res Function(_$RestaurantStateInitial) _then)
+class __$$RestaurantStateInitialImplCopyWithImpl<$Res>
+    extends _$RestaurantStateCopyWithImpl<$Res, _$RestaurantStateInitialImpl>
+    implements _$$RestaurantStateInitialImplCopyWith<$Res> {
+  __$$RestaurantStateInitialImplCopyWithImpl(
+      _$RestaurantStateInitialImpl _value,
+      $Res Function(_$RestaurantStateInitialImpl) _then)
       : super(_value, _then);
 }
 
 /// @nodoc
 
-class _$RestaurantStateInitial
+class _$RestaurantStateInitialImpl
     with DiagnosticableTreeMixin
     implements RestaurantStateInitial {
-  const _$RestaurantStateInitial();
+  const _$RestaurantStateInitialImpl();
 
   @override
   String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
@@ -282,7 +284,8 @@ class _$RestaurantStateInitial
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
-        (other.runtimeType == runtimeType && other is _$RestaurantStateInitial);
+        (other.runtimeType == runtimeType &&
+            other is _$RestaurantStateInitialImpl);
   }
 
   @override
@@ -364,31 +367,33 @@ class _$RestaurantStateInitial
 }
 
 abstract class RestaurantStateInitial implements RestaurantState {
-  const factory RestaurantStateInitial() = _$RestaurantStateInitial;
+  const factory RestaurantStateInitial() = _$RestaurantStateInitialImpl;
 }
 
 /// @nodoc
-abstract class _$$RestaurantStateLoadingCopyWith<$Res> {
-  factory _$$RestaurantStateLoadingCopyWith(_$RestaurantStateLoading value,
-          $Res Function(_$RestaurantStateLoading) then) =
-      __$$RestaurantStateLoadingCopyWithImpl<$Res>;
+abstract class _$$RestaurantStateLoadingImplCopyWith<$Res> {
+  factory _$$RestaurantStateLoadingImplCopyWith(
+          _$RestaurantStateLoadingImpl value,
+          $Res Function(_$RestaurantStateLoadingImpl) then) =
+      __$$RestaurantStateLoadingImplCopyWithImpl<$Res>;
 }
 
 /// @nodoc
-class __$$RestaurantStateLoadingCopyWithImpl<$Res>
-    extends _$RestaurantStateCopyWithImpl<$Res, _$RestaurantStateLoading>
-    implements _$$RestaurantStateLoadingCopyWith<$Res> {
-  __$$RestaurantStateLoadingCopyWithImpl(_$RestaurantStateLoading _value,
-      $Res Function(_$RestaurantStateLoading) _then)
+class __$$RestaurantStateLoadingImplCopyWithImpl<$Res>
+    extends _$RestaurantStateCopyWithImpl<$Res, _$RestaurantStateLoadingImpl>
+    implements _$$RestaurantStateLoadingImplCopyWith<$Res> {
+  __$$RestaurantStateLoadingImplCopyWithImpl(
+      _$RestaurantStateLoadingImpl _value,
+      $Res Function(_$RestaurantStateLoadingImpl) _then)
       : super(_value, _then);
 }
 
 /// @nodoc
 
-class _$RestaurantStateLoading
+class _$RestaurantStateLoadingImpl
     with DiagnosticableTreeMixin
     implements RestaurantStateLoading {
-  const _$RestaurantStateLoading();
+  const _$RestaurantStateLoadingImpl();
 
   @override
   String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
@@ -404,7 +409,8 @@ class _$RestaurantStateLoading
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
-        (other.runtimeType == runtimeType && other is _$RestaurantStateLoading);
+        (other.runtimeType == runtimeType &&
+            other is _$RestaurantStateLoadingImpl);
   }
 
   @override
@@ -486,24 +492,25 @@ class _$RestaurantStateLoading
 }
 
 abstract class RestaurantStateLoading implements RestaurantState {
-  const factory RestaurantStateLoading() = _$RestaurantStateLoading;
+  const factory RestaurantStateLoading() = _$RestaurantStateLoadingImpl;
 }
 
 /// @nodoc
-abstract class _$$RestaurantStateLoadedCopyWith<$Res> {
-  factory _$$RestaurantStateLoadedCopyWith(_$RestaurantStateLoaded value,
-          $Res Function(_$RestaurantStateLoaded) then) =
-      __$$RestaurantStateLoadedCopyWithImpl<$Res>;
+abstract class _$$RestaurantStateLoadedImplCopyWith<$Res> {
+  factory _$$RestaurantStateLoadedImplCopyWith(
+          _$RestaurantStateLoadedImpl value,
+          $Res Function(_$RestaurantStateLoadedImpl) then) =
+      __$$RestaurantStateLoadedImplCopyWithImpl<$Res>;
   @useResult
   $Res call({List<RestaurantModel> restaurants});
 }
 
 /// @nodoc
-class __$$RestaurantStateLoadedCopyWithImpl<$Res>
-    extends _$RestaurantStateCopyWithImpl<$Res, _$RestaurantStateLoaded>
-    implements _$$RestaurantStateLoadedCopyWith<$Res> {
-  __$$RestaurantStateLoadedCopyWithImpl(_$RestaurantStateLoaded _value,
-      $Res Function(_$RestaurantStateLoaded) _then)
+class __$$RestaurantStateLoadedImplCopyWithImpl<$Res>
+    extends _$RestaurantStateCopyWithImpl<$Res, _$RestaurantStateLoadedImpl>
+    implements _$$RestaurantStateLoadedImplCopyWith<$Res> {
+  __$$RestaurantStateLoadedImplCopyWithImpl(_$RestaurantStateLoadedImpl _value,
+      $Res Function(_$RestaurantStateLoadedImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -511,7 +518,7 @@ class __$$RestaurantStateLoadedCopyWithImpl<$Res>
   $Res call({
     Object? restaurants = null,
   }) {
-    return _then(_$RestaurantStateLoaded(
+    return _then(_$RestaurantStateLoadedImpl(
       restaurants: null == restaurants
           ? _value._restaurants
           : restaurants // ignore: cast_nullable_to_non_nullable
@@ -522,10 +529,10 @@ class __$$RestaurantStateLoadedCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$RestaurantStateLoaded
+class _$RestaurantStateLoadedImpl
     with DiagnosticableTreeMixin
     implements RestaurantStateLoaded {
-  const _$RestaurantStateLoaded(
+  const _$RestaurantStateLoadedImpl(
       {required final List<RestaurantModel> restaurants})
       : _restaurants = restaurants;
 
@@ -554,7 +561,7 @@ class _$RestaurantStateLoaded
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$RestaurantStateLoaded &&
+            other is _$RestaurantStateLoadedImpl &&
             const DeepCollectionEquality()
                 .equals(other._restaurants, _restaurants));
   }
@@ -566,9 +573,9 @@ class _$RestaurantStateLoaded
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$RestaurantStateLoadedCopyWith<_$RestaurantStateLoaded> get copyWith =>
-      __$$RestaurantStateLoadedCopyWithImpl<_$RestaurantStateLoaded>(
-          this, _$identity);
+  _$$RestaurantStateLoadedImplCopyWith<_$RestaurantStateLoadedImpl>
+      get copyWith => __$$RestaurantStateLoadedImplCopyWithImpl<
+          _$RestaurantStateLoadedImpl>(this, _$identity);
 
   @override
   @optionalTypeArgs
@@ -648,29 +655,29 @@ class _$RestaurantStateLoaded
 abstract class RestaurantStateLoaded implements RestaurantState {
   const factory RestaurantStateLoaded(
           {required final List<RestaurantModel> restaurants}) =
-      _$RestaurantStateLoaded;
+      _$RestaurantStateLoadedImpl;
 
   List<RestaurantModel> get restaurants;
   @JsonKey(ignore: true)
-  _$$RestaurantStateLoadedCopyWith<_$RestaurantStateLoaded> get copyWith =>
-      throw _privateConstructorUsedError;
+  _$$RestaurantStateLoadedImplCopyWith<_$RestaurantStateLoadedImpl>
+      get copyWith => throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class _$$RestaurantStateErrorCopyWith<$Res> {
-  factory _$$RestaurantStateErrorCopyWith(_$RestaurantStateError value,
-          $Res Function(_$RestaurantStateError) then) =
-      __$$RestaurantStateErrorCopyWithImpl<$Res>;
+abstract class _$$RestaurantStateErrorImplCopyWith<$Res> {
+  factory _$$RestaurantStateErrorImplCopyWith(_$RestaurantStateErrorImpl value,
+          $Res Function(_$RestaurantStateErrorImpl) then) =
+      __$$RestaurantStateErrorImplCopyWithImpl<$Res>;
   @useResult
   $Res call({String message});
 }
 
 /// @nodoc
-class __$$RestaurantStateErrorCopyWithImpl<$Res>
-    extends _$RestaurantStateCopyWithImpl<$Res, _$RestaurantStateError>
-    implements _$$RestaurantStateErrorCopyWith<$Res> {
-  __$$RestaurantStateErrorCopyWithImpl(_$RestaurantStateError _value,
-      $Res Function(_$RestaurantStateError) _then)
+class __$$RestaurantStateErrorImplCopyWithImpl<$Res>
+    extends _$RestaurantStateCopyWithImpl<$Res, _$RestaurantStateErrorImpl>
+    implements _$$RestaurantStateErrorImplCopyWith<$Res> {
+  __$$RestaurantStateErrorImplCopyWithImpl(_$RestaurantStateErrorImpl _value,
+      $Res Function(_$RestaurantStateErrorImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -678,7 +685,7 @@ class __$$RestaurantStateErrorCopyWithImpl<$Res>
   $Res call({
     Object? message = null,
   }) {
-    return _then(_$RestaurantStateError(
+    return _then(_$RestaurantStateErrorImpl(
       null == message
           ? _value.message
           : message // ignore: cast_nullable_to_non_nullable
@@ -689,10 +696,10 @@ class __$$RestaurantStateErrorCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$RestaurantStateError
+class _$RestaurantStateErrorImpl
     with DiagnosticableTreeMixin
     implements RestaurantStateError {
-  const _$RestaurantStateError(this.message);
+  const _$RestaurantStateErrorImpl(this.message);
 
   @override
   final String message;
@@ -714,7 +721,7 @@ class _$RestaurantStateError
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$RestaurantStateError &&
+            other is _$RestaurantStateErrorImpl &&
             (identical(other.message, message) || other.message == message));
   }
 
@@ -724,9 +731,10 @@ class _$RestaurantStateError
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$RestaurantStateErrorCopyWith<_$RestaurantStateError> get copyWith =>
-      __$$RestaurantStateErrorCopyWithImpl<_$RestaurantStateError>(
-          this, _$identity);
+  _$$RestaurantStateErrorImplCopyWith<_$RestaurantStateErrorImpl>
+      get copyWith =>
+          __$$RestaurantStateErrorImplCopyWithImpl<_$RestaurantStateErrorImpl>(
+              this, _$identity);
 
   @override
   @optionalTypeArgs
@@ -805,10 +813,10 @@ class _$RestaurantStateError
 
 abstract class RestaurantStateError implements RestaurantState {
   const factory RestaurantStateError(final String message) =
-      _$RestaurantStateError;
+      _$RestaurantStateErrorImpl;
 
   String get message;
   @JsonKey(ignore: true)
-  _$$RestaurantStateErrorCopyWith<_$RestaurantStateError> get copyWith =>
-      throw _privateConstructorUsedError;
+  _$$RestaurantStateErrorImplCopyWith<_$RestaurantStateErrorImpl>
+      get copyWith => throw _privateConstructorUsedError;
 }

@@ -48,6 +48,8 @@ mixin _$RestaurantModel {
   String? get latitude => throw _privateConstructorUsedError;
   @JsonKey(name: 'longitude')
   String? get longitude => throw _privateConstructorUsedError;
+  @JsonKey(name: 'distance')
+  double? get distance => throw _privateConstructorUsedError;
   @JsonKey(name: 'monday_open_time')
   String? get mondayOpenTime => throw _privateConstructorUsedError;
   @JsonKey(name: 'monday_close_time')
@@ -112,6 +114,7 @@ abstract class $RestaurantModelCopyWith<$Res> {
       @JsonKey(name: 'youtube') String? youtube,
       @JsonKey(name: 'latitude') String? latitude,
       @JsonKey(name: 'longitude') String? longitude,
+      @JsonKey(name: 'distance') double? distance,
       @JsonKey(name: 'monday_open_time') String? mondayOpenTime,
       @JsonKey(name: 'monday_close_time') String? mondayCloseTime,
       @JsonKey(name: 'tuesday_open_time') String? tuesdayOpenTime,
@@ -159,6 +162,7 @@ class _$RestaurantModelCopyWithImpl<$Res, $Val extends RestaurantModel>
     Object? youtube = freezed,
     Object? latitude = freezed,
     Object? longitude = freezed,
+    Object? distance = freezed,
     Object? mondayOpenTime = freezed,
     Object? mondayCloseTime = freezed,
     Object? tuesdayOpenTime = freezed,
@@ -235,6 +239,10 @@ class _$RestaurantModelCopyWithImpl<$Res, $Val extends RestaurantModel>
           ? _value.longitude
           : longitude // ignore: cast_nullable_to_non_nullable
               as String?,
+      distance: freezed == distance
+          ? _value.distance
+          : distance // ignore: cast_nullable_to_non_nullable
+              as double?,
       mondayOpenTime: freezed == mondayOpenTime
           ? _value.mondayOpenTime
           : mondayOpenTime // ignore: cast_nullable_to_non_nullable
@@ -312,11 +320,11 @@ class _$RestaurantModelCopyWithImpl<$Res, $Val extends RestaurantModel>
 }
 
 /// @nodoc
-abstract class _$$_RestaurantModelCopyWith<$Res>
+abstract class _$$RestaurantModelImplCopyWith<$Res>
     implements $RestaurantModelCopyWith<$Res> {
-  factory _$$_RestaurantModelCopyWith(
-          _$_RestaurantModel value, $Res Function(_$_RestaurantModel) then) =
-      __$$_RestaurantModelCopyWithImpl<$Res>;
+  factory _$$RestaurantModelImplCopyWith(_$RestaurantModelImpl value,
+          $Res Function(_$RestaurantModelImpl) then) =
+      __$$RestaurantModelImplCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call(
@@ -334,6 +342,7 @@ abstract class _$$_RestaurantModelCopyWith<$Res>
       @JsonKey(name: 'youtube') String? youtube,
       @JsonKey(name: 'latitude') String? latitude,
       @JsonKey(name: 'longitude') String? longitude,
+      @JsonKey(name: 'distance') double? distance,
       @JsonKey(name: 'monday_open_time') String? mondayOpenTime,
       @JsonKey(name: 'monday_close_time') String? mondayCloseTime,
       @JsonKey(name: 'tuesday_open_time') String? tuesdayOpenTime,
@@ -355,11 +364,11 @@ abstract class _$$_RestaurantModelCopyWith<$Res>
 }
 
 /// @nodoc
-class __$$_RestaurantModelCopyWithImpl<$Res>
-    extends _$RestaurantModelCopyWithImpl<$Res, _$_RestaurantModel>
-    implements _$$_RestaurantModelCopyWith<$Res> {
-  __$$_RestaurantModelCopyWithImpl(
-      _$_RestaurantModel _value, $Res Function(_$_RestaurantModel) _then)
+class __$$RestaurantModelImplCopyWithImpl<$Res>
+    extends _$RestaurantModelCopyWithImpl<$Res, _$RestaurantModelImpl>
+    implements _$$RestaurantModelImplCopyWith<$Res> {
+  __$$RestaurantModelImplCopyWithImpl(
+      _$RestaurantModelImpl _value, $Res Function(_$RestaurantModelImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -379,6 +388,7 @@ class __$$_RestaurantModelCopyWithImpl<$Res>
     Object? youtube = freezed,
     Object? latitude = freezed,
     Object? longitude = freezed,
+    Object? distance = freezed,
     Object? mondayOpenTime = freezed,
     Object? mondayCloseTime = freezed,
     Object? tuesdayOpenTime = freezed,
@@ -398,7 +408,7 @@ class __$$_RestaurantModelCopyWithImpl<$Res>
     Object? resourceUrl = freezed,
     Object? media = freezed,
   }) {
-    return _then(_$_RestaurantModel(
+    return _then(_$RestaurantModelImpl(
       id: freezed == id
           ? _value.id
           : id // ignore: cast_nullable_to_non_nullable
@@ -455,6 +465,10 @@ class __$$_RestaurantModelCopyWithImpl<$Res>
           ? _value.longitude
           : longitude // ignore: cast_nullable_to_non_nullable
               as String?,
+      distance: freezed == distance
+          ? _value.distance
+          : distance // ignore: cast_nullable_to_non_nullable
+              as double?,
       mondayOpenTime: freezed == mondayOpenTime
           ? _value.mondayOpenTime
           : mondayOpenTime // ignore: cast_nullable_to_non_nullable
@@ -533,8 +547,8 @@ class __$$_RestaurantModelCopyWithImpl<$Res>
 
 /// @nodoc
 @JsonSerializable()
-class _$_RestaurantModel implements _RestaurantModel {
-  const _$_RestaurantModel(
+class _$RestaurantModelImpl implements _RestaurantModel {
+  const _$RestaurantModelImpl(
       {@JsonKey(name: 'id') this.id,
       @JsonKey(name: 'title') this.title,
       @JsonKey(name: 'sub_title') this.subTitle,
@@ -549,6 +563,7 @@ class _$_RestaurantModel implements _RestaurantModel {
       @JsonKey(name: 'youtube') this.youtube,
       @JsonKey(name: 'latitude') this.latitude,
       @JsonKey(name: 'longitude') this.longitude,
+      @JsonKey(name: 'distance') this.distance,
       @JsonKey(name: 'monday_open_time') this.mondayOpenTime,
       @JsonKey(name: 'monday_close_time') this.mondayCloseTime,
       @JsonKey(name: 'tuesday_open_time') this.tuesdayOpenTime,
@@ -569,8 +584,8 @@ class _$_RestaurantModel implements _RestaurantModel {
       @JsonKey(name: 'media') final List<Media>? media})
       : _media = media;
 
-  factory _$_RestaurantModel.fromJson(Map<String, dynamic> json) =>
-      _$$_RestaurantModelFromJson(json);
+  factory _$RestaurantModelImpl.fromJson(Map<String, dynamic> json) =>
+      _$$RestaurantModelImplFromJson(json);
 
   @override
   @JsonKey(name: 'id')
@@ -614,6 +629,9 @@ class _$_RestaurantModel implements _RestaurantModel {
   @override
   @JsonKey(name: 'longitude')
   final String? longitude;
+  @override
+  @JsonKey(name: 'distance')
+  final double? distance;
   @override
   @JsonKey(name: 'monday_open_time')
   final String? mondayOpenTime;
@@ -678,14 +696,14 @@ class _$_RestaurantModel implements _RestaurantModel {
 
   @override
   String toString() {
-    return 'RestaurantModel(id: $id, title: $title, subTitle: $subTitle, description: $description, enabled: $enabled, phoneNumber: $phoneNumber, alternatePhoneNumber: $alternatePhoneNumber, link: $link, email: $email, instagram: $instagram, facebook: $facebook, youtube: $youtube, latitude: $latitude, longitude: $longitude, mondayOpenTime: $mondayOpenTime, mondayCloseTime: $mondayCloseTime, tuesdayOpenTime: $tuesdayOpenTime, tuesdayCloseTime: $tuesdayCloseTime, wednesdayOpenTime: $wednesdayOpenTime, wednesdayCloseTime: $wednesdayCloseTime, thursdayOpenTime: $thursdayOpenTime, thursdayCloseTime: $thursdayCloseTime, fridayOpenTime: $fridayOpenTime, fridayCloseTime: $fridayCloseTime, saturdayOpenTime: $saturdayOpenTime, saturdayCloseTime: $saturdayCloseTime, sundayOpenTime: $sundayOpenTime, sundayCloseTime: $sundayCloseTime, createdAt: $createdAt, updatedAt: $updatedAt, resourceUrl: $resourceUrl, media: $media)';
+    return 'RestaurantModel(id: $id, title: $title, subTitle: $subTitle, description: $description, enabled: $enabled, phoneNumber: $phoneNumber, alternatePhoneNumber: $alternatePhoneNumber, link: $link, email: $email, instagram: $instagram, facebook: $facebook, youtube: $youtube, latitude: $latitude, longitude: $longitude, distance: $distance, mondayOpenTime: $mondayOpenTime, mondayCloseTime: $mondayCloseTime, tuesdayOpenTime: $tuesdayOpenTime, tuesdayCloseTime: $tuesdayCloseTime, wednesdayOpenTime: $wednesdayOpenTime, wednesdayCloseTime: $wednesdayCloseTime, thursdayOpenTime: $thursdayOpenTime, thursdayCloseTime: $thursdayCloseTime, fridayOpenTime: $fridayOpenTime, fridayCloseTime: $fridayCloseTime, saturdayOpenTime: $saturdayOpenTime, saturdayCloseTime: $saturdayCloseTime, sundayOpenTime: $sundayOpenTime, sundayCloseTime: $sundayCloseTime, createdAt: $createdAt, updatedAt: $updatedAt, resourceUrl: $resourceUrl, media: $media)';
   }
 
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_RestaurantModel &&
+            other is _$RestaurantModelImpl &&
             (identical(other.id, id) || other.id == id) &&
             (identical(other.title, title) || other.title == title) &&
             (identical(other.subTitle, subTitle) ||
@@ -708,6 +726,8 @@ class _$_RestaurantModel implements _RestaurantModel {
                 other.latitude == latitude) &&
             (identical(other.longitude, longitude) ||
                 other.longitude == longitude) &&
+            (identical(other.distance, distance) ||
+                other.distance == distance) &&
             (identical(other.mondayOpenTime, mondayOpenTime) ||
                 other.mondayOpenTime == mondayOpenTime) &&
             (identical(other.mondayCloseTime, mondayCloseTime) ||
@@ -763,6 +783,7 @@ class _$_RestaurantModel implements _RestaurantModel {
         youtube,
         latitude,
         longitude,
+        distance,
         mondayOpenTime,
         mondayCloseTime,
         tuesdayOpenTime,
@@ -786,12 +807,13 @@ class _$_RestaurantModel implements _RestaurantModel {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$_RestaurantModelCopyWith<_$_RestaurantModel> get copyWith =>
-      __$$_RestaurantModelCopyWithImpl<_$_RestaurantModel>(this, _$identity);
+  _$$RestaurantModelImplCopyWith<_$RestaurantModelImpl> get copyWith =>
+      __$$RestaurantModelImplCopyWithImpl<_$RestaurantModelImpl>(
+          this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$_RestaurantModelToJson(
+    return _$$RestaurantModelImplToJson(
       this,
     );
   }
@@ -814,6 +836,7 @@ abstract class _RestaurantModel implements RestaurantModel {
       @JsonKey(name: 'youtube') final String? youtube,
       @JsonKey(name: 'latitude') final String? latitude,
       @JsonKey(name: 'longitude') final String? longitude,
+      @JsonKey(name: 'distance') final double? distance,
       @JsonKey(name: 'monday_open_time') final String? mondayOpenTime,
       @JsonKey(name: 'monday_close_time') final String? mondayCloseTime,
       @JsonKey(name: 'tuesday_open_time') final String? tuesdayOpenTime,
@@ -831,10 +854,11 @@ abstract class _RestaurantModel implements RestaurantModel {
       @JsonKey(name: 'created_at') final String? createdAt,
       @JsonKey(name: 'updated_at') final String? updatedAt,
       @JsonKey(name: 'resource_url') final String? resourceUrl,
-      @JsonKey(name: 'media') final List<Media>? media}) = _$_RestaurantModel;
+      @JsonKey(name: 'media')
+      final List<Media>? media}) = _$RestaurantModelImpl;
 
   factory _RestaurantModel.fromJson(Map<String, dynamic> json) =
-      _$_RestaurantModel.fromJson;
+      _$RestaurantModelImpl.fromJson;
 
   @override
   @JsonKey(name: 'id')
@@ -878,6 +902,9 @@ abstract class _RestaurantModel implements RestaurantModel {
   @override
   @JsonKey(name: 'longitude')
   String? get longitude;
+  @override
+  @JsonKey(name: 'distance')
+  double? get distance;
   @override
   @JsonKey(name: 'monday_open_time')
   String? get mondayOpenTime;
@@ -934,7 +961,7 @@ abstract class _RestaurantModel implements RestaurantModel {
   List<Media>? get media;
   @override
   @JsonKey(ignore: true)
-  _$$_RestaurantModelCopyWith<_$_RestaurantModel> get copyWith =>
+  _$$RestaurantModelImplCopyWith<_$RestaurantModelImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
@@ -1075,9 +1102,10 @@ class _$MediaCopyWithImpl<$Res, $Val extends Media>
 }
 
 /// @nodoc
-abstract class _$$_MediaCopyWith<$Res> implements $MediaCopyWith<$Res> {
-  factory _$$_MediaCopyWith(_$_Media value, $Res Function(_$_Media) then) =
-      __$$_MediaCopyWithImpl<$Res>;
+abstract class _$$MediaImplCopyWith<$Res> implements $MediaCopyWith<$Res> {
+  factory _$$MediaImplCopyWith(
+          _$MediaImpl value, $Res Function(_$MediaImpl) then) =
+      __$$MediaImplCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call(
@@ -1098,9 +1126,11 @@ abstract class _$$_MediaCopyWith<$Res> implements $MediaCopyWith<$Res> {
 }
 
 /// @nodoc
-class __$$_MediaCopyWithImpl<$Res> extends _$MediaCopyWithImpl<$Res, _$_Media>
-    implements _$$_MediaCopyWith<$Res> {
-  __$$_MediaCopyWithImpl(_$_Media _value, $Res Function(_$_Media) _then)
+class __$$MediaImplCopyWithImpl<$Res>
+    extends _$MediaCopyWithImpl<$Res, _$MediaImpl>
+    implements _$$MediaImplCopyWith<$Res> {
+  __$$MediaImplCopyWithImpl(
+      _$MediaImpl _value, $Res Function(_$MediaImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -1117,7 +1147,7 @@ class __$$_MediaCopyWithImpl<$Res> extends _$MediaCopyWithImpl<$Res, _$_Media>
     Object? size = freezed,
     Object? customProperties = freezed,
   }) {
-    return _then(_$_Media(
+    return _then(_$MediaImpl(
       id: freezed == id
           ? _value.id
           : id // ignore: cast_nullable_to_non_nullable
@@ -1164,8 +1194,8 @@ class __$$_MediaCopyWithImpl<$Res> extends _$MediaCopyWithImpl<$Res, _$_Media>
 
 /// @nodoc
 @JsonSerializable()
-class _$_Media implements _Media {
-  const _$_Media(
+class _$MediaImpl implements _Media {
+  const _$MediaImpl(
       {@JsonKey(name: 'id') this.id,
       @JsonKey(name: 'model_type') this.modelType,
       @JsonKey(name: 'model_id') this.modelId,
@@ -1177,8 +1207,8 @@ class _$_Media implements _Media {
       @JsonKey(name: 'size') this.size,
       @JsonKey(name: 'custom_properties') this.customProperties});
 
-  factory _$_Media.fromJson(Map<String, dynamic> json) =>
-      _$$_MediaFromJson(json);
+  factory _$MediaImpl.fromJson(Map<String, dynamic> json) =>
+      _$$MediaImplFromJson(json);
 
   @override
   @JsonKey(name: 'id')
@@ -1220,7 +1250,7 @@ class _$_Media implements _Media {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_Media &&
+            other is _$MediaImpl &&
             (identical(other.id, id) || other.id == id) &&
             (identical(other.modelType, modelType) ||
                 other.modelType == modelType) &&
@@ -1246,12 +1276,12 @@ class _$_Media implements _Media {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$_MediaCopyWith<_$_Media> get copyWith =>
-      __$$_MediaCopyWithImpl<_$_Media>(this, _$identity);
+  _$$MediaImplCopyWith<_$MediaImpl> get copyWith =>
+      __$$MediaImplCopyWithImpl<_$MediaImpl>(this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$_MediaToJson(
+    return _$$MediaImplToJson(
       this,
     );
   }
@@ -1269,9 +1299,9 @@ abstract class _Media implements Media {
       @JsonKey(name: 'disk') final String? disk,
       @JsonKey(name: 'size') final String? size,
       @JsonKey(name: 'custom_properties')
-      final MediaCustomProperties? customProperties}) = _$_Media;
+      final MediaCustomProperties? customProperties}) = _$MediaImpl;
 
-  factory _Media.fromJson(Map<String, dynamic> json) = _$_Media.fromJson;
+  factory _Media.fromJson(Map<String, dynamic> json) = _$MediaImpl.fromJson;
 
   @override
   @JsonKey(name: 'id')
@@ -1305,7 +1335,7 @@ abstract class _Media implements Media {
   MediaCustomProperties? get customProperties;
   @override
   @JsonKey(ignore: true)
-  _$$_MediaCopyWith<_$_Media> get copyWith =>
+  _$$MediaImplCopyWith<_$MediaImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
@@ -1395,11 +1425,12 @@ class _$MediaCustomPropertiesCopyWithImpl<$Res,
 }
 
 /// @nodoc
-abstract class _$$_MediaCustomPropertiesCopyWith<$Res>
+abstract class _$$MediaCustomPropertiesImplCopyWith<$Res>
     implements $MediaCustomPropertiesCopyWith<$Res> {
-  factory _$$_MediaCustomPropertiesCopyWith(_$_MediaCustomProperties value,
-          $Res Function(_$_MediaCustomProperties) then) =
-      __$$_MediaCustomPropertiesCopyWithImpl<$Res>;
+  factory _$$MediaCustomPropertiesImplCopyWith(
+          _$MediaCustomPropertiesImpl value,
+          $Res Function(_$MediaCustomPropertiesImpl) then) =
+      __$$MediaCustomPropertiesImplCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call(
@@ -1412,11 +1443,12 @@ abstract class _$$_MediaCustomPropertiesCopyWith<$Res>
 }
 
 /// @nodoc
-class __$$_MediaCustomPropertiesCopyWithImpl<$Res>
-    extends _$MediaCustomPropertiesCopyWithImpl<$Res, _$_MediaCustomProperties>
-    implements _$$_MediaCustomPropertiesCopyWith<$Res> {
-  __$$_MediaCustomPropertiesCopyWithImpl(_$_MediaCustomProperties _value,
-      $Res Function(_$_MediaCustomProperties) _then)
+class __$$MediaCustomPropertiesImplCopyWithImpl<$Res>
+    extends _$MediaCustomPropertiesCopyWithImpl<$Res,
+        _$MediaCustomPropertiesImpl>
+    implements _$$MediaCustomPropertiesImplCopyWith<$Res> {
+  __$$MediaCustomPropertiesImplCopyWithImpl(_$MediaCustomPropertiesImpl _value,
+      $Res Function(_$MediaCustomPropertiesImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -1428,7 +1460,7 @@ class __$$_MediaCustomPropertiesCopyWithImpl<$Res>
     Object? height = freezed,
     Object? generatedConversions = freezed,
   }) {
-    return _then(_$_MediaCustomProperties(
+    return _then(_$MediaCustomPropertiesImpl(
       name: freezed == name
           ? _value.name
           : name // ignore: cast_nullable_to_non_nullable
@@ -1455,8 +1487,8 @@ class __$$_MediaCustomPropertiesCopyWithImpl<$Res>
 
 /// @nodoc
 @JsonSerializable()
-class _$_MediaCustomProperties implements _MediaCustomProperties {
-  const _$_MediaCustomProperties(
+class _$MediaCustomPropertiesImpl implements _MediaCustomProperties {
+  const _$MediaCustomPropertiesImpl(
       {@JsonKey(name: 'name') this.name,
       @JsonKey(name: 'file_name') this.fileName,
       @JsonKey(name: 'width') this.width,
@@ -1465,8 +1497,8 @@ class _$_MediaCustomProperties implements _MediaCustomProperties {
       final Map<String, bool>? generatedConversions})
       : _generatedConversions = generatedConversions;
 
-  factory _$_MediaCustomProperties.fromJson(Map<String, dynamic> json) =>
-      _$$_MediaCustomPropertiesFromJson(json);
+  factory _$MediaCustomPropertiesImpl.fromJson(Map<String, dynamic> json) =>
+      _$$MediaCustomPropertiesImplFromJson(json);
 
   @override
   @JsonKey(name: 'name')
@@ -1501,7 +1533,7 @@ class _$_MediaCustomProperties implements _MediaCustomProperties {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_MediaCustomProperties &&
+            other is _$MediaCustomPropertiesImpl &&
             (identical(other.name, name) || other.name == name) &&
             (identical(other.fileName, fileName) ||
                 other.fileName == fileName) &&
@@ -1519,13 +1551,13 @@ class _$_MediaCustomProperties implements _MediaCustomProperties {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$_MediaCustomPropertiesCopyWith<_$_MediaCustomProperties> get copyWith =>
-      __$$_MediaCustomPropertiesCopyWithImpl<_$_MediaCustomProperties>(
-          this, _$identity);
+  _$$MediaCustomPropertiesImplCopyWith<_$MediaCustomPropertiesImpl>
+      get copyWith => __$$MediaCustomPropertiesImplCopyWithImpl<
+          _$MediaCustomPropertiesImpl>(this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$_MediaCustomPropertiesToJson(
+    return _$$MediaCustomPropertiesImplToJson(
       this,
     );
   }
@@ -1539,10 +1571,10 @@ abstract class _MediaCustomProperties implements MediaCustomProperties {
           @JsonKey(name: 'height') final int? height,
           @JsonKey(name: 'generated_conversions')
           final Map<String, bool>? generatedConversions}) =
-      _$_MediaCustomProperties;
+      _$MediaCustomPropertiesImpl;
 
   factory _MediaCustomProperties.fromJson(Map<String, dynamic> json) =
-      _$_MediaCustomProperties.fromJson;
+      _$MediaCustomPropertiesImpl.fromJson;
 
   @override
   @JsonKey(name: 'name')
@@ -1561,6 +1593,6 @@ abstract class _MediaCustomProperties implements MediaCustomProperties {
   Map<String, bool>? get generatedConversions;
   @override
   @JsonKey(ignore: true)
-  _$$_MediaCustomPropertiesCopyWith<_$_MediaCustomProperties> get copyWith =>
-      throw _privateConstructorUsedError;
+  _$$MediaCustomPropertiesImplCopyWith<_$MediaCustomPropertiesImpl>
+      get copyWith => throw _privateConstructorUsedError;
 }

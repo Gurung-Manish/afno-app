@@ -6,8 +6,9 @@ part of 'restaurant_model.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-_$_RestaurantModel _$$_RestaurantModelFromJson(Map<String, dynamic> json) =>
-    _$_RestaurantModel(
+_$RestaurantModelImpl _$$RestaurantModelImplFromJson(
+        Map<String, dynamic> json) =>
+    _$RestaurantModelImpl(
       id: json['id'] as int?,
       title: json['title'] as String?,
       subTitle: json['sub_title'] as String?,
@@ -22,6 +23,7 @@ _$_RestaurantModel _$$_RestaurantModelFromJson(Map<String, dynamic> json) =>
       youtube: json['youtube'] as String?,
       latitude: json['latitude'] as String?,
       longitude: json['longitude'] as String?,
+      distance: (json['distance'] as num?)?.toDouble(),
       mondayOpenTime: json['monday_open_time'] as String?,
       mondayCloseTime: json['monday_close_time'] as String?,
       tuesdayOpenTime: json['tuesday_open_time'] as String?,
@@ -44,7 +46,8 @@ _$_RestaurantModel _$$_RestaurantModelFromJson(Map<String, dynamic> json) =>
           .toList(),
     );
 
-Map<String, dynamic> _$$_RestaurantModelToJson(_$_RestaurantModel instance) =>
+Map<String, dynamic> _$$RestaurantModelImplToJson(
+        _$RestaurantModelImpl instance) =>
     <String, dynamic>{
       'id': instance.id,
       'title': instance.title,
@@ -60,6 +63,7 @@ Map<String, dynamic> _$$_RestaurantModelToJson(_$_RestaurantModel instance) =>
       'youtube': instance.youtube,
       'latitude': instance.latitude,
       'longitude': instance.longitude,
+      'distance': instance.distance,
       'monday_open_time': instance.mondayOpenTime,
       'monday_close_time': instance.mondayCloseTime,
       'tuesday_open_time': instance.tuesdayOpenTime,
@@ -80,7 +84,7 @@ Map<String, dynamic> _$$_RestaurantModelToJson(_$_RestaurantModel instance) =>
       'media': instance.media,
     };
 
-_$_Media _$$_MediaFromJson(Map<String, dynamic> json) => _$_Media(
+_$MediaImpl _$$MediaImplFromJson(Map<String, dynamic> json) => _$MediaImpl(
       id: json['id'] as int?,
       modelType: json['model_type'] as String?,
       modelId: json['model_id'] as String?,
@@ -96,7 +100,8 @@ _$_Media _$$_MediaFromJson(Map<String, dynamic> json) => _$_Media(
               json['custom_properties'] as Map<String, dynamic>),
     );
 
-Map<String, dynamic> _$$_MediaToJson(_$_Media instance) => <String, dynamic>{
+Map<String, dynamic> _$$MediaImplToJson(_$MediaImpl instance) =>
+    <String, dynamic>{
       'id': instance.id,
       'model_type': instance.modelType,
       'model_id': instance.modelId,
@@ -109,9 +114,9 @@ Map<String, dynamic> _$$_MediaToJson(_$_Media instance) => <String, dynamic>{
       'custom_properties': instance.customProperties,
     };
 
-_$_MediaCustomProperties _$$_MediaCustomPropertiesFromJson(
+_$MediaCustomPropertiesImpl _$$MediaCustomPropertiesImplFromJson(
         Map<String, dynamic> json) =>
-    _$_MediaCustomProperties(
+    _$MediaCustomPropertiesImpl(
       name: json['name'] as String?,
       fileName: json['file_name'] as String?,
       width: json['width'] as int?,
@@ -122,8 +127,8 @@ _$_MediaCustomProperties _$$_MediaCustomPropertiesFromJson(
       ),
     );
 
-Map<String, dynamic> _$$_MediaCustomPropertiesToJson(
-        _$_MediaCustomProperties instance) =>
+Map<String, dynamic> _$$MediaCustomPropertiesImplToJson(
+        _$MediaCustomPropertiesImpl instance) =>
     <String, dynamic>{
       'name': instance.name,
       'file_name': instance.fileName,
