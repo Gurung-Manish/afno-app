@@ -85,3 +85,11 @@ flutter:
           weight: 700
         - asset: assets/fonts/sfPro/SF-Pro-Display-SemiBold.ttf
           weight: 600
+
+    - family: DancingScript
+      fonts:
+        - asset: assets/fonts/DancingScript/DancingScript-Regular.ttf
+        - asset: assets/fonts/DancingScript/DancingScript-Bold.ttf
+          weight: 700
+        - asset: assets/fonts/DancingScript/DancingScript-SemiBold.ttf
+          weight: 600

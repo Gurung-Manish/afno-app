@@ -2,25 +2,23 @@ import 'package:afno_app/features/restaurant/data/models/restaurant_model.dart';
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
 
-class OpeningHours extends StatefulWidget {
+class TodayOpeningHours extends StatefulWidget {
   final RestaurantModel? restaurants;
+  final bool hideToday;
 
-  const OpeningHours({super.key, required this.restaurants});
+  const TodayOpeningHours(
+      {super.key, required this.restaurants, this.hideToday = false});
 
   @override
-  State<OpeningHours> createState() => _OpeningHoursState();
+  State<TodayOpeningHours> createState() => _TodayOpeningHoursState();
 }
 
-class _OpeningHoursState extends State<OpeningHours> {
+class _TodayOpeningHoursState extends State<TodayOpeningHours> {
   @override
   Widget build(BuildContext context) {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        const Text(
-          "Opening Hours",
-          style: TextStyle(fontWeight: FontWeight.bold, fontSize: 16),
-        ),
         const SizedBox(
           height: 10,
         ),
@@ -29,6 +27,7 @@ class _OpeningHoursState extends State<OpeningHours> {
             widget.restaurants!.mondayOpenTime != null
                 ? GetDay(
                     day: "Mon",
+                    hideToday: widget.hideToday,
                     openingTime: DateFormat('HH:mm').format(getHours(
                         widget.restaurants!.mondayOpenTime.toString())),
                     closingTime: DateFormat('HH:mm').format(getHours(
@@ -38,6 +37,7 @@ class _OpeningHoursState extends State<OpeningHours> {
             if (widget.restaurants!.tuesdayOpenTime != null)
               GetDay(
                 day: "Tue",
+                hideToday: widget.hideToday,
                 openingTime: DateFormat('HH:mm').format(
                     getHours(widget.restaurants!.tuesdayOpenTime.toString())),
                 closingTime: DateFormat('HH:mm').format(
@@ -46,6 +46,7 @@ class _OpeningHoursState extends State<OpeningHours> {
             if (widget.restaurants!.wednesdayOpenTime != null)
               GetDay(
                 day: "Wed",
+                hideToday: widget.hideToday,
                 openingTime: DateFormat('HH:mm').format(
                     getHours(widget.restaurants!.wednesdayOpenTime.toString())),
                 closingTime: DateFormat('HH:mm').format(getHours(
@@ -54,6 +55,7 @@ class _OpeningHoursState extends State<OpeningHours> {
             if (widget.restaurants!.thursdayOpenTime != null)
               GetDay(
                 day: "Thu",
+                hideToday: widget.hideToday,
                 openingTime: DateFormat('HH:mm').format(
                     getHours(widget.restaurants!.thursdayOpenTime.toString())),
                 closingTime: DateFormat('HH:mm').format(
@@ -62,6 +64,7 @@ class _OpeningHoursState extends State<OpeningHours> {
             if (widget.restaurants!.fridayOpenTime != null)
               GetDay(
                 day: "Fri",
+                hideToday: widget.hideToday,
                 openingTime: DateFormat('HH:mm').format(
                     getHours(widget.restaurants!.fridayOpenTime.toString())),
                 closingTime: DateFormat('HH:mm').format(
@@ -70,6 +73,7 @@ class _OpeningHoursState extends State<OpeningHours> {
             if (widget.restaurants!.saturdayOpenTime != null)
               GetDay(
                 day: "Sat",
+                hideToday: widget.hideToday,
                 openingTime: DateFormat('HH:mm').format(
                     getHours(widget.restaurants!.saturdayOpenTime.toString())),
                 closingTime: DateFormat('HH:mm').format(
@@ -78,6 +82,7 @@ class _OpeningHoursState extends State<OpeningHours> {
             if (widget.restaurants!.sundayOpenTime != null)
               GetDay(
                 day: "Sun",
+                hideToday: widget.hideToday,
                 openingTime: DateFormat('HH:mm').format(
                     getHours(widget.restaurants!.sundayOpenTime.toString())),
                 closingTime: DateFormat('HH:mm').format(
@@ -85,9 +90,6 @@ class _OpeningHoursState extends State<OpeningHours> {
               ),
           ],
         ),
-        const SizedBox(
-          height: 30,
-        )
       ],
     );
   }
@@ -97,11 +99,14 @@ class GetDay extends StatefulWidget {
   final String day;
   final String openingTime;
   final String closingTime;
+  final bool hideToday;
+
   const GetDay(
       {super.key,
       required this.day,
       required this.openingTime,
-      required this.closingTime});
+      required this.closingTime,
+      required this.hideToday});
 
   @override
   State<GetDay> createState() => _GetDayState();
@@ -156,83 +161,116 @@ class _GetDayState extends State<GetDay> {
 
   @override
   Widget build(BuildContext context) {
-    return Row(
-      children: [
-        Row(
-          children: [
-            SizedBox(
-              width: 40,
-              child: Text(
-                widget.day,
-                style: TextStyle(
-                  color: isToday
-                      ? Colors.black
-                      : Colors.grey, // Highlight if today
-                  fontSize: 14,
-                ),
-              ),
-            ),
-            const SizedBox(
-              width: 5,
-            ),
-            Text(
-              widget.openingTime,
-              style: TextStyle(
-                color: isToday ? Colors.black : Colors.grey,
-                fontSize: 14,
-              ),
-            ),
-            Container(
-              color: Colors.grey,
-              width: 5,
-              height: 1,
-            ),
-            Text(
-              widget.closingTime,
-              style: TextStyle(
-                color: isToday ? Colors.black : Colors.grey,
-                fontSize: 14,
-              ),
-            ),
-            isToday
-                ? (isOpen)
-                    ? const Row(
-                        children: [
-                          SizedBox(
-                            width: 10,
+    return isToday
+        ? Row(
+            children: [
+              isOpen
+                  ? Row(
+                      children: [
+                        Text(
+                          "Open",
+                          style:
+                              TextStyle(fontSize: 16, color: Colors.green[400]),
+                        ),
+                        const SizedBox(
+                          width: 10,
+                        ),
+                        Text(
+                          "Closes at ${DateFormat('HH:mm').format(getHours(widget.closingTime))}",
+                          style: const TextStyle(
+                            color: Colors.grey, // Highlight if today
+                            fontSize: 14,
                           ),
-                          Text(
-                            "(Open)",
-                            style: TextStyle(
-                                color:
-                                    Colors.green, // Customize open text color
+                        ),
+                      ],
+                    )
+                  : Column(
+                      children: [
+                        Row(
+                          children: [
+                            Text(
+                              "Closed",
+                              style: TextStyle(
+                                  fontSize: 16, color: Colors.red[400]),
+                            ),
+                            const SizedBox(
+                              width: 10,
+                            ),
+                            Text(
+                              "Closed at ${DateFormat('HH:mm').format(getHours(widget.closingTime))}",
+                              style: const TextStyle(
+                                color: Colors.grey, // Highlight if today
                                 fontSize: 14,
-                                fontWeight: FontWeight.bold),
-                          ),
-                        ],
-                      )
-                    : const Row(
-                        children: [
-                          SizedBox(
-                            width: 10,
-                          ),
-                          Text(
-                            "(Closed)",
-                            style: TextStyle(
-                                color: Colors.red, // Customize open text color
-                                fontSize: 14,
-                                fontWeight: FontWeight.bold),
-                          ),
-                        ],
-                      )
-                : const SizedBox()
-          ],
-        ),
-        const SizedBox(
-          height: 5,
-        ),
-      ],
-    );
+                              ),
+                            ),
+                          ],
+                        ),
+                        const SizedBox(
+                          height: 8,
+                        ),
+                        !widget.hideToday
+                            ? Container(
+                                decoration: BoxDecoration(
+                                  borderRadius: const BorderRadius.all(
+                                    Radius.circular(5),
+                                  ),
+                                  color: Colors.grey[200],
+                                ),
+                                padding: const EdgeInsets.only(
+                                    left: 10, right: 10, top: 5, bottom: 5),
+                                child: Row(
+                                  children: [
+                                    SizedBox(
+                                      width: 40,
+                                      child: Text(
+                                        widget.day,
+                                        style: TextStyle(
+                                          color: isToday
+                                              ? Colors.black
+                                              : Colors
+                                                  .grey, // Highlight if today
+                                          fontSize: 14,
+                                        ),
+                                      ),
+                                    ),
+                                    const SizedBox(
+                                      width: 5,
+                                    ),
+                                    Text(
+                                      widget.openingTime,
+                                      style: TextStyle(
+                                        color: isToday
+                                            ? Colors.black
+                                            : Colors.grey,
+                                        fontSize: 14,
+                                      ),
+                                    ),
+                                    Container(
+                                      color: Colors.grey,
+                                      width: 5,
+                                      height: 1,
+                                    ),
+                                    Text(
+                                      widget.closingTime,
+                                      style: TextStyle(
+                                        color: isToday
+                                            ? Colors.black
+                                            : Colors.grey,
+                                        fontSize: 14,
+                                      ),
+                                    ),
+                                  ],
+                                ),
+                              )
+                            : const SizedBox()
+                      ],
+                    ),
+              const SizedBox(
+                height: 5,
+              ),
+            ],
+          )
+        : const SizedBox();
   }
 }
 
@@ -254,15 +292,16 @@ DateTime currentGetDateTime(String time) {
   return dateTime;
 }
 
-class CurrentDayOpeningHours extends StatelessWidget {
-  final Map<String, String> openingHours;
+class CurrentDayTodayOpeningHours extends StatelessWidget {
+  final Map<String, String> TodayopeningHours;
 
-  const CurrentDayOpeningHours({super.key, required this.openingHours});
+  const CurrentDayTodayOpeningHours(
+      {super.key, required this.TodayopeningHours});
 
   @override
   Widget build(BuildContext context) {
     final currentDay = DateFormat('E').format(DateTime.now());
-    final currentOpeningTime = openingHours[currentDay];
+    final currentOpeningTime = TodayopeningHours[currentDay];
     final currentTime = DateTime.now();
     bool isOpen = false;
 

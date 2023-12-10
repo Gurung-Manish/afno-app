@@ -1,6 +1,7 @@
 import 'package:afno_app/core/constants/constants.dart';
 import 'package:afno_app/features/dashboard/presentation/widgets/triangular_container.dart';
 import 'package:afno_app/features/restaurant/data/models/restaurant_model.dart';
+import 'package:afno_app/features/restaurant/presentation/widgets/current_opening_hour.dart';
 import 'package:afno_app/routes/routes_constant.dart';
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
@@ -132,34 +133,38 @@ class _RestaurantListCardWidgetState extends State<RestaurantListCardWidget> {
                           const SizedBox(
                             height: 5,
                           ),
-                          Row(
-                            crossAxisAlignment: CrossAxisAlignment.center,
-                            children: [
-                              const Icon(
-                                Icons.wallet,
-                                size: 14,
-                                color: Color(0xFFFFCC00),
-                              ),
-                              const SizedBox(
-                                width: 5,
-                              ),
-                              SizedBox(
-                                width:
-                                    200, // Set a specific width to limit the space for the text
-                                child: Text(
-                                  widget.restaurant.subTitle ??
-                                      "No description.",
-                                  style: const TextStyle(
-                                    fontSize: 12,
-                                    color: Colors.grey,
-                                  ),
-                                  maxLines: 2, // Allow at most 2 lines of text
-                                  overflow: TextOverflow
-                                      .ellipsis, // Display ellipsis (...) if text overflows
-                                ),
-                              ),
-                            ],
-                          )
+                          TodayOpeningHours(
+                            restaurants: widget.restaurant,
+                            hideToday: true,
+                          ),
+                          // Row(
+                          //   crossAxisAlignment: CrossAxisAlignment.center,
+                          //   children: [
+                          //     const Icon(
+                          //       Icons.wallet,
+                          //       size: 14,
+                          //       color: Color(0xFFFFCC00),
+                          //     ),
+                          //     const SizedBox(
+                          //       width: 5,
+                          //     ),
+                          //     SizedBox(
+                          //       width:
+                          //           200, // Set a specific width to limit the space for the text
+                          //       child: Text(
+                          //         widget.restaurant.subTitle ??
+                          //             "No description.",
+                          //         style: const TextStyle(
+                          //           fontSize: 12,
+                          //           color: Colors.grey,
+                          //         ),
+                          //         maxLines: 2, // Allow at most 2 lines of text
+                          //         overflow: TextOverflow
+                          //             .ellipsis, // Display ellipsis (...) if text overflows
+                          //       ),
+                          //     ),
+                          //   ],
+                          // )
                         ],
                       ),
                     ),
