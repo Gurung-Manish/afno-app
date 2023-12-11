@@ -1,3 +1,6 @@
+import 'dart:convert';
+
+import 'package:afno_app/features/restaurant/data/models/fav_restaurant_model.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 class SharedPrefService {
@@ -31,4 +34,25 @@ class SharedPrefKey {
   static String allUser = "allUser";
   static String firstLogin = "firstLogin";
   static String restaurants = "restaurants";
+  static String fav = "fav";
+}
+
+class FavRestaurantService {
+  Future<void> setFavoriteStatus(FavRestaurantModel model) async {
+    final prefs = await SharedPreferences.getInstance();
+    final key = model.id.toString();
+    final value = jsonEncode(model.toJson());
+    prefs.setString(key, value);
+  }
+
+  Future<bool?> getFavoriteStatus(int id) async {
+    final prefs = await SharedPreferences.getInstance();
+    final key = id.toString();
+    final value = prefs.getString(key);
+    if (value != null) {
+      final model = FavRestaurantModel.fromJson(jsonDecode(value));
+      return model.fav;
+    }
+    return null;
+  }
 }

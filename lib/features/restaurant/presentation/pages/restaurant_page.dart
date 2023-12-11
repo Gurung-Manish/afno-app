@@ -2,8 +2,11 @@ import 'dart:async';
 import 'dart:ui';
 
 import 'package:afno_app/core/constants/constants.dart';
+import 'package:afno_app/core/shared_pref/shared_pref.dart';
+import 'package:afno_app/core/widgets/google_map_widget/google_map_no_range_widget.dart';
 import 'package:afno_app/core/widgets/google_map_widget/google_map_widget.dart';
 import 'package:afno_app/features/restaurant/data/datasources/restaurant_datasource.dart';
+import 'package:afno_app/features/restaurant/data/models/fav_restaurant_model.dart';
 import 'package:afno_app/features/restaurant/data/models/restaurant_model.dart';
 import 'package:afno_app/features/restaurant/presentation/bloc/restaurant_bloc.dart';
 import 'package:afno_app/features/restaurant/presentation/widgets/current_opening_hour.dart';
@@ -32,6 +35,7 @@ class _RestaurantPageState extends State<RestaurantPage> {
   List<Media> imgList = [];
   String coverImageOrg = "";
   bool isOpen = false;
+  bool isFav = false;
   String openingHour = "";
   static const CameraPosition _kLake = CameraPosition(
     target: LatLng(51.50, 0.127),
@@ -45,13 +49,18 @@ class _RestaurantPageState extends State<RestaurantPage> {
 
   @override
   void initState() {
-    getRestaurantsFromCache().then((value) {
+    getRestaurantsFromCache().then((value) async {
+      bool getFav = await FavRestaurantService()
+              .getFavoriteStatus(int.parse(widget.id)) ??
+          false;
       setState(() {
         restaurants = value;
         restaurant = restaurants
             .firstWhere((element) => element.id.toString() == widget.id);
         List<Marker> newMarkers = <Marker>[];
-
+        if (restaurant!.id != null) {
+          isFav = getFav;
+        }
         newMarkers.add(Marker(
           markerId: MarkerId(restaurant!.id.toString()),
           position: LatLng(
@@ -189,13 +198,41 @@ class _RestaurantPageState extends State<RestaurantPage> {
                                                               .center,
                                                       children: <Widget>[
                                                         IconButton(
-                                                          icon: const Icon(
-                                                            Icons
-                                                                .favorite_border,
-                                                            color: Colors.white,
-                                                            size: 20,
-                                                          ),
-                                                          onPressed: () {},
+                                                          icon: isFav
+                                                              ? const Icon(
+                                                                  Icons
+                                                                      .favorite_outlined,
+                                                                  color: Colors
+                                                                      .white,
+                                                                  size: 20,
+                                                                )
+                                                              : const Icon(
+                                                                  Icons
+                                                                      .favorite_border,
+                                                                  color: Colors
+                                                                      .white,
+                                                                  size: 20,
+                                                                ),
+                                                          onPressed: () {
+                                                            FavRestaurantService()
+                                                                .setFavoriteStatus(
+                                                                    FavRestaurantModel(
+                                                                        id: restaurant!
+                                                                            .id,
+                                                                        fav:
+                                                                            !isFav))
+                                                                .then(
+                                                                    (value) async {
+                                                              bool getFav = await FavRestaurantService()
+                                                                      .getFavoriteStatus(
+                                                                          restaurant!.id ??
+                                                                              0) ??
+                                                                  false;
+                                                              setState(() {
+                                                                isFav = getFav;
+                                                              });
+                                                            });
+                                                          },
                                                         ),
                                                       ],
                                                     ),
@@ -447,13 +484,23 @@ class _RestaurantPageState extends State<RestaurantPage> {
                                                   showModalBottomSheet(
                                                     isScrollControlled: true,
                                                     context: context,
+                                                    backgroundColor:
+                                                        Colors.transparent,
                                                     builder: (context) {
-                                                      return SizedBox(
-                                                        height: 200,
+                                                      return Container(
+                                                        height: 260,
+                                                        decoration:
+                                                            BoxDecoration(
+                                                          color:
+                                                              Colors.grey[100],
+                                                          borderRadius:
+                                                              BorderRadius
+                                                                  .circular(15),
+                                                        ),
                                                         child: Padding(
                                                           padding:
                                                               const EdgeInsets
-                                                                  .all(8.0),
+                                                                  .all(18.0),
                                                           child: OpeningHours(
                                                             restaurants:
                                                                 restaurant,
@@ -649,10 +696,34 @@ class _RestaurantPageState extends State<RestaurantPage> {
                                         const SizedBox(
                                           height: 10,
                                         ),
-                                        const Text("Maps",
-                                            style: TextStyle(
-                                                fontSize: 16,
-                                                fontWeight: FontWeight.bold)),
+                                        Row(
+                                          mainAxisAlignment:
+                                              MainAxisAlignment.spaceBetween,
+                                          children: [
+                                            const Text("Maps",
+                                                style: TextStyle(
+                                                    fontSize: 16,
+                                                    fontWeight:
+                                                        FontWeight.bold)),
+                                            OutlinedButton(
+                                                onPressed: () async {
+                                                  String googleUrl =
+                                                      'https://www.google.com/maps/search/?api=${"1"}&query=${restaurant!.latitude},${restaurant!.longitude}';
+                                                  if (await canLaunchUrl(
+                                                      Uri.parse(googleUrl))) {
+                                                    await launchUrl(
+                                                        Uri.parse(googleUrl));
+                                                  } else {
+                                                    throw 'Could not open the map.';
+                                                  }
+                                                },
+                                                child: Text(
+                                                  'Open in Google Maps',
+                                                  style: TextStyle(
+                                                      color: Colors.green[400]),
+                                                )),
+                                          ],
+                                        ),
                                         const SizedBox(
                                           height: 10,
                                         ),
@@ -671,7 +742,7 @@ class _RestaurantPageState extends State<RestaurantPage> {
                                                   .width -
                                               20,
                                           height: 400,
-                                          child: GoogleMapWidget(
+                                          child: GoogleMapNoRangeWidget(
                                               kGooglePlex: _kLake,
                                               controller: _controller,
                                               markers: markers),

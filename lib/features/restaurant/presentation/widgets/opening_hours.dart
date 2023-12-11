@@ -19,7 +19,7 @@ class _OpeningHoursState extends State<OpeningHours> {
       children: [
         const Text(
           "Opening Hours",
-          style: TextStyle(fontWeight: FontWeight.bold, fontSize: 16),
+          style: TextStyle(fontWeight: FontWeight.bold, fontSize: 20),
         ),
         const SizedBox(
           height: 10,
@@ -168,7 +168,7 @@ class _GetDayState extends State<GetDay> {
                   color: isToday
                       ? Colors.black
                       : Colors.grey, // Highlight if today
-                  fontSize: 14,
+                  fontSize: 18,
                 ),
               ),
             ),
@@ -179,7 +179,7 @@ class _GetDayState extends State<GetDay> {
               widget.openingTime,
               style: TextStyle(
                 color: isToday ? Colors.black : Colors.grey,
-                fontSize: 14,
+                fontSize: 18,
               ),
             ),
             Container(
@@ -191,7 +191,7 @@ class _GetDayState extends State<GetDay> {
               widget.closingTime,
               style: TextStyle(
                 color: isToday ? Colors.black : Colors.grey,
-                fontSize: 14,
+                fontSize: 18,
               ),
             ),
             isToday
@@ -206,7 +206,7 @@ class _GetDayState extends State<GetDay> {
                             style: TextStyle(
                                 color:
                                     Colors.green, // Customize open text color
-                                fontSize: 14,
+                                fontSize: 18,
                                 fontWeight: FontWeight.bold),
                           ),
                         ],
@@ -220,7 +220,7 @@ class _GetDayState extends State<GetDay> {
                             "(Closed)",
                             style: TextStyle(
                                 color: Colors.red, // Customize open text color
-                                fontSize: 14,
+                                fontSize: 18,
                                 fontWeight: FontWeight.bold),
                           ),
                         ],
