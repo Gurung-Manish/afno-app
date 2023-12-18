@@ -11,6 +11,7 @@ _$RestaurantModelImpl _$$RestaurantModelImplFromJson(
     _$RestaurantModelImpl(
       id: json['id'] as int?,
       title: json['title'] as String?,
+      location: json['location'] as String?,
       subTitle: json['sub_title'] as String?,
       description: json['description'] as String?,
       enabled: json['enabled'] as String?,
@@ -51,6 +52,7 @@ Map<String, dynamic> _$$RestaurantModelImplToJson(
     <String, dynamic>{
       'id': instance.id,
       'title': instance.title,
+      'location': instance.location,
       'sub_title': instance.subTitle,
       'description': instance.description,
       'enabled': instance.enabled,

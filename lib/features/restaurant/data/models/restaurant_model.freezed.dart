@@ -24,6 +24,8 @@ mixin _$RestaurantModel {
   int? get id => throw _privateConstructorUsedError;
   @JsonKey(name: 'title')
   String? get title => throw _privateConstructorUsedError;
+  @JsonKey(name: 'location')
+  String? get location => throw _privateConstructorUsedError;
   @JsonKey(name: 'sub_title')
   String? get subTitle => throw _privateConstructorUsedError;
   @JsonKey(name: 'description')
@@ -102,6 +104,7 @@ abstract class $RestaurantModelCopyWith<$Res> {
   $Res call(
       {@JsonKey(name: 'id') int? id,
       @JsonKey(name: 'title') String? title,
+      @JsonKey(name: 'location') String? location,
       @JsonKey(name: 'sub_title') String? subTitle,
       @JsonKey(name: 'description') String? description,
       @JsonKey(name: 'enabled') String? enabled,
@@ -150,6 +153,7 @@ class _$RestaurantModelCopyWithImpl<$Res, $Val extends RestaurantModel>
   $Res call({
     Object? id = freezed,
     Object? title = freezed,
+    Object? location = freezed,
     Object? subTitle = freezed,
     Object? description = freezed,
     Object? enabled = freezed,
@@ -190,6 +194,10 @@ class _$RestaurantModelCopyWithImpl<$Res, $Val extends RestaurantModel>
       title: freezed == title
           ? _value.title
           : title // ignore: cast_nullable_to_non_nullable
+              as String?,
+      location: freezed == location
+          ? _value.location
+          : location // ignore: cast_nullable_to_non_nullable
               as String?,
       subTitle: freezed == subTitle
           ? _value.subTitle
@@ -330,6 +338,7 @@ abstract class _$$RestaurantModelImplCopyWith<$Res>
   $Res call(
       {@JsonKey(name: 'id') int? id,
       @JsonKey(name: 'title') String? title,
+      @JsonKey(name: 'location') String? location,
       @JsonKey(name: 'sub_title') String? subTitle,
       @JsonKey(name: 'description') String? description,
       @JsonKey(name: 'enabled') String? enabled,
@@ -376,6 +385,7 @@ class __$$RestaurantModelImplCopyWithImpl<$Res>
   $Res call({
     Object? id = freezed,
     Object? title = freezed,
+    Object? location = freezed,
     Object? subTitle = freezed,
     Object? description = freezed,
     Object? enabled = freezed,
@@ -416,6 +426,10 @@ class __$$RestaurantModelImplCopyWithImpl<$Res>
       title: freezed == title
           ? _value.title
           : title // ignore: cast_nullable_to_non_nullable
+              as String?,
+      location: freezed == location
+          ? _value.location
+          : location // ignore: cast_nullable_to_non_nullable
               as String?,
       subTitle: freezed == subTitle
           ? _value.subTitle
@@ -551,6 +565,7 @@ class _$RestaurantModelImpl implements _RestaurantModel {
   const _$RestaurantModelImpl(
       {@JsonKey(name: 'id') this.id,
       @JsonKey(name: 'title') this.title,
+      @JsonKey(name: 'location') this.location,
       @JsonKey(name: 'sub_title') this.subTitle,
       @JsonKey(name: 'description') this.description,
       @JsonKey(name: 'enabled') this.enabled,
@@ -593,6 +608,9 @@ class _$RestaurantModelImpl implements _RestaurantModel {
   @override
   @JsonKey(name: 'title')
   final String? title;
+  @override
+  @JsonKey(name: 'location')
+  final String? location;
   @override
   @JsonKey(name: 'sub_title')
   final String? subTitle;
@@ -696,7 +714,7 @@ class _$RestaurantModelImpl implements _RestaurantModel {
 
   @override
   String toString() {
-    return 'RestaurantModel(id: $id, title: $title, subTitle: $subTitle, description: $description, enabled: $enabled, phoneNumber: $phoneNumber, alternatePhoneNumber: $alternatePhoneNumber, link: $link, email: $email, instagram: $instagram, facebook: $facebook, youtube: $youtube, latitude: $latitude, longitude: $longitude, distance: $distance, mondayOpenTime: $mondayOpenTime, mondayCloseTime: $mondayCloseTime, tuesdayOpenTime: $tuesdayOpenTime, tuesdayCloseTime: $tuesdayCloseTime, wednesdayOpenTime: $wednesdayOpenTime, wednesdayCloseTime: $wednesdayCloseTime, thursdayOpenTime: $thursdayOpenTime, thursdayCloseTime: $thursdayCloseTime, fridayOpenTime: $fridayOpenTime, fridayCloseTime: $fridayCloseTime, saturdayOpenTime: $saturdayOpenTime, saturdayCloseTime: $saturdayCloseTime, sundayOpenTime: $sundayOpenTime, sundayCloseTime: $sundayCloseTime, createdAt: $createdAt, updatedAt: $updatedAt, resourceUrl: $resourceUrl, media: $media)';
+    return 'RestaurantModel(id: $id, title: $title, location: $location, subTitle: $subTitle, description: $description, enabled: $enabled, phoneNumber: $phoneNumber, alternatePhoneNumber: $alternatePhoneNumber, link: $link, email: $email, instagram: $instagram, facebook: $facebook, youtube: $youtube, latitude: $latitude, longitude: $longitude, distance: $distance, mondayOpenTime: $mondayOpenTime, mondayCloseTime: $mondayCloseTime, tuesdayOpenTime: $tuesdayOpenTime, tuesdayCloseTime: $tuesdayCloseTime, wednesdayOpenTime: $wednesdayOpenTime, wednesdayCloseTime: $wednesdayCloseTime, thursdayOpenTime: $thursdayOpenTime, thursdayCloseTime: $thursdayCloseTime, fridayOpenTime: $fridayOpenTime, fridayCloseTime: $fridayCloseTime, saturdayOpenTime: $saturdayOpenTime, saturdayCloseTime: $saturdayCloseTime, sundayOpenTime: $sundayOpenTime, sundayCloseTime: $sundayCloseTime, createdAt: $createdAt, updatedAt: $updatedAt, resourceUrl: $resourceUrl, media: $media)';
   }
 
   @override
@@ -706,6 +724,8 @@ class _$RestaurantModelImpl implements _RestaurantModel {
             other is _$RestaurantModelImpl &&
             (identical(other.id, id) || other.id == id) &&
             (identical(other.title, title) || other.title == title) &&
+            (identical(other.location, location) ||
+                other.location == location) &&
             (identical(other.subTitle, subTitle) ||
                 other.subTitle == subTitle) &&
             (identical(other.description, description) ||
@@ -771,6 +791,7 @@ class _$RestaurantModelImpl implements _RestaurantModel {
         runtimeType,
         id,
         title,
+        location,
         subTitle,
         description,
         enabled,
@@ -823,6 +844,7 @@ abstract class _RestaurantModel implements RestaurantModel {
   const factory _RestaurantModel(
       {@JsonKey(name: 'id') final int? id,
       @JsonKey(name: 'title') final String? title,
+      @JsonKey(name: 'location') final String? location,
       @JsonKey(name: 'sub_title') final String? subTitle,
       @JsonKey(name: 'description') final String? description,
       @JsonKey(name: 'enabled') final String? enabled,
@@ -866,6 +888,9 @@ abstract class _RestaurantModel implements RestaurantModel {
   @override
   @JsonKey(name: 'title')
   String? get title;
+  @override
+  @JsonKey(name: 'location')
+  String? get location;
   @override
   @JsonKey(name: 'sub_title')
   String? get subTitle;

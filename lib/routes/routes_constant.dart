@@ -6,4 +6,5 @@ class RoutesConstant {
   static String profile = "/profile";
   static String restaurant = "/restaurant";
   static String onboarding = "/onboarding";
+  static String fav = "/fav";
 }

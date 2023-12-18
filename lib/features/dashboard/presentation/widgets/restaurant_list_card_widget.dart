@@ -130,6 +130,33 @@ class _RestaurantListCardWidgetState extends State<RestaurantListCardWidget> {
                               ),
                             ],
                           ),
+                          Row(
+                            crossAxisAlignment: CrossAxisAlignment.center,
+                            children: [
+                              const Icon(
+                                Icons.gps_fixed_sharp,
+                                size: 14,
+                                color: Color(0xFFFFCC00),
+                              ),
+                              const SizedBox(
+                                width: 5,
+                              ),
+                              SizedBox(
+                                width:
+                                    200, // Set a specific width to limit the space for the text
+                                child: Text(
+                                  widget.restaurant.location ?? "No location.",
+                                  style: const TextStyle(
+                                    fontSize: 12,
+                                    color: Colors.grey,
+                                  ),
+                                  maxLines: 2, // Allow at most 2 lines of text
+                                  overflow: TextOverflow
+                                      .ellipsis, // Display ellipsis (...) if text overflows
+                                ),
+                              ),
+                            ],
+                          ),
                           const SizedBox(
                             height: 5,
                           ),
@@ -137,34 +164,6 @@ class _RestaurantListCardWidgetState extends State<RestaurantListCardWidget> {
                             restaurants: widget.restaurant,
                             hideToday: true,
                           ),
-                          // Row(
-                          //   crossAxisAlignment: CrossAxisAlignment.center,
-                          //   children: [
-                          //     const Icon(
-                          //       Icons.wallet,
-                          //       size: 14,
-                          //       color: Color(0xFFFFCC00),
-                          //     ),
-                          //     const SizedBox(
-                          //       width: 5,
-                          //     ),
-                          //     SizedBox(
-                          //       width:
-                          //           200, // Set a specific width to limit the space for the text
-                          //       child: Text(
-                          //         widget.restaurant.subTitle ??
-                          //             "No description.",
-                          //         style: const TextStyle(
-                          //           fontSize: 12,
-                          //           color: Colors.grey,
-                          //         ),
-                          //         maxLines: 2, // Allow at most 2 lines of text
-                          //         overflow: TextOverflow
-                          //             .ellipsis, // Display ellipsis (...) if text overflows
-                          //       ),
-                          //     ),
-                          //   ],
-                          // )
                         ],
                       ),
                     ),

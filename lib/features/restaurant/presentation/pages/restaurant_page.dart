@@ -2,6 +2,7 @@ import 'dart:async';
 import 'dart:ui';
 
 import 'package:afno_app/core/constants/constants.dart';
+import 'package:afno_app/core/responsive.dart';
 import 'package:afno_app/core/shared_pref/shared_pref.dart';
 import 'package:afno_app/core/widgets/google_map_widget/google_map_no_range_widget.dart';
 import 'package:afno_app/core/widgets/google_map_widget/google_map_widget.dart';
@@ -441,10 +442,12 @@ class _RestaurantPageState extends State<RestaurantPage> {
                                 children: [
                                   Text(
                                     restaurant!.title ?? "",
-                                    style: const TextStyle(
+                                    style: TextStyle(
                                         fontFamily: 'DancingScript',
                                         fontWeight: FontWeight.bold,
-                                        fontSize: 70),
+                                        fontSize: Responsive.isDesktop(context)
+                                            ? 70
+                                            : 40),
                                   ),
                                   Padding(
                                     padding: const EdgeInsets.only(left: 10),

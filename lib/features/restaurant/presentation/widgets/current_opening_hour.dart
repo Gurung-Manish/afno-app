@@ -20,7 +20,7 @@ class _TodayOpeningHoursState extends State<TodayOpeningHours> {
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         const SizedBox(
-          height: 10,
+          height: 4,
         ),
         Column(
           children: [

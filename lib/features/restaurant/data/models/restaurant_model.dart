@@ -8,6 +8,7 @@ abstract class RestaurantModel with _$RestaurantModel {
   const factory RestaurantModel({
     @JsonKey(name: 'id') int? id,
     @JsonKey(name: 'title') String? title,
+    @JsonKey(name: 'location') String? location,
     @JsonKey(name: 'sub_title') String? subTitle,
     @JsonKey(name: 'description') String? description,
     @JsonKey(name: 'enabled') String? enabled,
