@@ -1,3 +1,4 @@
+import 'package:afno_app/core/responsive.dart';
 import 'package:afno_app/features/dashboard/presentation/widgets/restaurant_list_card_widget.dart';
 import 'package:afno_app/features/restaurant/data/datasources/restaurant_datasource.dart';
 import 'package:afno_app/features/restaurant/data/models/restaurant_model.dart';
@@ -9,6 +10,7 @@ import 'package:loading_skeleton_niu/loading_skeleton.dart';
 import 'package:location/location.dart' as location_package;
 import 'dart:math';
 import 'package:location/location.dart';
+import 'package:afno_app/core/responsive.dart';
 
 class BottomDashboardView extends StatefulHookWidget {
   final List<RestaurantModel> restaurants;
@@ -194,7 +196,7 @@ class _BottomDashboardViewState extends State<BottomDashboardView>
               ),
               _selectedTabIndex == 0
                   ? SizedBox(
-                      height: 300,
+                      height: 328,
                       child: nearbyRestaurants.isNotEmpty
                           ? ListView.builder(
                               itemCount: nearbyRestaurants.length,
@@ -217,18 +219,29 @@ class _BottomDashboardViewState extends State<BottomDashboardView>
 
                   // Filter 2 View
                   nearbyRestaurants.isNotEmpty
-                      ? GridView.extent(
-                          maxCrossAxisExtent: 360,
+                      ? GridView.count(
+                          crossAxisCount: Responsive.isMobile(context) ? 1 : 3,
+                          // maxCrossAxisExtent: Responsive.isMobile(context)
+                          //     ? MediaQuery.sizeOf(context).width
+                          //     : 200,
+                          childAspectRatio: ((Responsive.isMobile(context)
+                                  ? MediaQuery.sizeOf(context).width
+                                  : MediaQuery.sizeOf(context).width / 3) /
+                              320),
+
                           scrollDirection: Axis.vertical,
                           shrinkWrap: true,
                           children: List.generate(
                             nearbyRestaurants.length,
                             (index) {
                               final restaurant = nearbyRestaurants[index];
-                              return Padding(
-                                padding: const EdgeInsets.all(8.0),
-                                child: RestaurantListCardWidget(
-                                  restaurant: restaurant,
+                              return SizedBox(
+                                height: 200,
+                                child: Padding(
+                                  padding: const EdgeInsets.all(8.0),
+                                  child: RestaurantListCardWidget(
+                                    restaurant: restaurant,
+                                  ),
                                 ),
                               );
                             },

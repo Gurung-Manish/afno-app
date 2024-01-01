@@ -150,7 +150,7 @@ class _RestaurantListCardWidgetState extends State<RestaurantListCardWidget> {
                                     fontSize: 12,
                                     color: Colors.grey,
                                   ),
-                                  maxLines: 2, // Allow at most 2 lines of text
+                                  maxLines: 1, // Allow at most 2 lines of text
                                   overflow: TextOverflow
                                       .ellipsis, // Display ellipsis (...) if text overflows
                                 ),
@@ -160,9 +160,12 @@ class _RestaurantListCardWidgetState extends State<RestaurantListCardWidget> {
                           const SizedBox(
                             height: 5,
                           ),
-                          TodayOpeningHours(
-                            restaurants: widget.restaurant,
-                            hideToday: true,
+                          SizedBox(
+                            height: 35,
+                            child: TodayOpeningHours(
+                              restaurants: widget.restaurant,
+                              hideToday: true,
+                            ),
                           ),
                         ],
                       ),

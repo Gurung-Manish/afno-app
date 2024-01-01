@@ -14,7 +14,7 @@ _$RestaurantModelImpl _$$RestaurantModelImplFromJson(
       location: json['location'] as String?,
       subTitle: json['sub_title'] as String?,
       description: json['description'] as String?,
-      enabled: json['enabled'] as String?,
+      enabled: json['enabled'] as bool?,
       phoneNumber: json['phone_number'] as String?,
       alternatePhoneNumber: json['alternate_phone_number'] as String?,
       link: json['link'] as String?,

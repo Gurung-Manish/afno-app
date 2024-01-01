@@ -11,7 +11,7 @@ abstract class RestaurantModel with _$RestaurantModel {
     @JsonKey(name: 'location') String? location,
     @JsonKey(name: 'sub_title') String? subTitle,
     @JsonKey(name: 'description') String? description,
-    @JsonKey(name: 'enabled') String? enabled,
+    @JsonKey(name: 'enabled') bool? enabled,
     @JsonKey(name: 'phone_number') String? phoneNumber,
     @JsonKey(name: 'alternate_phone_number') String? alternatePhoneNumber,
     @JsonKey(name: 'link') String? link,

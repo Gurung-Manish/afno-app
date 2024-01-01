@@ -31,7 +31,7 @@ mixin _$RestaurantModel {
   @JsonKey(name: 'description')
   String? get description => throw _privateConstructorUsedError;
   @JsonKey(name: 'enabled')
-  String? get enabled => throw _privateConstructorUsedError;
+  bool? get enabled => throw _privateConstructorUsedError;
   @JsonKey(name: 'phone_number')
   String? get phoneNumber => throw _privateConstructorUsedError;
   @JsonKey(name: 'alternate_phone_number')
@@ -107,7 +107,7 @@ abstract class $RestaurantModelCopyWith<$Res> {
       @JsonKey(name: 'location') String? location,
       @JsonKey(name: 'sub_title') String? subTitle,
       @JsonKey(name: 'description') String? description,
-      @JsonKey(name: 'enabled') String? enabled,
+      @JsonKey(name: 'enabled') bool? enabled,
       @JsonKey(name: 'phone_number') String? phoneNumber,
       @JsonKey(name: 'alternate_phone_number') String? alternatePhoneNumber,
       @JsonKey(name: 'link') String? link,
@@ -210,7 +210,7 @@ class _$RestaurantModelCopyWithImpl<$Res, $Val extends RestaurantModel>
       enabled: freezed == enabled
           ? _value.enabled
           : enabled // ignore: cast_nullable_to_non_nullable
-              as String?,
+              as bool?,
       phoneNumber: freezed == phoneNumber
           ? _value.phoneNumber
           : phoneNumber // ignore: cast_nullable_to_non_nullable
@@ -341,7 +341,7 @@ abstract class _$$RestaurantModelImplCopyWith<$Res>
       @JsonKey(name: 'location') String? location,
       @JsonKey(name: 'sub_title') String? subTitle,
       @JsonKey(name: 'description') String? description,
-      @JsonKey(name: 'enabled') String? enabled,
+      @JsonKey(name: 'enabled') bool? enabled,
       @JsonKey(name: 'phone_number') String? phoneNumber,
       @JsonKey(name: 'alternate_phone_number') String? alternatePhoneNumber,
       @JsonKey(name: 'link') String? link,
@@ -442,7 +442,7 @@ class __$$RestaurantModelImplCopyWithImpl<$Res>
       enabled: freezed == enabled
           ? _value.enabled
           : enabled // ignore: cast_nullable_to_non_nullable
-              as String?,
+              as bool?,
       phoneNumber: freezed == phoneNumber
           ? _value.phoneNumber
           : phoneNumber // ignore: cast_nullable_to_non_nullable
@@ -619,7 +619,7 @@ class _$RestaurantModelImpl implements _RestaurantModel {
   final String? description;
   @override
   @JsonKey(name: 'enabled')
-  final String? enabled;
+  final bool? enabled;
   @override
   @JsonKey(name: 'phone_number')
   final String? phoneNumber;
@@ -847,7 +847,7 @@ abstract class _RestaurantModel implements RestaurantModel {
       @JsonKey(name: 'location') final String? location,
       @JsonKey(name: 'sub_title') final String? subTitle,
       @JsonKey(name: 'description') final String? description,
-      @JsonKey(name: 'enabled') final String? enabled,
+      @JsonKey(name: 'enabled') final bool? enabled,
       @JsonKey(name: 'phone_number') final String? phoneNumber,
       @JsonKey(name: 'alternate_phone_number')
       final String? alternatePhoneNumber,
@@ -899,7 +899,7 @@ abstract class _RestaurantModel implements RestaurantModel {
   String? get description;
   @override
   @JsonKey(name: 'enabled')
-  String? get enabled;
+  bool? get enabled;
   @override
   @JsonKey(name: 'phone_number')
   String? get phoneNumber;

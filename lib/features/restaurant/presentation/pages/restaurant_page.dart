@@ -183,8 +183,6 @@ class _RestaurantPageState extends State<RestaurantPage> {
                                                     padding:
                                                         const EdgeInsets.only(
                                                             left: 0, right: 0),
-                                                    width: 40,
-                                                    height: 40,
                                                     decoration: BoxDecoration(
                                                         borderRadius:
                                                             BorderRadius
@@ -327,101 +325,6 @@ class _RestaurantPageState extends State<RestaurantPage> {
                                             },
                                           ),
                                         ),
-                                        // Expanded(
-                                        //   child: Row(
-                                        //     children: [
-                                        //       Expanded(
-                                        //           child: CarouselSlider.builder(
-                                        //               options: CarouselOptions(
-                                        //                 height: MediaQuery.of(
-                                        //                             context)
-                                        //                         .size
-                                        //                         .height /
-                                        //                     4,
-                                        //                 autoPlay: false,
-                                        //                 enlargeFactor: 0.5,
-                                        //                 enlargeCenterPage: true,
-                                        //                 enlargeStrategy:
-                                        //                     CenterPageEnlargeStrategy
-                                        //                         .height,
-                                        //                 enableInfiniteScroll:
-                                        //                     true,
-                                        //                 aspectRatio: 16 / 9,
-                                        //                 viewportFraction: 1,
-                                        //                 initialPage: 0,
-
-                                        //               ),
-                                        //               itemCount: imgList
-                                        //                       .length ~/
-                                        //                   carouselLength.ceil(),
-                                        //               itemBuilder: (context,
-                                        //                   index, realIndex) {
-                                        //                 Media first =
-                                        //                     imgList[index];
-                                        //                 Media? second = index <
-                                        //                         imgList.length -
-                                        //                             1
-                                        //                     ? imgList[index + 1]
-                                        //                     : null;
-
-                                        //                 var coverImageGet1 =
-                                        //                     '${AppConstants.publicUrl}/media/${first.id}/${first.fileName}';
-                                        //                 return Builder(
-                                        //                   builder: (BuildContext
-                                        //                       context) {
-                                        //                     final arr = [];
-                                        //                     arr.length =
-                                        //                         carouselLength;
-                                        //                     return Row(
-                                        //                         children: arr
-                                        //                             .map(
-                                        //                                 (item) {
-                                        //                       return Container(
-                                        //                         padding: const EdgeInsets
-                                        //                             .symmetric(
-                                        //                             horizontal:
-                                        //                                 4),
-                                        //                         width: MediaQuery.of(
-                                        //                                     context)
-                                        //                                 .size
-                                        //                                 .width /
-                                        //                             carouselLength,
-                                        //                         child:
-                                        //                             ClipRRect(
-                                        //                           borderRadius:
-                                        //                               BorderRadius
-                                        //                                   .circular(
-                                        //                                       10),
-                                        //                           child:
-                                        //                               CachedNetworkImage(
-                                        //                             fit: BoxFit
-                                        //                                 .cover,
-                                        //                             imageUrl:
-                                        //                                 coverImageGet1 ??
-                                        //                                     "",
-                                        //                             progressIndicatorBuilder: (context,
-                                        //                                     url,
-                                        //                                     downloadProgress) =>
-                                        //                                 Center(
-                                        //                               child: CircularProgressIndicator(
-                                        //                                   value:
-                                        //                                       downloadProgress.progress),
-                                        //                             ),
-                                        //                             errorWidget: (context,
-                                        //                                     url,
-                                        //                                     error) =>
-                                        //                                 const Icon(
-                                        //                                     Icons.error),
-                                        //                           ),
-                                        //                         ),
-                                        //                       );
-                                        //                     }).toList());
-                                        //                   },
-                                        //                 );
-                                        //               })),
-                                        //     ],
-                                        //   ),
-                                        // ),
                                       ],
                                     ),
                                   ),
@@ -455,9 +358,9 @@ class _RestaurantPageState extends State<RestaurantPage> {
                                       crossAxisAlignment:
                                           CrossAxisAlignment.start,
                                       children: [
-                                        const Text(
-                                          "London, United Kingdom",
-                                          style: TextStyle(
+                                        Text(
+                                          restaurant!.location ?? "",
+                                          style: const TextStyle(
                                             fontSize: 18,
                                           ),
                                         ),
@@ -554,21 +457,6 @@ class _RestaurantPageState extends State<RestaurantPage> {
                                         const SizedBox(
                                           height: 10,
                                         ),
-                                        // restaurant!.description != null &&
-                                        //         restaurant!
-                                        //             .description!.isNotEmpty
-                                        //     ? HtmlWidget(
-                                        //         restaurant!.description ?? "",
-                                        //         textStyle: const TextStyle(
-                                        //           fontSize: 18,
-                                        //           fontFamily: 'SfPro',
-                                        //           fontFamilyFallback: <String>[
-                                        //             'Noto Sans CJK SC',
-                                        //             'Noto Color Emoji',
-                                        //           ],
-                                        //         ),
-                                        //       )
-                                        //     : const SizedBox(),
                                         restaurant!.facebook != null
                                             ? Column(
                                                 crossAxisAlignment:
@@ -589,12 +477,27 @@ class _RestaurantPageState extends State<RestaurantPage> {
                                                   const SizedBox(
                                                     height: 10,
                                                   ),
-                                                  Text(
-                                                      restaurant!.facebook ??
-                                                          "",
-                                                      style: const TextStyle(
-                                                        fontSize: 16,
-                                                      )),
+                                                  InkWell(
+                                                    onTap: () async {
+                                                      String linkUrl =
+                                                          restaurant!
+                                                                  .facebook ??
+                                                              "";
+                                                      if (await canLaunchUrl(
+                                                          Uri.parse(linkUrl))) {
+                                                        await launchUrl(
+                                                            Uri.parse(linkUrl));
+                                                      } else {
+                                                        throw 'Could not open the map.';
+                                                      }
+                                                    },
+                                                    child: Text(
+                                                        restaurant!.facebook ??
+                                                            "",
+                                                        style: const TextStyle(
+                                                          fontSize: 16,
+                                                        )),
+                                                  ),
                                                   const SizedBox(
                                                     height: 10,
                                                   ),
@@ -621,12 +524,27 @@ class _RestaurantPageState extends State<RestaurantPage> {
                                                   const SizedBox(
                                                     height: 10,
                                                   ),
-                                                  Text(
-                                                      restaurant!.instagram ??
-                                                          "",
-                                                      style: const TextStyle(
-                                                        fontSize: 16,
-                                                      )),
+                                                  InkWell(
+                                                    onTap: () async {
+                                                      String linkUrl =
+                                                          restaurant!
+                                                                  .instagram ??
+                                                              "";
+                                                      if (await canLaunchUrl(
+                                                          Uri.parse(linkUrl))) {
+                                                        await launchUrl(
+                                                            Uri.parse(linkUrl));
+                                                      } else {
+                                                        throw 'Could not open the map.';
+                                                      }
+                                                    },
+                                                    child: Text(
+                                                        restaurant!.instagram ??
+                                                            "",
+                                                        style: const TextStyle(
+                                                          fontSize: 16,
+                                                        )),
+                                                  ),
                                                   const SizedBox(
                                                     height: 10,
                                                   ),
@@ -653,10 +571,48 @@ class _RestaurantPageState extends State<RestaurantPage> {
                                                   const SizedBox(
                                                     height: 10,
                                                   ),
-                                                  Text(restaurant!.email ?? "",
-                                                      style: const TextStyle(
-                                                        fontSize: 16,
-                                                      )),
+                                                  InkWell(
+                                                    onTap: () async {
+                                                      final Uri emailLaunchUri =
+                                                          Uri(
+                                                        scheme: 'mailto',
+                                                        path:
+                                                            restaurant!.email ??
+                                                                "",
+                                                        queryParameters: {
+                                                          'subject': 'Afno App',
+                                                          'body':
+                                                              'Hello, I am interested in your restaurant.',
+                                                        },
+                                                      );
+
+                                                      // Function to launch email app
+
+                                                      if (await canLaunchUrl(
+                                                          emailLaunchUri)) {
+                                                        await launchUrl(
+                                                            emailLaunchUri);
+                                                      } else {
+                                                        throw 'Could not launch $emailLaunchUri';
+                                                      }
+
+                                                      // String linkUrl =
+                                                      //     'mailto:${restaurant!.email}' ??
+                                                      //         "";
+                                                      // if (await canLaunchUrl(
+                                                      //     Uri.parse(_launchEmail))) {
+                                                      //   await launchUrl(
+                                                      //       Uri.parse(_launchEmail));
+                                                      // } else {
+                                                      //   throw 'Could not open the map.';
+                                                      // }
+                                                    },
+                                                    child: Text(
+                                                        restaurant!.email ?? "",
+                                                        style: const TextStyle(
+                                                          fontSize: 16,
+                                                        )),
+                                                  ),
                                                   const SizedBox(
                                                     height: 10,
                                                   ),
@@ -683,10 +639,25 @@ class _RestaurantPageState extends State<RestaurantPage> {
                                                   const SizedBox(
                                                     height: 10,
                                                   ),
-                                                  Text(restaurant!.link ?? "",
-                                                      style: const TextStyle(
-                                                        fontSize: 16,
-                                                      )),
+                                                  InkWell(
+                                                    onTap: () async {
+                                                      String linkUrl =
+                                                          restaurant!.link ??
+                                                              "";
+                                                      if (await canLaunchUrl(
+                                                          Uri.parse(linkUrl))) {
+                                                        await launchUrl(
+                                                            Uri.parse(linkUrl));
+                                                      } else {
+                                                        throw 'Could not open the map.';
+                                                      }
+                                                    },
+                                                    child: Text(
+                                                        restaurant!.link ?? "",
+                                                        style: const TextStyle(
+                                                          fontSize: 16,
+                                                        )),
+                                                  ),
                                                   const SizedBox(
                                                     height: 10,
                                                   ),

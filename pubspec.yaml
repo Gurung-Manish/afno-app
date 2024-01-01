@@ -41,6 +41,7 @@ dependencies:
   intro_screen_onboarding_flutter: ^1.0.0
   flutter_animate: ^4.2.0+1
   intl: ^0.17.0
+  flutter_launcher_icons: ^0.13.1
 
 dev_dependencies:
   flutter_test:
@@ -49,11 +50,30 @@ dev_dependencies:
   flutter_lints: ^2.0.0
   build_runner: ^2.4.6
 
+flutter_launcher_icons:
+  android: "launcher_icon"
+  ios: true
+  image_path: "assets/logo/logo.png"
+  min_sdk_android: 21 # android min sdk min:16, default 21
+  web:
+    generate: true
+    image_path: "assets/logo/logo.png"
+    background_color: "#ECECEA"
+    theme_color: "#ffa62e"
+  windows:
+    generate: true
+    image_path: "assets/logo/logo.png"
+    icon_size: 48 # min:48, max:256, default: 48
+  macos:
+    generate: true
+    image_path: "assets/logo/logo.png"
+
 flutter:
   uses-material-design: true
 
   assets:
     - assets/icons/
+    - assets/logo/
     - assets/images/
     - assets/
     - .env.development
