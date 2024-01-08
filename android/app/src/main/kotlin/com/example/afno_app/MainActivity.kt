@@ -1,4 +1,4 @@
-package com.example.afno_app
+package com.afnoapp.afno_app
 
 import io.flutter.embedding.android.FlutterActivity
 

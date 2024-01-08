@@ -8,7 +8,7 @@ import 'package:google_maps_flutter/google_maps_flutter.dart';
 import 'package:location/location.dart';
 import 'package:location/location.dart' as location_package;
 
-class GoogleMapWidget extends StatefulWidget {
+class GoogleMapWidget extends StatefulHookWidget {
   const GoogleMapWidget({
     super.key,
     required CameraPosition kGooglePlex,
@@ -33,7 +33,7 @@ class _GoogleMapWidgetState extends State<GoogleMapWidget> {
     "latitude": 37.7749,
     "longitude": -122.4194,
   };
-  Set<Circle> circles = {};
+  Set<Circle> circles = <Circle>{};
   bool isMarkerInsideCircle(LatLng markerPosition) {
     double distance = calculateDistance(
         LatLng(localVal.latitude ?? 0, localVal.longitude ?? 0),
@@ -113,12 +113,31 @@ class _GoogleMapWidgetState extends State<GoogleMapWidget> {
 
   @override
   Widget build(BuildContext context) {
+    useEffect(() {
+      getUserCurrentLocation().then((value) {
+        circles = {
+          Circle(
+            circleId: const CircleId("MY"),
+            center: LatLng(value.latitude ?? 0, value.longitude ?? 0),
+            radius: currentSliderValue,
+            strokeColor: Colors.blue,
+            strokeWidth: 2,
+            fillColor: Colors.blue.withOpacity(0.3),
+          )
+        };
+
+        setState(() {});
+      });
+      return null;
+    }, []);
     return Stack(
       children: [
         GoogleMap(
           initialCameraPosition: widget._kGooglePlex,
           myLocationEnabled: true,
+          myLocationButtonEnabled: true,
           compassEnabled: true,
+          mapType: MapType.normal,
           circles: circles,
           markers: widget.markers
               .where((marker) => isMarkerInsideCircle(marker.position))
@@ -149,12 +168,13 @@ class _GoogleMapWidgetState extends State<GoogleMapWidget> {
                   fillColor: Colors.blue.withOpacity(0.3),
                 )
               };
-              setState(() {});
               mcController.animateCamera(
                   CameraUpdate.newCameraPosition(cameraPosition));
+              setState(() {});
             }).then((value) {
               // controller.dispose();
               widget._controller.complete(mcController);
+              setState(() {});
             });
           },
         ),
